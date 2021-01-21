@@ -7,21 +7,23 @@
 PP := g++
 
 # CFLAGS are the compiler flages for when we compile C code in this course
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm
 CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
 
 
 # Compilation for the "nothing" program
 # Command: make nothing
-nothingObjs :=  nothing.o
 
-nothing: nothing.o
-	$(PP) $(CXXFLAGS) -o nothing $(nothingObjs)
-	./nothing
-
+# Build the Objects
 nothing.o: nothing.cpp
 	$(PP) $(CXXFLAGS) -c nothing.cpp
+
+# Object variable name
+nothingObjs :=  nothing.o
+
+nothing: $(nothingObjs) ; $(PP) $(CXXFLAGS) -o nothing $(nothingObjs)
+	./nothing
 
 
 
@@ -54,5 +56,4 @@ intPtr.o: intPtr.cpp
 all: nothing hello intPtr
 
 # Make clean
-clean :
-	rm -rf *.o nothing hello intPtr
+clean : ; rm -rf *.o nothing hello intPtr
