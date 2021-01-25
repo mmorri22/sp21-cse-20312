@@ -18,6 +18,20 @@ EXE := exe
 
 
 
+# Command: make Problem1
+# Review Problem for Students
+
+Problem1Objs := $(OBJECTS)/Problem1.o
+
+Problem1: $(Problem1Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Problem1 $(Problem1Objs)
+	$(EXE)/./Problem1
+
+$(OBJECTS)/Problem1.o: $(SRC)/Problem1.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Problem1.cpp -o $@
+	
+
+
 # Command: make newInt
 # Initial Example of new keyword
 
