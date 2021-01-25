@@ -1,7 +1,7 @@
 # Author: Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the CSE 24312 - Lecture 08 - Part 2
+# This is the Makefile for the CSE 24312 - Lecture 07
 
 # G++ is for the GCC compiler for C++
 PP := g++
@@ -70,10 +70,44 @@ $(OBJ)/Inherit2.o: $(SRC)/Inherit2.cpp $(INC)/Student.h $(INC)/Faculty.h
 	$(PP) $(CXXFLAGS) -c $(SRC)/Inherit2.cpp -o $@
 
 # Irish.o, Student.o, and Faculty.o are already created in make Inherit
+
+
+
+# Run the ArithTree Solution
+# Command: make ArithTree
+
+$(OBJ)/ArithTree.o: $(SRC)/ArithTree.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/ArithTree.cpp -o $@
+
+$(OBJ)/AddNode.o: $(SRC)/AddNode.cpp $(INC)/AddNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/AddNode.cpp -o $@
 	
+$(OBJ)/SubNode.o: $(SRC)/SubNode.cpp $(INC)/SubNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/SubNode.cpp -o $@
+	
+$(OBJ)/MultNode.o: $(SRC)/MultNode.cpp $(INC)/MultNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/MultNode.cpp -o $@
+	
+$(OBJ)/DivNode.o: $(SRC)/DivNode.cpp $(INC)/DivNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/DivNode.cpp -o $@
+	
+$(OBJ)/BinNode.o: $(SRC)/BinNode.cpp $(INC)/BinNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/BinNode.cpp -o $@
+
+$(OBJ)/NumNode.o: $(SRC)/NumNode.cpp $(INC)/NumNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/NumNode.cpp -o $@
+
+# Arithmetic Tree Object List
+ArithTreeObjs := $(OBJ)/ArithTree.o $(OBJ)/AddNode.o $(OBJ)/SubNode.o $(OBJ)/MultNode.o $(OBJ)/DivNode.o $(OBJ)/BinNode.o $(OBJ)/NumNode.o
+
+# Develop and Run the Executable
+ArithTree: $(ArithTreeObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/ArithTree $(ArithTreeObjs)
+	$(EXE)/./ArithTree
+
 
 # Make all
-all: IrishTest Inherit Inherit2
+all: IrishTest Inherit Inherit2 ArithTree
 
 
 # make initialize

@@ -20,5 +20,4 @@ int main(void){
     std::cout << "Hello: " << func( 10 ) << std::endl;
 
     return 0;
-
 }

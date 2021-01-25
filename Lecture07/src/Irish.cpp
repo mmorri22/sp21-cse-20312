@@ -5,7 +5,7 @@
 * 
 * The function definitions for the Base Irish Class 
 **********************************************/
-#include "Irish.h"
+#include "../include/Irish.h"
 
 
 /********************************************

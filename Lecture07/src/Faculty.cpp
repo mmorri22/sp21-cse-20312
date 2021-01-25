@@ -1,4 +1,4 @@
-#include "Faculty.h"
+#include "../include/Faculty.h"
 
 Faculty::Faculty(std::string lastIn, std::string firstIn, unsigned int ndIDIn, TRACK trackIn) 
 	: 	Irish(lastIn, firstIn, ndIDIn), 

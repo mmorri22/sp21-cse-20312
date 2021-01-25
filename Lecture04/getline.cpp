@@ -14,14 +14,12 @@ int main(void){
 	
 	/* Part 1 - Get a string using std::cin.getline() */
 	COUT << "Enter a string, ending with a Enter : ";
-	CIN.getline(buf , 80); 	// reads everything through a \n'
-							// stopping after 80 chars if no \n'
+	CIN.getline(buf , 80); 	// reads everything through a \n', stopping after 80 chars if no \n'
 	
 	COUT << "You entered: " << buf << ENDL;
 	
 	COUT << "Enter a string, ending with a ? : ";
-	CIN.getline(buf , 80, '?');     // reads everything through a ?
-                                    // stopping after 80 chars if no ?
+	CIN.getline(buf , 80, '?');     // reads everything through a ?, stopping after 80 chars if no ?
                                     
     COUT << "You entered: " << buf << ENDL;
 	
@@ -32,5 +30,4 @@ int main(void){
     COUT << "You entered: " << x << ENDL;
 
     return 0;
-
 }

@@ -26,11 +26,14 @@ void setNodeValues( void* reference, T firstVar, U secondVar, V thirdVar ){
 	*((T *)(reference)) = firstVar;
 	
 	// Move past 64 bits and put in a float 
+	// Cast reference to T* meets Production Quality Compilation rules
 	reference = (T*)reference + sizeof(T);
 	*((U *)(reference)) = secondVar;
 	
 	// Move past 32 bits and put in an integer
+	// Cast reference to U* meets Production Quality Compilation rules
 	reference = (U*)reference + sizeof(U);
+	
 	*((V *)(reference)) = thirdVar;	
 	
 }
@@ -43,10 +46,14 @@ void printNodeValues( void* reference ){
 	
 	COUT << "First:  " << *((T *)(reference)) << "\t at address " << reference << ENDL;
 	
+	// Cast reference to T* meets Production Quality Compilation rules
 	reference = (T*)reference + sizeof(T);
+	
 	COUT << "Second:   " << *((U *)(reference)) << "\t at address " << reference << ENDL;
 	
+	// Cast reference to U* meets Production Quality Compilation rules
 	reference = (U*)reference + sizeof(U);
+	
 	COUT << "Third: " << *((V *)(reference)) << "\t at address " << reference << ENDL;
 	
 	COUT << ENDL;

@@ -1,4 +1,4 @@
-#include "Student.h"
+#include "../include/Student.h"
 
 
 Student::Student(std::string lastIn, std::string firstIn, unsigned int ndIDIn, CLASS classIn) 

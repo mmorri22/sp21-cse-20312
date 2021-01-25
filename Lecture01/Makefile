@@ -22,7 +22,8 @@ nothing.o: nothing.cpp
 # Object variable name
 nothingObjs :=  nothing.o
 
-nothing: $(nothingObjs) ; $(PP) $(CXXFLAGS) -o nothing $(nothingObjs)
+nothing: $(nothingObjs)
+	$(PP) $(CXXFLAGS) -o nothing $(nothingObjs)
 	./nothing
 
 
