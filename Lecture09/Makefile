@@ -1,251 +1,120 @@
 # Author: Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the CSE 20312 - Lab 02
+# This is the Makefile for the CSE 24312 - Lecture 07
 
 # G++ is for the GCC compiler for C++
 PP := g++
 
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
 FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
-CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS) 
+CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
-
+# Variables for Folders
 INC := include
 SRC := src
 OBJ := obj
 EXE := exe
 
 
-# Command: make vector
-vectorObjs := $(OBJ)/vector.o
+# Command: make IrishTest
+# Base class for First Inheritance Example
+IrishTestObjs := $(OBJ)/IrishTest.o $(OBJ)/Irish.o 
 
-vector: $(vectorObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/vector $(vectorObjs)
-	$(EXE)/./vector
+IrishTest: $(IrishTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/IrishTest $(IrishTestObjs)
+	$(EXE)/./IrishTest
 
-$(OBJ)/vector.o: $(SRC)/vector.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/vector.cpp -o $@
+$(OBJ)/IrishTest.o: $(SRC)/IrishTest.cpp $(INC)/Irish.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/IrishTest.cpp -o $@
 
-
-# Command: make quadPair
-quadPairObjs := $(OBJ)/quadPair.o
-
-quadPair: $(quadPairObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/quadPair $(quadPairObjs)
-	$(EXE)/./quadPair
-
-$(OBJ)/quadPair.o: $(SRC)/quadPair.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/quadPair.cpp -o $@
-
-
-# Command: make quadPair2
-quadPair2Objs := $(OBJ)/quadPair2.o
-
-quadPair2: $(quadPair2Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/quadPair2 $(quadPair2Objs)
-	$(EXE)/./quadPair2
-
-$(OBJ)/quadPair2.o: $(SRC)/quadPair2.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/quadPair2.cpp -o $@	
-
-
-# Command: make iterator
-iteratorObjs := $(OBJ)/iterator.o
-
-iterator: $(iteratorObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/iterator $(iteratorObjs)
-	$(EXE)/./iterator
-
-$(OBJ)/iterator.o: $(SRC)/iterator.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/iterator.cpp -o $@	
-
-
-# Command: make sol_1
-sol_1Objs := $(OBJ)/sol_1.o
-
-sol_1: $(sol_1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/sol_1 $(sol_1Objs)
-	$(EXE)/./sol_1
-
-$(OBJ)/sol_1.o: $(SRC)/sol_1.cpp $(INC)/sol1.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/sol_1.cpp -o $@
+$(OBJ)/Irish.o: $(INC)/Irish.cpp $(INC)/Irish.h
+	$(PP) $(CXXFLAGS) -c $(INC)/Irish.cpp -o $@
 
 
 
-# Command: make sol_2
-sol_2Objs := $(OBJ)/sol_2.o
+# Command: make Inherit 
+# Derived Classes for First Inheritance Example 
+InheritObjs := $(OBJ)/Inherit.o $(OBJ)/Faculty.o $(OBJ)/Student.o $(OBJ)/Irish.o
 
-sol_2: $(sol_2Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/sol_2 $(sol_2Objs)
-	$(EXE)/./sol_2
+Inherit: $(InheritObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Inherit $(InheritObjs)
+	$(EXE)/./Inherit
 
-$(OBJ)/sol_2.o: $(SRC)/sol_2.cpp $(INC)/sol2.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/sol_2.cpp -o $@
-	
-	
-# Command: make sol_3
-sol_3Objs := $(OBJ)/sol_3.o
+# Inherit.cpp class both derived classes
+$(OBJ)/Inherit.o: $(SRC)/Inherit.cpp $(INC)/Student.h $(INC)/Faculty.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/Inherit.cpp -o $@
 
-sol_3: $(sol_3Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/sol_3 $(sol_3Objs)
-	$(EXE)/./sol_3
+# Faculty inherits Irish
+$(OBJ)/Faculty.o: $(INC)/Faculty.cpp $(INC)/Faculty.h $(INC)/Irish.h
+	$(PP) $(CXXFLAGS) -c $(INC)/Faculty.cpp -o $@
 
-$(OBJ)/sol_3.o: $(SRC)/sol_3.cpp $(INC)/sol3.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/sol_3.cpp -o $@
+# Student inherits Irish
+$(OBJ)/Student.o: $(INC)/Student.cpp $(INC)/Student.h $(INC)/Irish.h
+	$(PP) $(CXXFLAGS) -c $(INC)/Student.cpp -o $@
 
-
-# Command: make sol
-solObjs := $(OBJ)/sol.o
-
-sol: $(solObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/sol $(solObjs)
-	$(EXE)/./sol
-
-$(OBJ)/sol.o: $(SRC)/sol.cpp $(INC)/sol.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/sol.cpp -o $@
-
-
-# Command: make Product
-ProductObjs := $(OBJ)/Product.o
-
-Product: $(ProductObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Product $(ProductObjs)
-	$(EXE)/./Product
-
-$(OBJ)/Product.o: $(SRC)/Product.cpp $(INC)/Product.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/Product.cpp -o $@
-
-
-
-# Command: make Product1
-Product1Objs := $(OBJ)/Product1.o
-
-Product1: $(Product1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Product1 $(Product1Objs)
-	$(EXE)/./Product1
-
-$(OBJ)/Product1.o: $(SRC)/Product1.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/Product1.cpp -o $@
-
-
-# Command: make Product2
-Product2Objs := $(OBJ)/Product2.o
-
-Product2: $(Product2Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Product2 $(Product2Objs)
-	$(EXE)/./Product2
-
-$(OBJ)/Product2.o: $(SRC)/Product2.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/Product2.cpp -o $@
-
-
-
-# Command: make Product3
-Product3Objs := $(OBJ)/Product3.o
-
-Product3: $(Product3Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Product3 $(Product3Objs)
-	$(EXE)/./Product3
-
-$(OBJ)/Product3.o: $(SRC)/Product3.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/Product3.cpp -o $@
+# Irish.o is already created in the Base Class
 	
 
 
-# Command: make maxSub1
-maxSub1Objs := $(OBJ)/maxSub1.o
+# Command: make Inherit2
+# Example of this object in Inheritance Example 
+Inherit2Objs := $(OBJ)/Inherit2.o $(OBJ)/Faculty.o $(OBJ)/Student.o $(OBJ)/Irish.o
 
-maxSub1: $(maxSub1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/maxSub1 $(maxSub1Objs)
-	$(EXE)/./maxSub1
+Inherit2: $(Inherit2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Inherit2 $(Inherit2Objs)
+	$(EXE)/./Inherit2
 
-$(OBJ)/maxSub1.o: $(SRC)/maxSub1.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/maxSub1.cpp -o $@
+# Inherit.cpp class both derived classes
+$(OBJ)/Inherit2.o: $(SRC)/Inherit2.cpp $(INC)/Student.h $(INC)/Faculty.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/Inherit2.cpp -o $@
 
-
-
-# Command: make maxSub2
-maxSub2Objs := $(OBJ)/maxSub2.o
-
-maxSub2: $(maxSub2Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/maxSub2 $(maxSub2Objs)
-	$(EXE)/./maxSub2
-
-$(OBJ)/maxSub2.o: $(SRC)/maxSub2.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/maxSub2.cpp -o $@
+# Irish.o, Student.o, and Faculty.o are already created in make Inherit
 
 
 
-# Command: make maxSub3
-maxSub3Objs := $(OBJ)/maxSub3.o
+# Run the ArithTree Solution
+# Command: make ArithTree
 
-maxSub3: $(maxSub3Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/maxSub3 $(maxSub3Objs)
-	$(EXE)/./maxSub3
+$(OBJ)/ArithTree.o: $(SRC)/ArithTree.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/ArithTree.cpp -o $@
 
-$(OBJ)/maxSub3.o: $(SRC)/maxSub3.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/maxSub3.cpp -o $@
-
-
-
-# Command: make maxSub4
-maxSub4Objs := $(OBJ)/maxSub4.o
-
-maxSub4: $(maxSub4Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/maxSub4 $(maxSub4Objs)
-	$(EXE)/./maxSub4
-
-$(OBJ)/maxSub4.o: $(SRC)/maxSub4.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/maxSub4.cpp -o $@
-
-
-
-# Command: make maxSub
-maxSubObjs := $(OBJ)/maxSub.o
-
-maxSub: $(maxSubObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/maxSub $(maxSubObjs)
-	$(EXE)/./maxSub
-
-$(OBJ)/maxSub.o: $(SRC)/maxSub.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/maxSub.cpp -o $@
-
-
-
-# Command: make maxProd1
-maxProd1Objs := $(OBJ)/maxProd1.o
-
-maxProd1: $(maxProd1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/maxProd1 $(maxProd1Objs)
-	$(EXE)/./maxProd1
-
-$(OBJ)/maxProd1.o: $(SRC)/maxProd1.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/maxProd1.cpp -o $@
-
-
-
-# Command: make maxProd
-maxProdObjs := $(OBJ)/maxProd.o
-
-maxProd: $(maxProdObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/maxProd $(maxProdObjs)
-	$(EXE)/./maxProd
-
-$(OBJ)/maxProd.o: $(SRC)/maxProd.cpp 
-	$(PP) $(CXXFLAGS) -c $(SRC)/maxProd.cpp -o $@
+$(OBJ)/AddNode.o: $(SRC)/AddNode.cpp $(INC)/AddNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/AddNode.cpp -o $@
 	
+$(OBJ)/SubNode.o: $(SRC)/SubNode.cpp $(INC)/SubNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/SubNode.cpp -o $@
+	
+$(OBJ)/MultNode.o: $(SRC)/MultNode.cpp $(INC)/MultNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/MultNode.cpp -o $@
+	
+$(OBJ)/DivNode.o: $(SRC)/DivNode.cpp $(INC)/DivNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/DivNode.cpp -o $@
+	
+$(OBJ)/BinNode.o: $(SRC)/BinNode.cpp $(INC)/BinNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/BinNode.cpp -o $@
+
+$(OBJ)/NumNode.o: $(SRC)/NumNode.cpp $(INC)/NumNode.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/NumNode.cpp -o $@
+
+# Arithmetic Tree Object List
+ArithTreeObjs := $(OBJ)/ArithTree.o $(OBJ)/AddNode.o $(OBJ)/SubNode.o $(OBJ)/MultNode.o $(OBJ)/DivNode.o $(OBJ)/BinNode.o $(OBJ)/NumNode.o
+
+# Develop and Run the Executable
+ArithTree: $(ArithTreeObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/ArithTree $(ArithTreeObjs)
+	$(EXE)/./ArithTree
+
+
+# Make all
+all: IrishTest Inherit Inherit2 ArithTree
+
 
 # make initialize
 # Will be called by grader to initialize your objects and executables folders
 
 initialize: 
-	mkdir $(OBJ) $(EXE)
-	
-
-
-# Make all
-all: sol_1 sol_2 sol_3 sol Product1 Product2
+	mkdir objects executables
 
 # Make clean
 clean :
