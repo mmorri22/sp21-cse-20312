@@ -7,11 +7,11 @@
 PP := g++
 
 # Original Compiler Flags brought back for tempVoidNode only 
-OLDFLAGS := -O0 -g -Wall
+OLDFLAGS := -O2 -g -Wall
 OLDCXXFLAGS := -m64 -std=c++11 $(OLDFLAGS)
 
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
 CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS) 
 
 
@@ -111,6 +111,50 @@ tempBad: $(tempBadObjs)
 
 $(OBJ)/tempBad.o: $(SRC)/tempBad.cpp $(INC)/A.h
 	$(PP) $(CXXFLAGS) -c $(SRC)/tempBad.cpp -o $@
+
+
+# Command: make vector
+vectorObjs := $(OBJ)/vector.o
+
+vector: $(vectorObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/vector $(vectorObjs)
+	$(EXE)/./vector
+
+$(OBJ)/vector.o: $(SRC)/vector.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/vector.cpp -o $@
+
+
+# Command: make quadPair
+quadPairObjs := $(OBJ)/quadPair.o
+
+quadPair: $(quadPairObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/quadPair $(quadPairObjs)
+	$(EXE)/./quadPair
+
+$(OBJ)/quadPair.o: $(SRC)/quadPair.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/quadPair.cpp -o $@
+
+
+# Command: make quadPair2
+quadPair2Objs := $(OBJ)/quadPair2.o
+
+quadPair2: $(quadPair2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/quadPair2 $(quadPair2Objs)
+	$(EXE)/./quadPair2
+
+$(OBJ)/quadPair2.o: $(SRC)/quadPair2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/quadPair2.cpp -o $@	
+
+
+# Command: make iterator
+iteratorObjs := $(OBJ)/iterator.o
+
+iterator: $(iteratorObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/iterator $(iteratorObjs)
+	$(EXE)/./iterator
+
+$(OBJ)/iterator.o: $(SRC)/iterator.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/iterator.cpp -o $@	
 	
 	
 
@@ -122,7 +166,7 @@ initialize:
 
 
 # Make all
-all: tempDest DynArrTest
+all: tempDest vector quadPair quadPair2 iterator
 
 # Make clean
 clean :
