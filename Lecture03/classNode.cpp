@@ -33,11 +33,10 @@ class Node{
 		void printNodeValues(){
 			
 			COUT << "-----------------------------" << ENDL;
-			COUT << "Initial address of 'this': " << this << ENDL << ENDL;	
-
-			COUT << "Double:  " << theDbl << "\t at address " << &theDbl << ENDL;
-			COUT << "Float:  " << theFloat << "\t at address " << &theFloat << ENDL;
-			COUT << "Integer:  " << theInt << "\t at address " << &theInt << ENDL;
+			COUT << this << ENDL << ENDL;	
+			COUT << theDbl << " " << &theDbl << ENDL;
+			COUT << theFloat << " " << &theFloat << ENDL;
+			COUT << theInt << " " << &theInt << ENDL;
 			
 		}
 	

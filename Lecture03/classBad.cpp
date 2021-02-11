@@ -34,6 +34,7 @@ class Node{
 	
 	public: 
 	
+		/* Member Initialization List - Deliberate PQC Compiler Error */
 		Node(double dblIn, float floatIn, int intIn ) 
 			: theInt( intIn ), theDbl( dblIn ), theFloat( floatIn ) {}
 			

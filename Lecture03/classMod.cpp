@@ -62,6 +62,8 @@ int main(void){
 	
 	Node node1( -0.625, 1.5625, 131 );
 	
+	std::cout << "Address of node1 in main: " << &node1 << std::endl;
+	
 	node1.printNodeValues();
 	
 	node1.setDbl(-34.77);

@@ -13,6 +13,49 @@ PQCFLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm
 PQCXX    := -m64 -std=c++11 -Weffc++ $(PQCFLAGS)
 
 
+# cpp_ptr_no_pqc Example - No PQC rules
+# Command: make c_ptr_bad
+cpp_ptr_no_pqc:
+	g++ cpp_ptr_bad.cpp -o cpp_ptr_no_pqc
+	./cpp_ptr_no_pqc
+
+
+# cpp_ptr_pqc Example - Using PQC rules
+# Command: make cpp_ptr_pqc
+
+cpp_ptr_pqc.o: cpp_ptr_bad.cpp
+	$(PP) $(PQCXX) -c cpp_ptr_bad.cpp
+
+cpp_ptr_pqcObjs :=  cpp_ptr_pqc.o
+
+cpp_ptr_pqc: cpp_ptr_pqc.o
+	$(PP) $(PQCXX) -o cpp_ptr_pqc $(cpp_ptr_pqcObjs)
+	./cpp_ptr_pqc
+
+
+
+# c_ptr_bad Example
+# Simple C compiler. No flags or warnings
+# Command: make c_ptr_bad
+c_ptr_bad:
+	gcc c_ptr_bad.c -o c_ptr_bad
+	./c_ptr_bad
+	
+
+
+# cpp_string Example - Using PQC rules
+# Command: make cpp_string
+
+cpp_string.o: cpp_string.cpp
+	$(PP) $(PQCXX) -c cpp_string.cpp
+
+cpp_stringObjs :=  cpp_string.o
+
+cpp_string: cpp_string.o
+	$(PP) $(PQCXX) -o cpp_string $(cpp_stringObjs)
+	./cpp_string
+
+
 
 # voidTypes Example
 # Command: make voidTypes
@@ -292,4 +335,4 @@ all: voidNode voidNodeBad voidNodeBad2 structNode structSimple structMod classNo
 
 # Make clean
 clean :
-	rm -rf *.o voidNode voidNodeBad voidNodeBad2 structNode structSimple structMod classNode classMod classBad const ambig array array2 helloCmdLine procMatrix matrix
+	rm -rf *.o cpp_ptr_no_pqc c_ptr_bad cpp_string voidTypes voidTypes2 voidNode voidNodeBad voidNodeBad2 structNode structSimple structMod classNode classMod classBad
