@@ -29,7 +29,7 @@ int main(void){
 	for(long unsigned int iter = 0; iter < numCharacters; iter++){
 	
 		// Secure way of performing pointer arithmetic on void pointers
-		std::cout << (void *) ((char*)hello + iter*sizeof(int)) << std::endl;
+		std::cout << (void *) ((char*)hello + iter*sizeof(char)) << std::endl;
 	
 	}
 	
