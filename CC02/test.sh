@@ -20,13 +20,13 @@ JK_TEST_3=38
 JK_TEST_4=38
 JK_TEST_5=38
 JK_TEST_6=38
-BCD_TEST=25
-BCD_TEST_1=20
-BCD_TEST_2=20
-BCD_TEST_3=38
-BCD_TEST_4=38
-BCD_TEST_5=38
-BCD_TEST_6=38
+BDC_TEST=25
+BDC_TEST_1=20
+BDC_TEST_2=20
+BDC_TEST_3=38
+BDC_TEST_4=38
+BDC_TEST_5=38
+BDC_TEST_6=38
 
 # Delete the script.out so student can test multiple times
 # and we can still use >> to append while running a test
@@ -467,14 +467,14 @@ echo "-----------------------------" >> $SCRIPT_OUT
 ############################################################
 
 # streams tests 
-BCD_TEST_1_TEST="./exe/BCD_Test"
-BCD_TEST_1_EXPECTED="Incorrect number of inputs"
+BDC_TEST_1_TEST="./exe/BDC_Test"
+BDC_TEST_1_EXPECTED="Incorrect number of inputs"
 
-BCD_TEST_2_TEST="./exe/BCD_Test badfile.txt"
-BCD_TEST_2_EXPECTED="badfile.txt does not exist"
+BDC_TEST_2_TEST="./exe/BDC_Test badfile.txt"
+BDC_TEST_2_EXPECTED="badfile.txt does not exist"
 
-BCD_TEST_3_TEST="./exe/BCD_Test BCD_test_1.txt"
-BCD_TEST_3_EXPECTED="Initial value in main: 0 0 0 0 0
+BDC_TEST_3_TEST="./exe/BDC_Test BDC_test_1.txt"
+BDC_TEST_3_EXPECTED="Initial value in main: 0 0 0 0 0
 0 0 0 1 1
 0 0 1 0 2
 0 0 1 1 3
@@ -509,8 +509,8 @@ BCD_TEST_3_EXPECTED="Initial value in main: 0 0 0 0 0
 1 1 1 0 14
 Final value in main: 1 1 1 0 14"
 
-BCD_TEST_4_TEST="./exe/BCD_Test BCD_test_2.txt"
-BCD_TEST_4_EXPECTED="Initial value in main: 0 0 0 0 0
+BDC_TEST_4_TEST="./exe/BDC_Test BDC_test_2.txt"
+BDC_TEST_4_EXPECTED="Initial value in main: 0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0
@@ -541,8 +541,8 @@ BCD_TEST_4_EXPECTED="Initial value in main: 0 0 0 0 0
 Final value in main: 0 0 0 0 0"
 
 
-BCD_TEST_5_TEST="./exe/BCD_Test BCD_test_3.txt"
-BCD_TEST_5_EXPECTED="Initial value in main: 0 0 0 0 0
+BDC_TEST_5_TEST="./exe/BDC_Test BDC_test_3.txt"
+BDC_TEST_5_EXPECTED="Initial value in main: 0 0 0 0 0
 0 0 0 0 0
 0 0 0 1 1
 0 0 0 1 1
@@ -573,8 +573,8 @@ BCD_TEST_5_EXPECTED="Initial value in main: 0 0 0 0 0
 Final value in main: 1 1 0 1 13"
 
 
-BCD_TEST_6_TEST="./exe/BCD_Test BCD_test_4.txt"
-BCD_TEST_6_EXPECTED="Initial value in main: 0 0 0 0 0
+BDC_TEST_6_TEST="./exe/BDC_Test BDC_test_4.txt"
+BDC_TEST_6_EXPECTED="Initial value in main: 0 0 0 0 0
 0 0 0 0 0
 0 0 0 1 1
 0 0 1 0 2
@@ -609,42 +609,42 @@ Final value in main: 1 1 1 0 14"
 # Test the make streams command 
 #######################
 
-MAKE_BCD_TEST="make BCD_Test"
+MAKE_BDC_TEST="make BDC_Test"
 
-MAKE_BCD_TEST_EXPECTED_FIRST="g++ -m64 -std=c++11 -Weffc++ -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm -c src/JKFF.cpp -o obj/JKFF.o"
-MAKE_BCD_TEST_EXPECTED_SECOND="g++ -m64 -std=c++11 -Weffc++ -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm -c src/BCD.cpp -o obj/BCD.o"
-MAKE_BCD_TEST_EXPECTED_THIRD="g++ -m64 -std=c++11 -Weffc++ -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm -c src/BCD_Test.cpp -o obj/BCD_Test.o"
-MAKE_BCD_TEST_EXPECTED_FOURTH="g++ -m64 -std=c++11 -Weffc++ -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm -o exe/BCD_Test obj/JKFF.o obj/BCD.o obj/BCD_Test.o"
+MAKE_BDC_TEST_EXPECTED_FIRST="g++ -m64 -std=c++11 -Weffc++ -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm -c src/JKFF.cpp -o obj/JKFF.o"
+MAKE_BDC_TEST_EXPECTED_SECOND="g++ -m64 -std=c++11 -Weffc++ -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm -c src/BDC.cpp -o obj/BDC.o"
+MAKE_BDC_TEST_EXPECTED_THIRD="g++ -m64 -std=c++11 -Weffc++ -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm -c src/BDC_Test.cpp -o obj/BDC_Test.o"
+MAKE_BDC_TEST_EXPECTED_FOURTH="g++ -m64 -std=c++11 -Weffc++ -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror -lm -o exe/BDC_Test obj/JKFF.o obj/BDC.o obj/BDC_Test.o"
 
 # Clean the object files and then run the test 
 make clean >> $REDIRECT
 
 # Run the make command and get the result 
-MAKE_BCD_TEST_RESULT=$( $MAKE_BCD_TEST )
+MAKE_BDC_TEST_RESULT=$( $MAKE_BDC_TEST )
 
 # Send results to the script
-echo "Expected $MAKE_BCD_TEST output: " >> $SCRIPT_OUT 
-echo $MAKE_BCD_TEST_EXPECTED_FIRST >> $SCRIPT_OUT 
-echo $MAKE_BCD_TEST_EXPECTED_SECOND >> $SCRIPT_OUT 
-echo $MAKE_BCD_TEST_EXPECTED_THIRD >> $SCRIPT_OUT 
-echo $MAKE_BCD_TEST_EXPECTED_FOURTH >> $SCRIPT_OUT 
-echo "Actual $MAKE_BCD_TEST output  : " >> $SCRIPT_OUT 
-echo $MAKE_BCD_TEST_RESULT >> $SCRIPT_OUT
+echo "Expected $MAKE_BDC_TEST output: " >> $SCRIPT_OUT 
+echo $MAKE_BDC_TEST_EXPECTED_FIRST >> $SCRIPT_OUT 
+echo $MAKE_BDC_TEST_EXPECTED_SECOND >> $SCRIPT_OUT 
+echo $MAKE_BDC_TEST_EXPECTED_THIRD >> $SCRIPT_OUT 
+echo $MAKE_BDC_TEST_EXPECTED_FOURTH >> $SCRIPT_OUT 
+echo "Actual $MAKE_BDC_TEST output  : " >> $SCRIPT_OUT 
+echo $MAKE_BDC_TEST_RESULT >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 
-echo $MAKE_BCD_TEST_RESULT >> $REDIRECT
+echo $MAKE_BDC_TEST_RESULT >> $REDIRECT
 
 # Add points to overall score or mark as 0 if not for make lucky
-if grep -q "$MAKE_BCD_TEST_EXPECTED_FIRST" $REDIRECT && grep -q "$MAKE_BCD_TEST_EXPECTED_SECOND" $REDIRECT && grep -q "$MAKE_BCD_TEST_EXPECTED_THIRD" $REDIRECT && grep -q "$MAKE_BCD_TEST_EXPECTED_FOURTH" $REDIRECT
+if grep -q "$MAKE_BDC_TEST_EXPECTED_FIRST" $REDIRECT && grep -q "$MAKE_BDC_TEST_EXPECTED_SECOND" $REDIRECT && grep -q "$MAKE_BDC_TEST_EXPECTED_THIRD" $REDIRECT && grep -q "$MAKE_BDC_TEST_EXPECTED_FOURTH" $REDIRECT
 
 then 
-	echo "$MAKE_BCD_TEST test passed" >> $SCRIPT_OUT
-	echo "$BCD_TEST / $BCD_TEST" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $BCD_TEST))
+	echo "$MAKE_BDC_TEST test passed" >> $SCRIPT_OUT
+	echo "$BDC_TEST / $BDC_TEST" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $BDC_TEST))
 	
 else
-	echo "$MAKE_BCD_TEST test failed" >> $SCRIPT_OUT
-	echo "0 / $BCD_TEST" >> $SCRIPT_OUT
+	echo "$MAKE_BDC_TEST test failed" >> $SCRIPT_OUT
+	echo "0 / $BDC_TEST" >> $SCRIPT_OUT
 	
 fi
 
@@ -653,30 +653,30 @@ echo "-----------------------------" >> $SCRIPT_OUT
 
 
 #######################
-# BCD_TEST_1 Test
+# BDC_TEST_1 Test
 #######################
 
-# Need to re-compile on first test since $( $MAKE_BCD_TEST ) automatically deletes executable
-$MAKE_BCD_TEST > $REDIRECT
+# Need to re-compile on first test since $( $MAKE_BDC_TEST ) automatically deletes executable
+$MAKE_BDC_TEST > $REDIRECT
 
 # Run the test and save the output 
-BCD_TEST_1_RESULT=$( $BCD_TEST_1_TEST )
+BDC_TEST_1_RESULT=$( $BDC_TEST_1_TEST )
 
-echo "Expected '$BCD_TEST_1_TEST' output: $BCD_TEST_1_EXPECTED" >> $SCRIPT_OUT
-echo "  Actual '$BCD_TEST_1_TEST' output: $BCD_TEST_1_RESULT" >> $SCRIPT_OUT
+echo "Expected '$BDC_TEST_1_TEST' output: $BDC_TEST_1_EXPECTED" >> $SCRIPT_OUT
+echo "  Actual '$BDC_TEST_1_TEST' output: $BDC_TEST_1_RESULT" >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 
 
-if [ "$BCD_TEST_1_EXPECTED" = "$BCD_TEST_1_RESULT" ]; 
+if [ "$BDC_TEST_1_EXPECTED" = "$BDC_TEST_1_RESULT" ]; 
 
 then 
-	echo "$BCD_TEST_1_TEST test passed" >> $SCRIPT_OUT
-	echo "$BCD_TEST_1 / $BCD_TEST_1" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $BCD_TEST_1))
+	echo "$BDC_TEST_1_TEST test passed" >> $SCRIPT_OUT
+	echo "$BDC_TEST_1 / $BDC_TEST_1" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $BDC_TEST_1))
 	
 else
-	echo "BCD_TEST_1_TEST test failed" >> $SCRIPT_OUT
-	echo "0 / $BCD_TEST_1" >> $SCRIPT_OUT
+	echo "BDC_TEST_1_TEST test failed" >> $SCRIPT_OUT
+	echo "0 / $BDC_TEST_1" >> $SCRIPT_OUT
 	
 fi
 
@@ -684,27 +684,27 @@ echo "" >> $SCRIPT_OUT
 echo "-----------------------------" >> $SCRIPT_OUT
 
 #######################
-# BCD_TEST_2 Test
+# BDC_TEST_2 Test
 #######################
 
 
-BCD_TEST_2_RESULT=$( $BCD_TEST_2_TEST )
+BDC_TEST_2_RESULT=$( $BDC_TEST_2_TEST )
 
-echo "Expected '$BCD_TEST_2_TEST' output: $BCD_TEST_2_EXPECTED" >> $SCRIPT_OUT
-echo "  Actual '$BCD_TEST_2_TEST' output: $BCD_TEST_2_RESULT" >> $SCRIPT_OUT
+echo "Expected '$BDC_TEST_2_TEST' output: $BDC_TEST_2_EXPECTED" >> $SCRIPT_OUT
+echo "  Actual '$BDC_TEST_2_TEST' output: $BDC_TEST_2_RESULT" >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 
 
-if [ "$BCD_TEST_2_EXPECTED" = "$BCD_TEST_2_RESULT" ]; 
+if [ "$BDC_TEST_2_EXPECTED" = "$BDC_TEST_2_RESULT" ]; 
 
 then 
-	echo "$BCD_TEST_2_TEST test passed" >> $SCRIPT_OUT
-	echo "$BCD_TEST_2 / $BCD_TEST_2" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $BCD_TEST_2))
+	echo "$BDC_TEST_2_TEST test passed" >> $SCRIPT_OUT
+	echo "$BDC_TEST_2 / $BDC_TEST_2" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $BDC_TEST_2))
 	
 else
-	echo "BCD_TEST_2_TEST test failed" >> $SCRIPT_OUT
-	echo "0 / $BCD_TEST_2" >> $SCRIPT_OUT
+	echo "BDC_TEST_2_TEST test failed" >> $SCRIPT_OUT
+	echo "0 / $BDC_TEST_2" >> $SCRIPT_OUT
 	echo "Note: Check to see if you are printing an extra ENDL at the end if the outputs appear to match" >> $SCRIPT_OUT
 	
 fi
@@ -714,26 +714,26 @@ echo "-----------------------------" >> $SCRIPT_OUT
 
 
 #######################
-# BCD_TEST_3 Test
+# BDC_TEST_3 Test
 #######################
 
-BCD_TEST_3_RESULT=$( $BCD_TEST_3_TEST )
+BDC_TEST_3_RESULT=$( $BDC_TEST_3_TEST )
 
-echo "Expected '$BCD_TEST_3_TEST' output: $BCD_TEST_3_EXPECTED" >> $SCRIPT_OUT
-echo "  Actual '$BCD_TEST_3_TEST' output: $BCD_TEST_3_RESULT" >> $SCRIPT_OUT
+echo "Expected '$BDC_TEST_3_TEST' output: $BDC_TEST_3_EXPECTED" >> $SCRIPT_OUT
+echo "  Actual '$BDC_TEST_3_TEST' output: $BDC_TEST_3_RESULT" >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 
 
-if [ "$BCD_TEST_3_EXPECTED" = "$BCD_TEST_3_RESULT" ]; 
+if [ "$BDC_TEST_3_EXPECTED" = "$BDC_TEST_3_RESULT" ]; 
 
 then 
-	echo "$BCD_TEST_3_TEST test passed" >> $SCRIPT_OUT
-	echo "$BCD_TEST_3 / $BCD_TEST_3" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $BCD_TEST_3))
+	echo "$BDC_TEST_3_TEST test passed" >> $SCRIPT_OUT
+	echo "$BDC_TEST_3 / $BDC_TEST_3" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $BDC_TEST_3))
 	
 else
-	echo "BCD_TEST_3_TEST test failed" >> $SCRIPT_OUT
-	echo "0 / $BCD_TEST_3" >> $SCRIPT_OUT
+	echo "BDC_TEST_3_TEST test failed" >> $SCRIPT_OUT
+	echo "0 / $BDC_TEST_3" >> $SCRIPT_OUT
 	echo "Note: Check to see if you are printing a space at the end if the outputs appear to match" >> $SCRIPT_OUT
 	
 fi
@@ -743,26 +743,26 @@ echo "-----------------------------" >> $SCRIPT_OUT
 
 
 #######################
-# BCD_TEST_4 Test
+# BDC_TEST_4 Test
 #######################
 
-BCD_TEST_4_RESULT=$( $BCD_TEST_4_TEST )
+BDC_TEST_4_RESULT=$( $BDC_TEST_4_TEST )
 
-echo "Expected '$BCD_TEST_4_TEST' output: $BCD_TEST_4_EXPECTED" >> $SCRIPT_OUT
-echo "  Actual '$BCD_TEST_4_TEST' output: $BCD_TEST_4_RESULT" >> $SCRIPT_OUT
+echo "Expected '$BDC_TEST_4_TEST' output: $BDC_TEST_4_EXPECTED" >> $SCRIPT_OUT
+echo "  Actual '$BDC_TEST_4_TEST' output: $BDC_TEST_4_RESULT" >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 
 
-if [ "$BCD_TEST_4_EXPECTED" = "$BCD_TEST_4_RESULT" ]; 
+if [ "$BDC_TEST_4_EXPECTED" = "$BDC_TEST_4_RESULT" ]; 
 
 then 
-	echo "$BCD_TEST_4_TEST test passed" >> $SCRIPT_OUT
-	echo "$BCD_TEST_4 / $BCD_TEST_4" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $BCD_TEST_4))
+	echo "$BDC_TEST_4_TEST test passed" >> $SCRIPT_OUT
+	echo "$BDC_TEST_4 / $BDC_TEST_4" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $BDC_TEST_4))
 	
 else
-	echo "BCD_TEST_4_TEST test failed" >> $SCRIPT_OUT
-	echo "0 / $BCD_TEST_4" >> $SCRIPT_OUT
+	echo "BDC_TEST_4_TEST test failed" >> $SCRIPT_OUT
+	echo "0 / $BDC_TEST_4" >> $SCRIPT_OUT
 	echo "Note: Check to see if you are printing a space at the end if the outputs appear to match" >> $SCRIPT_OUT
 	
 fi
@@ -772,26 +772,26 @@ echo "-----------------------------" >> $SCRIPT_OUT
 
 
 #######################
-# BCD_TEST_5 Test
+# BDC_TEST_5 Test
 #######################
 
-BCD_TEST_5_RESULT=$( $BCD_TEST_5_TEST )
+BDC_TEST_5_RESULT=$( $BDC_TEST_5_TEST )
 
-echo "Expected '$BCD_TEST_5_TEST' output: $BCD_TEST_5_EXPECTED" >> $SCRIPT_OUT
-echo "  Actual '$BCD_TEST_5_TEST' output: $BCD_TEST_5_RESULT" >> $SCRIPT_OUT
+echo "Expected '$BDC_TEST_5_TEST' output: $BDC_TEST_5_EXPECTED" >> $SCRIPT_OUT
+echo "  Actual '$BDC_TEST_5_TEST' output: $BDC_TEST_5_RESULT" >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 
 
-if [ "$BCD_TEST_5_EXPECTED" = "$BCD_TEST_5_RESULT" ]; 
+if [ "$BDC_TEST_5_EXPECTED" = "$BDC_TEST_5_RESULT" ]; 
 
 then 
-	echo "$BCD_TEST_5_TEST test passed" >> $SCRIPT_OUT
-	echo "$BCD_TEST_5 / $BCD_TEST_5" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $BCD_TEST_5))
+	echo "$BDC_TEST_5_TEST test passed" >> $SCRIPT_OUT
+	echo "$BDC_TEST_5 / $BDC_TEST_5" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $BDC_TEST_5))
 	
 else
-	echo "$BCD_TEST_5_TEST test failed" >> $SCRIPT_OUT
-	echo "0 / $BCD_TEST_5" >> $SCRIPT_OUT
+	echo "$BDC_TEST_5_TEST test failed" >> $SCRIPT_OUT
+	echo "0 / $BDC_TEST_5" >> $SCRIPT_OUT
 	echo "Note: Check to see if you are printing a space at the end if the outputs appear to match" >> $SCRIPT_OUT
 	
 fi
@@ -801,26 +801,26 @@ echo "-----------------------------" >> $SCRIPT_OUT
 
 
 #######################
-# BCD_TEST_6 Test
+# BDC_TEST_6 Test
 #######################
 
-BCD_TEST_6_RESULT=$( $BCD_TEST_6_TEST )
+BDC_TEST_6_RESULT=$( $BDC_TEST_6_TEST )
 
-echo "Expected '$BCD_TEST_6_TEST' output: $BCD_TEST_6_EXPECTED" >> $SCRIPT_OUT
-echo "  Actual '$BCD_TEST_6_TEST' output: $BCD_TEST_6_RESULT" >> $SCRIPT_OUT
+echo "Expected '$BDC_TEST_6_TEST' output: $BDC_TEST_6_EXPECTED" >> $SCRIPT_OUT
+echo "  Actual '$BDC_TEST_6_TEST' output: $BDC_TEST_6_RESULT" >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 
 
-if [ "$BCD_TEST_6_EXPECTED" = "$BCD_TEST_6_RESULT" ]; 
+if [ "$BDC_TEST_6_EXPECTED" = "$BDC_TEST_6_RESULT" ]; 
 
 then 
-	echo "$BCD_TEST_6_TEST test passed" >> $SCRIPT_OUT
-	echo "$BCD_TEST_6 / $BCD_TEST_6" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $BCD_TEST_6))
+	echo "$BDC_TEST_6_TEST test passed" >> $SCRIPT_OUT
+	echo "$BDC_TEST_6 / $BDC_TEST_6" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $BDC_TEST_6))
 	
 else
-	echo "BCD_TEST_6_TEST test failed" >> $SCRIPT_OUT
-	echo "0 / $BCD_TEST_6" >> $SCRIPT_OUT
+	echo "BDC_TEST_6_TEST test failed" >> $SCRIPT_OUT
+	echo "0 / $BDC_TEST_6" >> $SCRIPT_OUT
 	echo "Note: Check to see if you are printing a space at the end if the outputs appear to match" >> $SCRIPT_OUT
 	
 fi
@@ -829,44 +829,44 @@ echo "" >> $SCRIPT_OUT
 echo "-----------------------------" >> $SCRIPT_OUT
 
 #########################
-# BCD_TEST_VALGRIND Test
+# BDC_TEST_VALGRIND Test
 #########################
 
 # Test re-direct file
-BCD_TEST_VALGRIND_REDIRECT="BCD_valgrind.out"
+BDC_TEST_VALGRIND_REDIRECT="BDC_valgrind.out"
 
 # valgrind command 
-BCD_TEST_VALGRIND_TEST="valgrind --tool=memcheck --leak-check=yes $BCD_TEST_4_TEST > $BCD_TEST_VALGRIND_REDIRECT 2>&1"
+BDC_TEST_VALGRIND_TEST="valgrind --tool=memcheck --leak-check=yes $BDC_TEST_4_TEST > $BDC_TEST_VALGRIND_REDIRECT 2>&1"
 
 # Print tests to student 
 echo "streams valgrind test" >> $SCRIPT_OUT
-echo $BCD_TEST_VALGRIND_TEST >> $SCRIPT_OUT
+echo $BDC_TEST_VALGRIND_TEST >> $SCRIPT_OUT
 echo "" >> $SCRIPT_OUT
 
 # Run the valgrind test
-BCD_TEST_VALGRIND_RESULT=$( valgrind --tool=memcheck --leak-check=yes $BCD_TEST_4_TEST > $BCD_TEST_VALGRIND_REDIRECT 2>&1 )
-$BCD_TEST_VALGRIND_RESULT
+BDC_TEST_VALGRIND_RESULT=$( valgrind --tool=memcheck --leak-check=yes $BDC_TEST_4_TEST > $BDC_TEST_VALGRIND_REDIRECT 2>&1 )
+$BDC_TEST_VALGRIND_RESULT
 
 
 #Check to determine if the valgrind passed:
-if grep -q "$VALGRIND_MSG" $BCD_TEST_VALGRIND_REDIRECT
+if grep -q "$VALGRIND_MSG" $BDC_TEST_VALGRIND_REDIRECT
 
 then
-	echo "$BCD_TEST_VALGRIND_TEST passed" >> $SCRIPT_OUT
+	echo "$BDC_TEST_VALGRIND_TEST passed" >> $SCRIPT_OUT
 	echo "$VALGRIND_PTS / $VALGRIND_PTS" >> $SCRIPT_OUT
 	((STUDENT_GRADE += $VALGRIND_PTS))
 	
 else
-	echo "$BCD_TEST_VALGRIND_TEST failed" >> $SCRIPT_OUT
+	echo "$BDC_TEST_VALGRIND_TEST failed" >> $SCRIPT_OUT
 	echo "0 / $VALGRIND_PTS" >> $SCRIPT_OUT
 	echo "" >> $SCRIPT_OUT
 	echo "Contents of the valgrind test:" >> $SCRIPT_OUT
-	cat $BCD_TEST_VALGRIND_REDIRECT >> $SCRIPT_OUT
+	cat $BDC_TEST_VALGRIND_REDIRECT >> $SCRIPT_OUT
 fi
 
 
 # Remove the valgrind re-direct file 
-rm $BCD_TEST_VALGRIND_REDIRECT
+rm $BDC_TEST_VALGRIND_REDIRECT
 
 echo "" >> $SCRIPT_OUT
 echo "-----------------------------" >> $SCRIPT_OUT
