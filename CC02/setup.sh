@@ -7,3 +7,5 @@ wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/CC02/BCD_tes
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/CC02/BCD_test_2.txt
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/CC02/BCD_test_3.txt
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/CC02/BCD_test_4.txt
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/CC02/test.sh
+chmod a+rx test.sh 
