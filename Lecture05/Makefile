@@ -1,73 +1,173 @@
 # Author: Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the CSE 20312 course Lecture 05
-
-# GCC is for the GCC compiler for C
-CC := gcc
+# This is the Makefile for the CSE 20312 course Lecture 06
 
 # G++ is for the GCC compiler for C++
 PP := g++
 
-# CFLAGS are the compiler flages for when we compile C code in this course 
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
-CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
+# Original Compiler Flags brought back for tempVoidNode only 
+OLDFLAGS := -O2 -g -Wall
+OLDCXXFLAGS := -m64 -std=c++11 $(OLDFLAGS)
+
+# CXXFLAGS are the compiler flages for when we compile C++ code in this course 
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
+CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS) 
 
 
-# Command: make classIntro
-# First Example of Classes
-classIntroObjs :=  classIntro.o line.o point.o
-
-classIntro: $(classIntroObjs)
-	$(PP) $(CXXFLAGS) -o classIntro $(classIntroObjs)
-
-classIntro.o: classIntro.cpp line.h
-	$(PP) $(CXXFLAGS) -c classIntro.cpp
-
-line.o: line.cpp line.h
-	$(PP) $(CXXFLAGS) -c line.cpp
-
-point.o: point.cpp point.h
-	$(PP) $(CXXFLAGS) -c point.cpp
+INC := include
+SRC := src
+OBJ := obj
+EXE := exe
 
 
+# Command: make tempVoidNode
+# Shows allocating templated generic types on the heap
+# using imperative and procedural programming
 
-# Command: make advClass
-# Advanced Classes with const
-advClassesObjs :=  advClasses.o lineAdv.o pointAdv.o
+tempVoidNodeObjs := $(OBJ)/tempVoidNode.o
 
-advClasses: $(advClassesObjs)
-	$(PP) $(CXXFLAGS) -o advClasses $(advClassesObjs)
+tempVoidNode: $(tempVoidNodeObjs)
+	$(PP) $(OLDCXXFLAGS) -o $(EXE)/tempVoidNode $(tempVoidNodeObjs)
+	$(EXE)/./tempVoidNode
 
-advClasses.o: advClasses.cpp lineAdv.h
-	$(PP) $(CXXFLAGS) -c advClasses.cpp
+$(OBJ)/tempVoidNode.o: $(SRC)/tempVoidNode.cpp
+	$(PP) $(OLDCXXFLAGS) -c $(SRC)/tempVoidNode.cpp -o $@
 
-lineAdv.o: lineAdv.cpp lineAdv.h
-	$(PP) $(CXXFLAGS) -c lineAdv.cpp
 
-pointAdv.o: pointAdv.cpp pointAdv.h
-	$(PP) $(CXXFLAGS) -c pointAdv.cpp	
+
+# Command: make tempVoidNode2
+# Shows allocating templated generic types on the heap
+# using imperative and procedural programming
+# Uses proper casting of float
+
+tempVoidNode2Objs := $(OBJ)/tempVoidNode2.o
+
+tempVoidNode2: $(tempVoidNode2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempVoidNode2 $(tempVoidNode2Objs)
+	$(EXE)/./tempVoidNode2
+
+$(OBJ)/tempVoidNode2.o: $(SRC)/tempVoidNode2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempVoidNode2.cpp -o $@
+
+
+
+# Command: make template1
+# Simple templated class example
+
+template1Objs := $(OBJ)/template1.o
+
+template1: $(template1Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/template1 $(template1Objs)
+	$(EXE)/./template1
+
+$(OBJ)/template1.o: $(SRC)/template1.cpp $(INC)/A_1.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/template1.cpp -o $@
+	
+
+# Command: make tempTest
+# Simple templated class example
+
+tempTestObjs := $(OBJ)/tempTest.o
+
+tempTest: $(tempTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempTest $(tempTestObjs)
+	$(EXE)/./tempTest
+
+
+$(OBJ)/tempTest.o: $(SRC)/tempTest.cpp $(INC)/A.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempTest.cpp -o $@
+
+
+	
+
+# Command: make classBad
+# Example of Pitfall of splitting templated classes into cpp and h
+# Contains deliberate compiler errors
+
+classBadObjs := $(OBJ)/classBad.o $(OBJ)/Abad.o
+
+classBad: $(classBadObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/classBad $(classBadObjs)
+	$(EXE)/./classBad
+
+$(OBJ)/classBad.o: $(SRC)/classBad.cpp $(INC)/Abad.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/classBad.cpp -o $@
+	
+$(OBJ)/Abad.o: $(INC)/Abad.cpp $(INC)/Abad.h
+	$(PP) $(CXXFLAGS) -c $(INC)/Abad.cpp -o $@
 	
 	
 	
-# Command: make ComplexTest
-# Example of Overloaded Operators
-ComplexTestObjs :=  ComplexTest.o Complex.o
+# Command: make tempBad
+# Example of Pitfall of splitting bad templating
+# Contains deliberate compiler errors
 
-ComplexTest: $(ComplexTestObjs)
-	$(PP) $(CXXFLAGS) -o ComplexTest $(ComplexTestObjs)
+tempBadObjs := $(OBJ)/tempBad.o
 
-ComplexTest.o: ComplexTest.cpp Complex.h
-	$(PP) $(CXXFLAGS) -c ComplexTest.cpp
+tempBad: $(tempBadObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempBad $(tempBadObjs)
+	$(EXE)/./tempBad
 
-Complex.o: Complex.cpp Complex.h
-	$(PP) $(CXXFLAGS) -c Complex.cpp
+$(OBJ)/tempBad.o: $(SRC)/tempBad.cpp $(INC)/A.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempBad.cpp -o $@
 
+
+# Command: make vector
+vectorObjs := $(OBJ)/vector.o
+
+vector: $(vectorObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/vector $(vectorObjs)
+	$(EXE)/./vector
+
+$(OBJ)/vector.o: $(SRC)/vector.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/vector.cpp -o $@
+
+
+# Command: make quadPair
+quadPairObjs := $(OBJ)/quadPair.o
+
+quadPair: $(quadPairObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/quadPair $(quadPairObjs)
+	$(EXE)/./quadPair
+
+$(OBJ)/quadPair.o: $(SRC)/quadPair.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/quadPair.cpp -o $@
+
+
+# Command: make quadPair2
+quadPair2Objs := $(OBJ)/quadPair2.o
+
+quadPair2: $(quadPair2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/quadPair2 $(quadPair2Objs)
+	$(EXE)/./quadPair2
+
+$(OBJ)/quadPair2.o: $(SRC)/quadPair2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/quadPair2.cpp -o $@	
+
+
+# Command: make iterator
+iteratorObjs := $(OBJ)/iterator.o
+
+iterator: $(iteratorObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/iterator $(iteratorObjs)
+	$(EXE)/./iterator
+
+$(OBJ)/iterator.o: $(SRC)/iterator.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/iterator.cpp -o $@	
+	
+	
+
+
+# make initialize
+# Will be called by grader to initialize your objects and executables folders
+initialize: 
+	mkdir objects executables
 
 
 # Make all
-all: classIntro advClasses ComplexTest
+all: tempDest vector quadPair quadPair2 iterator
 
 # Make clean
 clean :
-	rm -rf *.o classIntro advClasses ComplexTest
+	rm -rf *.o $(OBJ)/* $(EXE)/*
