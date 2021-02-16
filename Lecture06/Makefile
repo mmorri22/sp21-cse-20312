@@ -1,7 +1,7 @@
 # Author: Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the CSE 20312 course Lecture 08
+# This is the Makefile for the CSE 20312 course Lecture 06
 
 # G++ is for the GCC compiler for C++
 PP := g++
@@ -21,28 +21,53 @@ EXE := exe
 # Command: make Problem1
 # Review Problem for Students
 
-Problem1Objs := $(OBJECTS)/Problem1.o
+aggr_templateObjs := $(OBJECTS)/aggr_template.o
 
-Problem1: $(Problem1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Problem1 $(Problem1Objs)
-	$(EXE)/./Problem1
+aggr_template: $(aggr_templateObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/aggr_template $(aggr_templateObjs)
+	$(EXE)/./aggr_template
 
-$(OBJECTS)/Problem1.o: $(SRC)/Problem1.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/Problem1.cpp -o $@
-	
+$(OBJECTS)/aggr_template.o: $(SRC)/aggr_template.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/aggr_template.cpp -o $@
 
 
-# Command: make newInt
-# Initial Example of new keyword
+# Command: make Problem2 - Big O Procedural
+# Review Problem for Students
 
-newIntObjs := $(OBJECTS)/newInt.o
+big_o_procObjs := $(OBJECTS)/big_o_proc.o
 
-newInt: $(newIntObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/newInt $(newIntObjs)
-	$(EXE)/./newInt
+big_o_proc: $(big_o_procObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_proc $(big_o_procObjs)
+	$(EXE)/./big_o_proc
 
-$(OBJECTS)/newInt.o: $(SRC)/newInt.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/newInt.cpp -o $@
+$(OBJECTS)/big_o_proc.o: $(SRC)/big_o_proc.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_proc.cpp -o $@
+
+
+# Command: make big_o_obj
+# Review Problem for Students
+
+big_o_objObjs := $(OBJECTS)/big_o_obj.o
+
+big_o_obj: $(big_o_objObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_obj $(big_o_objObjs)
+	$(EXE)/./big_o_obj
+
+$(OBJECTS)/big_o_obj.o: $(SRC)/big_o_obj.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_obj.cpp -o $@
+
+
+# Command: make big_o_stl
+# Review Problem for Students
+
+big_o_stlObjs := $(OBJECTS)/big_o_stl.o
+
+big_o_stl: $(big_o_stlObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_stl $(big_o_stlObjs)
+	$(EXE)/./big_o_stl
+
+$(OBJECTS)/big_o_stl.o: $(SRC)/big_o_stl.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_stl.cpp -o $@
 	
 	
 
