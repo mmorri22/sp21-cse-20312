@@ -1,4 +1,4 @@
-These code segments follow the order of Lecture 06 - Part 1 for CSE 24312
+These code segments follow the order of Lecture 05 - Part 2 for CSE 24312
 
 Follow the order of the slide set found at https://sites.google.com/a/nd.edu/morrison/courses/cse24312/lecture-notes/
 
@@ -7,80 +7,54 @@ The order of compilation and files to understand the design is as follows:
 
 -------------------------------------------------
 
-Command 1 - NO COMMAND
+Command 1 - make tempVoidNode
 
-Files: classes/DynArr1.h
+Files: programs/tempVoidNode.cpp
 
-Slides: 5-6
+Slides: 5-10
 
-Shows the Dynamic Array constructor, with DynArr(const int sizeIn = 0) to show you can make the default constructor and overloaded constructor in C++ using an overloaded precondition
-
--------------------------------------------------
-
-Command 2 - NO COMMAND
-
-Files: classes/DynArr2.h
-
-Slides: 7
-
-Modifies DynArr1.h by showing the destructor and how you can remove the allocated memory from the heap using delete [] data
+Modifies the voidNode.cpp from Lecture 02 - Part 2 by templating the functions used to allocate and print the values from the heap. This function prints the wrong values because g++ templates decimal values to a double automatically, so the incorrect values are printed out
 
 -------------------------------------------------
 
-Command 3 - NO COMMAND
+Command 2 - make tempVoidNode2
 
-Files: classes/DynArr3.h
+Files: programs/tempVoidNode2.cpp
 
-Slides: 8-9
+Slides: 11-12
 
-Modifies DynArr2.h by showing the first example of a private class method, copy, which can copy elements from one location on the heap pointed to by origin to another pointed to by destin
-
--------------------------------------------------
-
-Command 4 - NO COMMAND
-
-Files: classes/DynArr4.h
-
-Slides: 8-9
-
-Modifies DynArr3.h by using the private copy method to develop a copy constructor and assignment operator
+Modifies programs/tempVoidNode.cpp by casting the decimal we want as a float to a float in the main function, which makes the values on the output correct. Compared to ESA Ariane 5 rocket explosion, since the exact same error is what caused the rocket to explode.
 
 -------------------------------------------------
 
-Command 5 - make DynArrTest5
+Command 3 - make template1
 
-Files: classes/DynArr5.h and programs/DynArrTest5.cpp
+Files: A_1.h and template1.cpp
 
-Slides: 12-15
+Slides: 13-16
 
-Modifies DynArr4.h by adding operators to access the first and last element, using call by reference, to show how to modify the private array, as well as how to pass const object in the event the array elements are larger than conventional types, like int, double, float, ect...
-
--------------------------------------------------
-
-Command 6 - make DynArrTest5Bad
-
-Files: classes/DynArr5Bad.h and programs/DynArrTest5Bad.cpp
-
-Slides: 16-17
-
-Modifies DynArr5.h by changing the length and capacity method names to size() and capac() - the same names as the private members - to show how -Wshadow ensures naming integrity in C++
+In A_1.h, the first example of a templated class is given. A default and overloaded constructor are created, and their address on the heap is printed using the "this" keyword. In template1.cpp, three templated objects are created, and their location on the heap is printed using addresses and values in register
 
 -------------------------------------------------
 
-Command 7 - make DynArrTest6
+Command 4 - make classBad
 
-Files: classes/DynArr6.h and programs/DynArrTest6.cpp
+Files: Abad.h, Abad.cpp and classBad.cpp
 
-Slides: 18-19
+Slides: 17-19
 
-Modifies DynArr5.h by adding overloaded operator[] with a return with a call by reference. DynArrTest6.cpp shows how this abstracts array operators so the access appears identical to a normal array.
+In A_1.h, the first example of a templated class is given. A default and overloaded constructor are created, and their address on the heap is printed using the "this" keyword. In template1.cpp, three templated objects are created, and their location on the heap is printed using addresses and values in register
 
 -------------------------------------------------
 
-Command 8 - make DynArrTest
+Command 5 - make tempTest
 
-Files: classes/DynArr.h and programs/DynArrTest.cpp
+Files: A.h and tempTest.cpp
 
-Slides: 18-19
+Slides: 20-26
 
-Modifies DynArr6.h by adding push_back and erase to show how the array is dynamically allocated. DynArrTest.cpp shows how to call these elements to show Dynamic Operation.
+Modified A.h to add the "Rule of Three" desctructor, copy constructor, and assignment operator. Also adds an operator==. In tempTest, template1.cpp is modified to call the operators to show their effectiveness.
+
+
+
+

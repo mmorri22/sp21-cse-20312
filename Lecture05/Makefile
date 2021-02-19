@@ -6,9 +6,6 @@
 # G++ is for the GCC compiler for C++
 PP := g++
 
-# Original Compiler Flags brought back for tempVoidNode only 
-OLDFLAGS := -O2 -g -Wall
-OLDCXXFLAGS := -m64 -std=c++11 $(OLDFLAGS)
 
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
 FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
@@ -21,6 +18,22 @@ OBJ := obj
 EXE := exe
 
 
+# Command: make ComplexTest
+# Shows allocating templated generic types on the heap
+# using imperative and procedural programming
+
+ComplexTestObjs := $(OBJ)/ComplexTest.o $(OBJ)/Complex.o
+
+ComplexTest: $(ComplexTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/ComplexTest $(ComplexTestObjs)
+	$(EXE)/./ComplexTest
+
+$(OBJ)/ComplexTest.o: $(SRC)/ComplexTest.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/ComplexTest.cpp -o $@
+
+$(OBJ)/Complex.o: $(SRC)/Complex.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Complex.cpp -o $@
+
 # Command: make tempVoidNode
 # Shows allocating templated generic types on the heap
 # using imperative and procedural programming
@@ -28,11 +41,11 @@ EXE := exe
 tempVoidNodeObjs := $(OBJ)/tempVoidNode.o
 
 tempVoidNode: $(tempVoidNodeObjs)
-	$(PP) $(OLDCXXFLAGS) -o $(EXE)/tempVoidNode $(tempVoidNodeObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempVoidNode $(tempVoidNodeObjs)
 	$(EXE)/./tempVoidNode
 
 $(OBJ)/tempVoidNode.o: $(SRC)/tempVoidNode.cpp
-	$(PP) $(OLDCXXFLAGS) -c $(SRC)/tempVoidNode.cpp -o $@
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempVoidNode.cpp -o $@
 
 
 
@@ -51,6 +64,30 @@ $(OBJ)/tempVoidNode2.o: $(SRC)/tempVoidNode2.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/tempVoidNode2.cpp -o $@
 
 
+# Command: make tempVoidNodeBad
+# Shows an example of improper memory allocation
+
+tempVoidNodeBadObjs := $(OBJ)/tempVoidNodeBad.o
+
+tempVoidNodeBad: $(tempVoidNodeBadObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempVoidNodeBad $(tempVoidNodeBadObjs)
+	$(EXE)/./tempVoidNodeBad
+
+$(OBJ)/tempVoidNodeBad.o: $(SRC)/tempVoidNodeBad.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempVoidNodeBad.cpp -o $@
+
+
+# Command: make voidNodeCallBy
+# Shows how to call a pointer by reference
+
+voidNodeCallByObjs := $(OBJ)/voidNodeCallBy.o
+
+voidNodeCallBy: $(voidNodeCallByObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/voidNodeCallBy $(voidNodeCallByObjs)
+	$(EXE)/./voidNodeCallBy
+
+$(OBJ)/voidNodeCallBy.o: $(SRC)/voidNodeCallBy.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/voidNodeCallBy.cpp -o $@
 
 # Command: make template1
 # Simple templated class example

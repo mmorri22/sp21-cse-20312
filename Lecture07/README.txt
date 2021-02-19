@@ -1,4 +1,4 @@
-These code segments follow the order of Lecture 10 - Part 1 for CSE 24312
+These code segments follow the order of Lecture 06 - Part 1 for CSE 24312
 
 Follow the order of the slide set found at https://sites.google.com/a/nd.edu/morrison/courses/cse24312/lecture-notes/
 
@@ -7,100 +7,80 @@ The order of compilation and files to understand the design is as follows:
 
 -------------------------------------------------
 
-Command 1 - make countSort1
+Command 1 - NO COMMAND
 
-Files: classes/LinearProbe.h, classes/DynArr.h and programs/countSort1.cpp
+Files: classes/DynArr1.h
 
-Slides: 6
+Slides: 5-6
 
-Puts elements in a Dynamic Array, iterates through, and prints the largest number
-
--------------------------------------------------
-
-Command 2 - make countSort2
-
-Files: classes/LinearProbe.h, classes/DynArr.h and programs/countSort2.cpp
-
-Slides: 7-8
-
-Modifies countSort1.cpp by adding a HashTable with the number of buckets equal to the largest number. Prints all the buckets and shows the buckets up to the largest number are active. But the resizing means there are many more that are empty.
+Shows the Dynamic Array constructor, with DynArr(const int sizeIn = 0) to show you can make the default constructor and overloaded constructor in C++ using an overloaded precondition
 
 -------------------------------------------------
 
-Command 3 - make countSort3
+Command 2 - NO COMMAND
 
-Files: classes/LinearProbe.h, classes/DynArr.h and programs/countSort3.cpp
+Files: classes/DynArr2.h
 
-Slides: 9-10
+Slides: 7
 
-Modifies countSort2.cpp by iterating through the initial array, and then increment the corresponding bucket’s value. Prints all the buckets and shows that we have the successful sort, but a lot of extra space.
-
--------------------------------------------------
-
-Command 4 - make countSort
-
-Files: classes/LinearProbe.h, classes/DynArr.h and programs/countSort.cpp
-
-Slides: 11
-
-Modifies countSort3.cpp by only printing the buckets with values greater than 0, and showing the emitting.
+Modifies DynArr1.h by showing the destructor and how you can remove the allocated memory from the heap using delete [] data
 
 -------------------------------------------------
 
-Command 4 - make countSortImpr1
+Command 3 - NO COMMAND
 
-Files: classes/LinearProbe.h, classes/DynArr.h and programs/countSortImpr1.cpp
+Files: classes/DynArr3.h
 
-Slides: 12-13
+Slides: 8-9
 
-Modifies countSort.cpp by only hashing the values in the array, not creating the number of buckets. We see that the elements are not in order anymore, but that is acceptable with the Hash Table.
-
--------------------------------------------------
-
-Command 5 - make countSortImpr2
-
-Files: classes/LinearProbe.h, classes/DynArr.h and programs/countSortImpr2.cpp
-
-Slides: 14
-
-Modifies countSortImpr1.cpp by including the printHash function. This won't work, because we are accessing elements even if they are not in the hash, and we do not have a try / throw / catch block.
+Modifies DynArr2.h by showing the first example of a private class method, copy, which can copy elements from one location on the heap pointed to by origin to another pointed to by destin
 
 -------------------------------------------------
 
-Command 6 - make countSortImpr
+Command 4 - NO COMMAND
 
-Files: classes/LinearProbe.h, classes/DynArr.h and programs/countSortImpr.cpp
+Files: classes/DynArr4.h
 
-Slides: 15
+Slides: 8-9
 
-Modifies countSortImpr2.cpp by adding the necessary try / throw / catch block. Works with the least amount of memory.
-
--------------------------------------------------
-
-Command 7 - make countSortSTL
-
-Files: programs/countSortSTL.cpp
-
-Slides: 16-18
-
-Modifies countSort.cpp by using the std::vector and std::unordered_map from the C++ STL. Shows the pros and cons of using the STL
+Modifies DynArr3.h by using the private copy method to develop a copy constructor and assignment operator
 
 -------------------------------------------------
 
-Command 8 - make sepChain
+Command 5 - make DynArrTest5
 
-Files: classes/LinearProbe.h, classes/DynArr.h and programs/sepChain.cpp
+Files: classes/DynArr5.h and programs/DynArrTest5.cpp
 
-Slides: 22-25
+Slides: 12-15
 
-Shows how to use a Dynamic Array to Separately Chain a Hash table. An operator<< is added to DynArr.h for ease of printing.
+Modifies DynArr4.h by adding operators to access the first and last element, using call by reference, to show how to modify the private array, as well as how to pass const object in the event the array elements are larger than conventional types, like int, double, float, ect...
 
 -------------------------------------------------
 
-Command 9 - make bucketSort
+Command 6 - make DynArrTest5Bad
 
-Files: classes/LinearProbe.h, classes/DynArr.h, classes/SorDynArr.h and programs/bucketSort.cpp
+Files: classes/DynArr5Bad.h and programs/DynArrTest5Bad.cpp
 
-Slides: 26-33
+Slides: 16-17
 
-First, a sorted Dynamic Array is created from a Dynamic Array using Inheritance and Polymorphism. Then, then Hash Table and Separate Chaining are used to perform Bucket Sort.
+Modifies DynArr5.h by changing the length and capacity method names to size() and capac() - the same names as the private members - to show how -Wshadow ensures naming integrity in C++
+
+-------------------------------------------------
+
+Command 7 - make DynArrTest6
+
+Files: classes/DynArr6.h and programs/DynArrTest6.cpp
+
+Slides: 18-19
+
+Modifies DynArr5.h by adding overloaded operator[] with a return with a call by reference. DynArrTest6.cpp shows how this abstracts array operators so the access appears identical to a normal array.
+
+-------------------------------------------------
+
+Command 8 - make DynArrTest
+
+Files: classes/DynArr.h and programs/DynArrTest.cpp
+
+Slides: 18-19
+
+Modifies DynArr6.h by adding push_back and erase to show how the array is dynamically allocated. DynArrTest.cpp shows how to call these elements to show Dynamic Operation.

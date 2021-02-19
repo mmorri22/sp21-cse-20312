@@ -1,7 +1,7 @@
 # Author: Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the CSE 24312 course Lecture 07 - Part 1
+# This is the Makefile for the CSE 20312 course Lecture 06
 
 # G++ is for the GCC compiler for C++
 PP := g++
@@ -13,136 +13,129 @@ CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
 INC := include
 SRC := src
-OBJ := obj
+OBJECTS := obj
 EXE := exe
 
 
-# Command: make switch
-switchObjs := $(OBJ)/switch.o
 
-switch: $(switchObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/switch $(switchObjs)
-	$(EXE)/./switch
+# Command: make Problem1
+# Review Problem for Students
 
-$(OBJ)/switch.o: $(SRC)/switch.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/switch.cpp -o $@
+aggr_templateObjs := $(OBJECTS)/aggr_template.o
 
+aggr_template: $(aggr_templateObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/aggr_template $(aggr_templateObjs)
+	$(EXE)/./aggr_template
 
-
-# Command: make LPTest1
-LPTest1Objs := $(OBJ)/LPTest1.o
-
-LPTest1: $(LPTest1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest1 $(LPTest1Objs)
-	$(EXE)/./LPTest1
-
-$(OBJ)/LPTest1.o: $(SRC)/LPTest1.cpp $(INC)/LinearProbe1.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest1.cpp -o $@
+$(OBJECTS)/aggr_template.o: $(SRC)/aggr_template.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/aggr_template.cpp -o $@
 
 
+# Command: make Problem2 - Big O Procedural
+# Review Problem for Students
 
-# Command: make LPTest2
-LPTest2Objs := $(OBJ)/LPTest2.o
+big_o_procObjs := $(OBJECTS)/big_o_proc.o
 
-LPTest2: $(LPTest2Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest2 $(LPTest2Objs)
-	$(EXE)/./LPTest2
+big_o_proc: $(big_o_procObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_proc $(big_o_procObjs)
+	$(EXE)/./big_o_proc
 
-$(OBJ)/LPTest2.o: $(SRC)/LPTest2.cpp $(INC)/LinearProbe2.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest2.cpp -o $@
-
-
-
-# Command: make LPTest3
-LPTest3Objs := $(OBJ)/LPTest3.o
-
-LPTest3: $(LPTest3Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest3 $(LPTest3Objs)
-	$(EXE)/./LPTest3
-
-$(OBJ)/LPTest3.o: $(SRC)/LPTest3.cpp $(INC)/LinearProbe3.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest3.cpp -o $@
+$(OBJECTS)/big_o_proc.o: $(SRC)/big_o_proc.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_proc.cpp -o $@
 
 
+# Command: make big_o_obj
+# Review Problem for Students
 
-# Command: make LPTest4
-LPTest4Objs := $(OBJ)/LPTest4.o
+big_o_objObjs := $(OBJECTS)/big_o_obj.o
 
-LPTest4: $(LPTest4Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest4 $(LPTest4Objs)
-	$(EXE)/./LPTest4
+big_o_obj: $(big_o_objObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_obj $(big_o_objObjs)
+	$(EXE)/./big_o_obj
 
-$(OBJ)/LPTest4.o: $(SRC)/LPTest4.cpp $(INC)/LinearProbe4.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest4.cpp -o $@
-
-
-# Command: make LPTest5
-LPTest5Objs := $(OBJ)/LPTest5.o
-
-LPTest5: $(LPTest5Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest5 $(LPTest5Objs)
-	$(EXE)/./LPTest5
-
-$(OBJ)/LPTest5.o: $(SRC)/LPTest5.cpp $(INC)/LinearProbe5.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest5.cpp -o $@
+$(OBJECTS)/big_o_obj.o: $(SRC)/big_o_obj.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_obj.cpp -o $@
 
 
-# Command: make LPTest6
-LPTest6Objs := $(OBJ)/LPTest6.o
+# Command: make big_o_stl
+# Review Problem for Students
 
-LPTest6: $(LPTest6Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest6 $(LPTest6Objs)
-	$(EXE)/./LPTest6
+big_o_stlObjs := $(OBJECTS)/big_o_stl.o
 
-$(OBJ)/LPTest6.o: $(SRC)/LPTest6.cpp $(INC)/LinearProbe6.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest6.cpp -o $@
+big_o_stl: $(big_o_stlObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_stl $(big_o_stlObjs)
+	$(EXE)/./big_o_stl
 
-
-# Command: make LPTest7
-LPTest7Objs := $(OBJ)/LPTest7.o
-
-LPTest7: $(LPTest7Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest7 $(LPTest7Objs)
-	$(EXE)/./LPTest7
-
-$(OBJ)/LPTest7.o: $(SRC)/LPTest7.cpp $(INC)/LinearProbe7.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest7.cpp -o $@
-
-
-# Command: make LPTest8
-LPTest8Objs := $(OBJ)/LPTest8.o
-
-LPTest8: $(LPTest8Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest8 $(LPTest8Objs)
-	$(EXE)/./LPTest8
-
-$(OBJ)/LPTest8.o: $(SRC)/LPTest8.cpp $(INC)/LinearProbe.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest8.cpp -o $@
+$(OBJECTS)/big_o_stl.o: $(SRC)/big_o_stl.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_stl.cpp -o $@
+	
 	
 
+# Command: make DynArrTest5
+# Initial Example of DynArr allocation size and capacity
 
-# Command: make LPTest
-LPTestObjs := $(OBJ)/LPTest.o
+DynArrTest5Objs := $(OBJECTS)/DynArrTest5.o
 
-LPTest: $(LPTestObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/LPTest $(LPTestObjs)
-	$(EXE)/./LPTest
+DynArrTest5: $(DynArrTest5Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest5 $(DynArrTest5Objs)
+	$(EXE)/./DynArrTest5
 
-$(OBJ)/LPTest.o: $(SRC)/LPTest.cpp $(INC)/LinearProbe.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/LPTest.cpp -o $@
+$(OBJECTS)/DynArrTest5.o: $(SRC)/DynArrTest5.cpp $(INC)/DynArr5.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest5.cpp -o $@
+
+
+
+# Command: make DynArrTest5Bad
+# Shows an example of -Wshadow enforcing strict naming
+# Deliberate compiler error
+
+DynArrTest5BadObjs := $(OBJECTS)/DynArrTest5Bad.o
+
+DynArrTest5Bad: $(DynArrTest5BadObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest5Bad $(DynArrTest5BadObjs)
+	$(EXE)/./DynArrTest5Bad
+
+$(OBJECTS)/DynArrTest5Bad.o: $(SRC)/DynArrTest5Bad.cpp $(INC)/DynArr5Bad.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest5Bad.cpp -o $@
+
+
+# Command: make DynArrTest6
+# Initial Example of DynArr allocation size and capacity
+
+DynArrTest6Objs := $(OBJECTS)/DynArrTest6.o
+
+DynArrTest6: $(DynArrTest6Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest6 $(DynArrTest6Objs)
+	$(EXE)/./DynArrTest6
+
+$(OBJECTS)/DynArrTest6.o: $(SRC)/DynArrTest6.cpp $(INC)/DynArr6.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest6.cpp -o $@
+
+
+
+# Command: make DynArrTest
+# Initial Example of DynArr allocation size and capacity
+
+DynArrTestObjs := $(OBJECTS)/DynArrTest.o
+
+DynArrTest: $(DynArrTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest $(DynArrTestObjs)
+	$(EXE)/./DynArrTest
+
+$(OBJECTS)/DynArrTest.o: $(SRC)/DynArrTest.cpp $(INC)/DynArr.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest.cpp -o $@
 	
 
 # make initialize
 # Will be called by grader to initialize your objects and executables folders
-
 initialize: 
 	mkdir objects executables
-	
+
 
 
 # Make all
-all: sol_1 sol_2 sol_3 sol Product1 Product2
+all: DynArrTest5 DynArrTest6 DynArrTest
 
 # Make clean
 clean :
-	rm -rf *.o $(OBJ)/* $(EXE)/*
+	rm -rf *.o $(OBJECTS)/* $(EXE)/*

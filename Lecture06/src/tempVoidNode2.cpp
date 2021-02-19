@@ -26,11 +26,14 @@ void setNodeValues( void* reference, T firstVar, U secondVar, V thirdVar ){
 	*((T *)(reference)) = firstVar;
 	
 	// Move past 64 bits and put in a float 
+	// Cast reference to T* meets Production Quality Compilation rules
 	reference = (T*)reference + sizeof(T);
 	*((U *)(reference)) = secondVar;
 	
 	// Move past 32 bits and put in an integer
+	// Cast reference to U* meets Production Quality Compilation rules
 	reference = (U*)reference + sizeof(U);
+	
 	*((V *)(reference)) = thirdVar;	
 	
 }
@@ -43,10 +46,14 @@ void printNodeValues( void* reference ){
 	
 	COUT << "First:  " << *((T *)(reference)) << "\t at address " << reference << ENDL;
 	
+	// Cast reference to T* meets Production Quality Compilation rules
 	reference = (T*)reference + sizeof(T);
+	
 	COUT << "Second:   " << *((U *)(reference)) << "\t at address " << reference << ENDL;
 	
+	// Cast reference to U* meets Production Quality Compilation rules
 	reference = (U*)reference + sizeof(U);
+	
 	COUT << "Third: " << *((V *)(reference)) << "\t at address " << reference << ENDL;
 	
 	COUT << ENDL;
@@ -56,20 +63,20 @@ void printNodeValues( void* reference ){
 
 int main(void){
 	
-	long unsigned int nodeSize = sizeof(double) + sizeof(float) + sizeof(int);
+	long unsigned int nodeSize = sizeof(double) + sizeof(float) + sizeof(long int);
 	
 	void* node1 = malloc( nodeSize );
 	void* node2 = malloc( nodeSize );
 	
 	// Set the node Values for node1 
-	setNodeValues( node1, -0.625, 1.5625, 131 );
+	setNodeValues( node1, -0.625, (float)1.5625, (long int)131 );
 	
 	// Set the node Values for node2 
-	setNodeValues( node2, -34.77, 44.96, 1842 );
+	setNodeValues( node2, -34.77, (float)44.96, (long int)1842 );
 	
 	// Printing the values. Set the reference back to numbers
-	printNodeValues<double, float, int>( node1 );
-	printNodeValues<double, float, int>( node2 );
+	printNodeValues<double, float, long int>( node1 );
+	printNodeValues<double, float, long int>( node2 );
 	
 	// Free void* with allocated memory
 	free( node1 );

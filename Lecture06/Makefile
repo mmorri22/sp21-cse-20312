@@ -6,125 +6,195 @@
 # G++ is for the GCC compiler for C++
 PP := g++
 
+
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
 CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS) 
 
 
 INC := include
 SRC := src
-OBJECTS := obj
+OBJ := obj
 EXE := exe
 
 
+# Command: make ComplexTest
+# Shows allocating templated generic types on the heap
+# using imperative and procedural programming
 
-# Command: make Problem1
-# Review Problem for Students
+ComplexTestObjs := $(OBJ)/ComplexTest.o $(OBJ)/Complex.o
 
-aggr_templateObjs := $(OBJECTS)/aggr_template.o
+ComplexTest: $(ComplexTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/ComplexTest $(ComplexTestObjs)
+	$(EXE)/./ComplexTest
 
-aggr_template: $(aggr_templateObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/aggr_template $(aggr_templateObjs)
-	$(EXE)/./aggr_template
+$(OBJ)/ComplexTest.o: $(SRC)/ComplexTest.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/ComplexTest.cpp -o $@
 
-$(OBJECTS)/aggr_template.o: $(SRC)/aggr_template.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/aggr_template.cpp -o $@
+$(OBJ)/Complex.o: $(SRC)/Complex.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Complex.cpp -o $@
 
+# Command: make tempVoidNode
+# Shows allocating templated generic types on the heap
+# using imperative and procedural programming
 
-# Command: make Problem2 - Big O Procedural
-# Review Problem for Students
+tempVoidNodeObjs := $(OBJ)/tempVoidNode.o
 
-big_o_procObjs := $(OBJECTS)/big_o_proc.o
+tempVoidNode: $(tempVoidNodeObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempVoidNode $(tempVoidNodeObjs)
+	$(EXE)/./tempVoidNode
 
-big_o_proc: $(big_o_procObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_proc $(big_o_procObjs)
-	$(EXE)/./big_o_proc
-
-$(OBJECTS)/big_o_proc.o: $(SRC)/big_o_proc.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_proc.cpp -o $@
-
-
-# Command: make big_o_obj
-# Review Problem for Students
-
-big_o_objObjs := $(OBJECTS)/big_o_obj.o
-
-big_o_obj: $(big_o_objObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_obj $(big_o_objObjs)
-	$(EXE)/./big_o_obj
-
-$(OBJECTS)/big_o_obj.o: $(SRC)/big_o_obj.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_obj.cpp -o $@
+$(OBJ)/tempVoidNode.o: $(SRC)/tempVoidNode.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempVoidNode.cpp -o $@
 
 
-# Command: make big_o_stl
-# Review Problem for Students
 
-big_o_stlObjs := $(OBJECTS)/big_o_stl.o
+# Command: make tempVoidNode2
+# Shows allocating templated generic types on the heap
+# using imperative and procedural programming
+# Uses proper casting of float
 
-big_o_stl: $(big_o_stlObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/big_o_stl $(big_o_stlObjs)
-	$(EXE)/./big_o_stl
+tempVoidNode2Objs := $(OBJ)/tempVoidNode2.o
 
-$(OBJECTS)/big_o_stl.o: $(SRC)/big_o_stl.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/big_o_stl.cpp -o $@
+tempVoidNode2: $(tempVoidNode2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempVoidNode2 $(tempVoidNode2Objs)
+	$(EXE)/./tempVoidNode2
+
+$(OBJ)/tempVoidNode2.o: $(SRC)/tempVoidNode2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempVoidNode2.cpp -o $@
+
+
+# Command: make tempVoidNodeBad
+# Shows an example of improper memory allocation
+
+tempVoidNodeBadObjs := $(OBJ)/tempVoidNodeBad.o
+
+tempVoidNodeBad: $(tempVoidNodeBadObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempVoidNodeBad $(tempVoidNodeBadObjs)
+	$(EXE)/./tempVoidNodeBad
+
+$(OBJ)/tempVoidNodeBad.o: $(SRC)/tempVoidNodeBad.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempVoidNodeBad.cpp -o $@
+
+
+# Command: make voidNodeCallBy
+# Shows how to call a pointer by reference
+
+voidNodeCallByObjs := $(OBJ)/voidNodeCallBy.o
+
+voidNodeCallBy: $(voidNodeCallByObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/voidNodeCallBy $(voidNodeCallByObjs)
+	$(EXE)/./voidNodeCallBy
+
+$(OBJ)/voidNodeCallBy.o: $(SRC)/voidNodeCallBy.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/voidNodeCallBy.cpp -o $@
+
+# Command: make template1
+# Simple templated class example
+
+template1Objs := $(OBJ)/template1.o
+
+template1: $(template1Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/template1 $(template1Objs)
+	$(EXE)/./template1
+
+$(OBJ)/template1.o: $(SRC)/template1.cpp $(INC)/A_1.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/template1.cpp -o $@
+	
+
+# Command: make tempTest
+# Simple templated class example
+
+tempTestObjs := $(OBJ)/tempTest.o
+
+tempTest: $(tempTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempTest $(tempTestObjs)
+	$(EXE)/./tempTest
+
+
+$(OBJ)/tempTest.o: $(SRC)/tempTest.cpp $(INC)/A.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempTest.cpp -o $@
+
+
+	
+
+# Command: make classBad
+# Example of Pitfall of splitting templated classes into cpp and h
+# Contains deliberate compiler errors
+
+classBadObjs := $(OBJ)/classBad.o $(OBJ)/Abad.o
+
+classBad: $(classBadObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/classBad $(classBadObjs)
+	$(EXE)/./classBad
+
+$(OBJ)/classBad.o: $(SRC)/classBad.cpp $(INC)/Abad.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/classBad.cpp -o $@
+	
+$(OBJ)/Abad.o: $(INC)/Abad.cpp $(INC)/Abad.h
+	$(PP) $(CXXFLAGS) -c $(INC)/Abad.cpp -o $@
+	
+	
+	
+# Command: make tempBad
+# Example of Pitfall of splitting bad templating
+# Contains deliberate compiler errors
+
+tempBadObjs := $(OBJ)/tempBad.o
+
+tempBad: $(tempBadObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/tempBad $(tempBadObjs)
+	$(EXE)/./tempBad
+
+$(OBJ)/tempBad.o: $(SRC)/tempBad.cpp $(INC)/A.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/tempBad.cpp -o $@
+
+
+# Command: make vector
+vectorObjs := $(OBJ)/vector.o
+
+vector: $(vectorObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/vector $(vectorObjs)
+	$(EXE)/./vector
+
+$(OBJ)/vector.o: $(SRC)/vector.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/vector.cpp -o $@
+
+
+# Command: make quadPair
+quadPairObjs := $(OBJ)/quadPair.o
+
+quadPair: $(quadPairObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/quadPair $(quadPairObjs)
+	$(EXE)/./quadPair
+
+$(OBJ)/quadPair.o: $(SRC)/quadPair.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/quadPair.cpp -o $@
+
+
+# Command: make quadPair2
+quadPair2Objs := $(OBJ)/quadPair2.o
+
+quadPair2: $(quadPair2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/quadPair2 $(quadPair2Objs)
+	$(EXE)/./quadPair2
+
+$(OBJ)/quadPair2.o: $(SRC)/quadPair2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/quadPair2.cpp -o $@	
+
+
+# Command: make iterator
+iteratorObjs := $(OBJ)/iterator.o
+
+iterator: $(iteratorObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/iterator $(iteratorObjs)
+	$(EXE)/./iterator
+
+$(OBJ)/iterator.o: $(SRC)/iterator.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/iterator.cpp -o $@	
 	
 	
 
-# Command: make DynArrTest5
-# Initial Example of DynArr allocation size and capacity
-
-DynArrTest5Objs := $(OBJECTS)/DynArrTest5.o
-
-DynArrTest5: $(DynArrTest5Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest5 $(DynArrTest5Objs)
-	$(EXE)/./DynArrTest5
-
-$(OBJECTS)/DynArrTest5.o: $(SRC)/DynArrTest5.cpp $(INC)/DynArr5.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest5.cpp -o $@
-
-
-
-# Command: make DynArrTest5Bad
-# Shows an example of -Wshadow enforcing strict naming
-# Deliberate compiler error
-
-DynArrTest5BadObjs := $(OBJECTS)/DynArrTest5Bad.o
-
-DynArrTest5Bad: $(DynArrTest5BadObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest5Bad $(DynArrTest5BadObjs)
-	$(EXE)/./DynArrTest5Bad
-
-$(OBJECTS)/DynArrTest5Bad.o: $(SRC)/DynArrTest5Bad.cpp $(INC)/DynArr5Bad.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest5Bad.cpp -o $@
-
-
-# Command: make DynArrTest6
-# Initial Example of DynArr allocation size and capacity
-
-DynArrTest6Objs := $(OBJECTS)/DynArrTest6.o
-
-DynArrTest6: $(DynArrTest6Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest6 $(DynArrTest6Objs)
-	$(EXE)/./DynArrTest6
-
-$(OBJECTS)/DynArrTest6.o: $(SRC)/DynArrTest6.cpp $(INC)/DynArr6.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest6.cpp -o $@
-
-
-
-# Command: make DynArrTest
-# Initial Example of DynArr allocation size and capacity
-
-DynArrTestObjs := $(OBJECTS)/DynArrTest.o
-
-DynArrTest: $(DynArrTestObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest $(DynArrTestObjs)
-	$(EXE)/./DynArrTest
-
-$(OBJECTS)/DynArrTest.o: $(SRC)/DynArrTest.cpp $(INC)/DynArr.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest.cpp -o $@
-	
 
 # make initialize
 # Will be called by grader to initialize your objects and executables folders
@@ -132,10 +202,9 @@ initialize:
 	mkdir objects executables
 
 
-
 # Make all
-all: DynArrTest5 DynArrTest6 DynArrTest
+all: tempDest vector quadPair quadPair2 iterator
 
 # Make clean
 clean :
-	rm -rf *.o $(OBJECTS)/* $(EXE)/*
+	rm -rf *.o $(OBJ)/* $(EXE)/*
