@@ -40,6 +40,9 @@ typedef: $(typedefObjs)
 # point_example Example
 # Command: make point_example
 
+$(OBJ)/point.o: $(SRC)/point.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/point.cpp -o $@
+
 $(OBJ)/point_example.o: $(SRC)/point_example.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/point_example.cpp -o $@
 
@@ -70,9 +73,9 @@ point_bad: $(point_badObjs)
 # Command: make line_example
 
 # Object File Creation
-$(OBJ)/point.o: $(SRC)/point.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/point.cpp -o $@
-	
+
+# NOTE: No need to create anothter $(OBJ)/point.o since we have one above
+
 $(OBJ)/line.o: $(SRC)/line.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/line.cpp -o $@
 
@@ -164,65 +167,64 @@ getline.o: getline.cpp
 
 # const Example
 # Command: make const
-constObjs :=  const.o
+constObjs :=  $(OBJ)/const.o
 
-const: const.o
-	$(PP) $(CXXFLAGS) -o const $(constObjs)
-	./const
+const: $(constObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/const $(constObjs)
+	$(EXE)/./const
 
-const.o: const.cpp
-	$(PP) $(CXXFLAGS) -c const.cpp	
+$(OBJ)/const.o: $(SRC)/const.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/const.cpp -o $@
 
+
+
+# funcOver Example
+# Command: make funcOver
+funcOverObjs :=  $(OBJ)/funcOver.o
+
+funcOver: $(funcOverObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/funcOver $(funcOverObjs)
+	$(EXE)/./funcOver
+
+$(OBJ)/funcOver.o: $(SRC)/funcOver.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/funcOver.cpp -o $@
 
 
 # ambig Example
 # Command: make ambig
-ambigObjs :=  ambig.o
+ambigObjs :=  $(OBJ)/ambig.o
 
-ambig: ambig.o
-	$(PP) $(CXXFLAGS) -o ambig $(ambigObjs)
-	./ambig
+ambig: $(ambigObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/ambig $(ambigObjs)
+	$(EXE)/./ambig
 
-ambig.o: ambig.cpp
-	$(PP) $(CXXFLAGS) -c ambig.cpp	
+$(OBJ)/ambig.o: $(SRC)/ambig.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/ambig.cpp -o $@
 
 
 # ambig2 Example
 # Command: make ambig
-ambig2Objs :=  ambig2.o
+ambig2Objs :=  $(OBJ)/ambig2.o
 
-ambig2: ambig2.o
-	$(PP) $(CXXFLAGS) -o ambig2 $(ambig2Objs)
-	./ambig2
+ambig2: $(ambig2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/ambig2 $(ambig2Objs)
+	$(EXE)/./ambig2
 
-ambig2.o: ambig2.cpp
-	$(PP) $(CXXFLAGS) -c ambig2.cpp	
+$(OBJ)/ambig2.o: $(SRC)/ambig2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/ambig2.cpp -o $@	
 
 
 
 # ambig2Fix Example
 # Command: make ambig2Fix
-ambig2FixObjs :=  ambig2Fix.o
+ambig2FixObjs :=  $(OBJ)/ambig2Fix.o
 
-ambig2Fix: ambig2Fix.o
-	$(PP) $(CXXFLAGS) -o ambig2Fix $(ambig2FixObjs)
-	./ambig2Fix
+ambig2Fix: $(ambig2FixObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/ambig2Fix $(ambig2FixObjs)
+	$(EXE)/./ambig2Fix
 
-ambig2Fix.o: ambig2Fix.cpp
-	$(PP) $(CXXFLAGS) -c ambig2Fix.cpp	
-
-
-
-# template Example
-# Command: make template
-templateObjs :=  template.o
-
-template: template.o
-	$(PP) $(CXXFLAGS) -o template $(templateObjs)
-	./template
-
-template.o: template.cpp
-	$(PP) $(CXXFLAGS) -c template.cpp	
+$(OBJ)/ambig2Fix.o: $(SRC)/ambig2Fix.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/ambig2Fix.cpp -o $@	
 	
 
 # Make all 
@@ -230,4 +232,4 @@ all: typedef
 
 # Make clean
 clean :
-	rm -rf $(OBJ)/* $(EXE)/* *.o typedef helloCPP namespace nameGood cin cinStr getline const ambig2Fix
+	rm -rf $(OBJ)/* $(EXE)/* *.o
