@@ -1,0 +1,1 @@
+mkdir exe inc obj src
