@@ -8,21 +8,6 @@
 #define ENDL std::endl
 
 template< class T >
-void add_to_end( const ode<T>* the_node, const T& the_data ){
-	
-	if( the_node->get_next() != NULL ){
-		
-		add_to_end( the_node->get_next(), the_data );
-		
-	}
-	else{
-		
-		the_node->set_next( new Node<T>( the_data ) );
-		
-	}
-}
-
-template< class T >
 void print_values( const Node<T>* the_node ){
 	
 	if( the_node->get_next() != NULL ){
@@ -37,13 +22,21 @@ void print_values( const Node<T>* the_node ){
 
 int main(){
 	
-	Node< STRING > node1( "Dame" );
+	Node< STRING > node1;
 	
-	add_to_end( &node1, STRING("Notre") );
+	Node< STRING > node2( "Notre" );
 	
-	add_to_end( &node1, STRING("go") );
+	Node< STRING > node3( node1 );
 	
-	add_to_end( &node1, STRING("Let's") );
+	Node< STRING > node4 = node2;
+	
+	node1.set_data( "Dame" );
+	node3.set_data( "Go" );
+	node4.set_data( "Let's" );
+	
+	node1.set_next( &node2 );
+	node2.set_next( &node3 );
+	node3.set_next( &node4 );
 	
 	print_values( &node1 );
 	
