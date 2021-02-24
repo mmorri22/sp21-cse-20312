@@ -21,7 +21,7 @@ class addr{
 		
 	public:
 	
-		addr(); 
+		addr();
 		
 		/* Step 4 - Write the overloaded constructor declaration for taking in the address */
 		
