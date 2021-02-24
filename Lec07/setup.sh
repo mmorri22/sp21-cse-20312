@@ -8,6 +8,9 @@ rm addr.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec07/inc/DLList.h
 cp DLList.h inc/DLList.h 
 rm DLList.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec07/inc/Node.h
+cp Node.h inc/Node.h 
+rm Node.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec07/inc/student.h
 cp student.h inc/student.h 
 rm student.h
