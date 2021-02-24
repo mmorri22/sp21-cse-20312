@@ -2,13 +2,13 @@
 PP := g++
 
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
-CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS) 
+FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror
+CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
-
+# Folder Variable Names
 INC := include
 SRC := src
-OBJECTS := obj
+OBJ := obj
 EXE := exe
 
 #####################################################
