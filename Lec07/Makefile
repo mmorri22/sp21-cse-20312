@@ -45,8 +45,27 @@ addr_test: $(addr_objs)
 
 
 
+
 #####################################################
 # Step 10 - Makefile with Node class - template
 #####################################################
 # make node_test
 # Initial node_test
+
+
+
+
+#####################################################
+# Makefile with DLList class - template and student
+#####################################################
+# make DLList_Test
+# Initial DLList_Test
+$(OBJ)/DLList_Test.o: $(SRC)/DLList_Test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/DLList_Test.cpp -o $@
+	
+# Object List
+DLList_Test_objs := $(OBJ)/DLList_Test.o $(OBJ)/student.o $(OBJ)/addr.o
+
+# Executable
+DLList_Test: $(DLList_Test_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DLList_Test $(DLList_Test_objs)
