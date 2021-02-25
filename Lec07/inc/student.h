@@ -21,7 +21,14 @@ class Student{
 			: stu_first( first_in ),
 			stu_second( second_in ),
 			stu_addr( addr_in ) {}
-			
+		
+		/* Overloaded Operators */
+		bool operator>( const Student& rhs );
+		bool operator>=( const Student& rhs );
+		bool operator<( const Student& rhs );
+		bool operator<=( const Student& rhs );
+		bool operator==( const Student& rhs );
+		
 		friend std::ostream& operator<<( std::ostream& out, const Student& print_stu );
 	
 };
