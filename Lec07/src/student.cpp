@@ -14,37 +14,41 @@ Student::Student( const STRING& first_in, const STRING& second_in, const addr& a
 
 
 /* Other operators */
-bool Student::operator>=( const Student& rhs ){
+bool Student::operator>( const Student& rhs ) const{
+	
+	if( stu_last > rhs.stu_last )
+		return true;
+	
+	else if( stu_last < rhs.stu_last )
+		return false;
+	
+	else{
+		
+		if( stu_first > rhs.stu_first )
+			return true;
+		
+		return false;
+	}
+}
+
+bool Student::operator<( const Student& rhs ) const{
 	
 	if( stu_last < rhs.stu_last )
+		return true;
+	
+	else if( stu_last > stu_first )
 		return false;
 	
 	else{
 		
 		if( stu_first < rhs.stu_first )
-			return false;
-		
-		return true;
-	}
-}
-
-bool Student::operator<( const Student& rhs ){
-	
-	if( stu_last < rhs.stu_last )
-		return true;
-	
-	else{
-		
-		if( stu_first < rhs.stu_first ){
-			
 			return true;
-		}
 		
 		return false;
 	}
 }
 
-bool Student::operator<=( const Student& rhs ){
+bool Student::operator<=( const Student& rhs ) const{
 	
 	if( stu_last > rhs.stu_last )
 		return false;
@@ -62,7 +66,7 @@ bool Student::operator<=( const Student& rhs ){
 	}
 	
 }
-bool Student::operator==( const Student& rhs ){
+bool Student::operator==( const Student& rhs ) const{
 	
 	return ( stu_last == rhs.stu_last ) && ( stu_first == rhs.stu_first );
 	

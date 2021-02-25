@@ -23,11 +23,11 @@ class Student{
 			stu_addr( addr_in ) {}
 		
 		/* Overloaded Operators */
-		bool operator>( const Student& rhs );
-		bool operator>=( const Student& rhs );
-		bool operator<( const Student& rhs );
-		bool operator<=( const Student& rhs );
-		bool operator==( const Student& rhs );
+		bool operator>=( const Student& rhs ) const;
+		bool operator>( const Student& rhs ) const;
+		bool operator<( const Student& rhs ) const;
+		bool operator<=( const Student& rhs ) const;
+		bool operator==( const Student& rhs ) const;
 		
 		friend std::ostream& operator<<( std::ostream& out, const Student& print_stu );
 	
