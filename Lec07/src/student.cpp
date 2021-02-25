@@ -13,7 +13,7 @@ Student::Student( const STRING& first_in, const STRING& second_in, const addr& a
 /* Friend Operator */
 std::ostream& operator<<( std::ostream& out, const Student& print_stu ){
 	
-	/* Step 6 */
+	/* Step 6 - Calling friend operator with private aggregated member address */
 	
 	return out;
 }
