@@ -1,4 +1,4 @@
-#include "student.h"
+#include "../inc/student.h"
 
 /* Default constructor */
 Student::Student() : stu_first(), stu_second(), stu_addr() {}
