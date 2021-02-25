@@ -32,7 +32,7 @@ int main(){
 	
 	node3.prev = &node2;
 	
-	/* Step 9 - Iterate and print */
+	/* Step 10 - Iterate and print */
 
 	
 	return 0;

@@ -27,39 +27,8 @@ class DLList{
 			// delete tail;
 		}
 		
-		
-		/* Copy Constructor */
-		DLList(const DLList<T>& copy) : head(NULL), tail(NULL) {
-			
-			node<T>* curr = copy.head;
-			
-			while(curr != NULL){
-				
-				Insert(curr->data);
-					
-				curr = curr->next;
-				
-			}
-		}
-	
-		/* Assignment Operator */
-		DLList<T>& operator=(const DLList<T>& assign){
-				
-			if(this != &assign){
-				
-				node<T>* curr = assign.head;
-				
-				while(curr != NULL){
-					
-					this->Insert(curr->data);
-						
-					curr = curr->next;
-					
-				}
-			}
-			return *this;
-			
-		}
+		/* Step 9 - Copy Constructor and Assignment Operator */
+
 
 		/********************************************
 		* Function Name  : Insert

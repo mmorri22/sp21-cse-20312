@@ -47,11 +47,19 @@ addr_test: $(addr_objs)
 
 
 #####################################################
-# Step 10 - Makefile with Node class - template
+# Makefile with Node class - template
 #####################################################
 # make node_test
 # Initial node_test
+$(OBJ)/node_test.o: $(SRC)/node_test.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/node_test.cpp -o $@
+	
+# Object List
+node_test_objs := $(OBJ)/node_test.o $(OBJ)/student.o $(OBJ)/addr.o
 
+# Executable
+node_test: $(node_test_objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/node_test $(node_test_objs)
 
 
 
