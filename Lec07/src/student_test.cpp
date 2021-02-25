@@ -10,9 +10,36 @@ int main(){
 	
 	const Student stu_2( "Matthew", "Morrison", addr_1 ); 
 	
+	Student stu_3( "Matthew", "Morrison", addr_1 ); 
+	
 	COUT << stu_1 << ENDL;
 	
 	COUT << stu_2 << ENDL;
+	
+	if( stu_1 > stu_2 ){
+		
+		COUT << "stu_1 > stu_2" << ENDL;
+	}
+	
+	if( stu_1 >= stu_2 ){
+		
+		COUT << "stu_1 >= stu_2" << ENDL;
+	}
+
+	if( stu_1 < stu_2 ){
+		
+		COUT << "stu_1 < stu_2" << ENDL;
+	}
+	
+	if( stu_1 <= stu_2 ){
+		
+		COUT << "stu_1 <= stu_2" << ENDL;
+	}
+	
+	if( stu_2 == stu_3 ){
+		
+		COUT << "stu_2 == stu_3" << ENDL;
+	}
 	
 	return 0;
 	
