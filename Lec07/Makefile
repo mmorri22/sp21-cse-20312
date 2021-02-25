@@ -35,3 +35,18 @@ addr_objs := $(OBJ)/addr_test.o $(OBJ)/addr.o
 # Executable
 addr_test: $(addr_objs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/addr_test $(addr_objs)
+	
+	
+#####################################################
+# Step 8 - Makefile with aggregated class
+#####################################################
+# make student_test
+# Initial Student Test
+
+
+
+#####################################################
+# Step 10 - Makefile with Node class - template
+#####################################################
+# make node_test
+# Initial node_test

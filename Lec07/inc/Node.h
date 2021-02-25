@@ -19,10 +19,9 @@ struct node
 	/* Destructor */
 	~node(){
 		
-		delete next;
+		// delete next;
 		
 	}
-	
 
 	/* Copy constructor (*/
 	node(const node<T>& copy) : data( copy.data ), next( NULL ), prev( NULL ) { }
@@ -45,8 +44,8 @@ struct node
 		
 		if(this != (void *)&assign){
 			this->data = assign->data;
-			this->next = NULL;
-			this->prev = NULL;
+			this->next = assign->next;
+			this->prev = assign->prev;
 		}
 		return *this;
 	}
