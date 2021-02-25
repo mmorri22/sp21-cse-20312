@@ -8,26 +8,23 @@ class Student{
 	private:
 	
 		STRING stu_first;
-		STRING stu_second;
+		STRING stu_last;
 		addr stu_addr;
 	
 	public:
 	
 		/* Default constructor */
-		Student() : stu_first(), stu_second(), stu_addr() {}
+		Student();
 		
 		/* Overloaded constructor */
-		Student( const STRING& first_in, const STRING& second_in, const addr& addr_in )
-			: stu_first( first_in ),
-			stu_second( second_in ),
-			stu_addr( addr_in ) {}
+		Student( const STRING& first_in, const STRING& last_in, const addr& addr_in );
 		
 		/* Overloaded Operators */
-		bool operator>=( const Student& rhs ) const;
-		bool operator>( const Student& rhs ) const;
-		bool operator<( const Student& rhs ) const;
-		bool operator<=( const Student& rhs ) const;
-		bool operator==( const Student& rhs ) const;
+		bool operator>( const Student& rhs );
+		bool operator>=( const Student& rhs );
+		bool operator<( const Student& rhs );
+		bool operator<=( const Student& rhs );
+		bool operator==( const Student& rhs );
 		
 		friend std::ostream& operator<<( std::ostream& out, const Student& print_stu );
 	
