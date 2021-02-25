@@ -1,5 +1,3 @@
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec07/test.sh
-chmod a+rx test.sh
 mkdir src inc exe obj
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec07/Makefile
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec07/inc/addr.h
