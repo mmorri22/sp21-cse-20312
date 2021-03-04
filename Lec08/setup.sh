@@ -38,10 +38,10 @@ rm Tower.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec08/src/addr.cpp
 cp addr.cpp src/addr.cpp 
 rm addr.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec08/inc/DLList_Test.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec08/src/DLList_Test.cpp
 cp DLList_Test.cpp inc/DLList_Test.cpp 
 rm DLList_Test.cpp 
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec08/inc/DLList_Test2.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec08/src/DLList_Test2.cpp
 cp DLList_Test2.cpp inc/DLList_Test2.cpp 
 rm DLList_Test2.cpp 
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec08/src/student.cpp
