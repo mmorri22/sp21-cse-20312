@@ -36,13 +36,16 @@ int main(){
 	node< Student >* iter = &node1;
 	
 	while( iter != NULL ){
-		
-		COUT << iter->data << ENDL;
-		
+	
 		iter = iter->next;
 		
+		COUT << iter->data << ENDL;
+	
 	}
 	
 	return 0;
 	
 }
+
+
+
