@@ -49,22 +49,8 @@ DLList_Test: $(DLList_Test_objs)
 #####################################################
 # make DLList_Test
 # Initial DLList_Test
-$(OBJ)/point.o: $(SRC)/point.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/point.cpp -o $@
 
-$(OBJ)/line.o: $(SRC)/line.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/line.cpp -o $@
-	
-$(OBJ)/DLList_Test2.o: $(SRC)/DLList_Test2.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/DLList_Test2.cpp -o $@
-	
-# Object List - Note dependency order and that DLList.o is not included
-DLList_Test2_objs := $(OBJ)/DLList_Test2.o $(OBJ)/line.o $(OBJ)/point.o
-
-# Executable and Run Test
-DLList_Test2: $(DLList_Test2_objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/DLList_Test2 $(DLList_Test2_objs)
-	$(EXE)/./DLList_Test2 DLList_Test.txt
+# Coding Part 2 starts here
 	
 
 #####################################################

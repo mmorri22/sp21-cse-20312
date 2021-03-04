@@ -20,15 +20,7 @@ void move(Tower& source, Tower& destination, int& numMoves){
 
 void hanoi( int n, Tower& source, Tower& destination, Tower& auxillary, int& numMoves){
 		
-	if( n > 0 ){
-		
-		hanoi( n-1, source, auxillary, destination, numMoves );
-		
-		move( source, destination, numMoves );
-		
-		hanoi( n-1, auxillary, destination, source, numMoves );
-		
-	}
+	/* In-Class Part 4 begins here */
 		
 		
 }

@@ -77,34 +77,9 @@ class DLList{
 		********************************************/
 		void Insert (const T& value)
 		{
-		   node<T>* temp = new node<T>(value);
 
-		   if ( IsEmpty() )
-		   {
-			   head = temp;
-			   tail = temp;
-		   }
-		   else
-		   {
-			  node<T>* prev =  NULL;
-			  node<T>* curr = head;
+			/* In-Class Part 1 */
 
-			  /* traverse the list until the end */
-			  while (curr != NULL)
-			  {
-				 prev = curr;
-				 curr = curr->next;
-			  }
-		  
-			  /* insert the node, temp, at the end */
-			  prev -> next = temp;
-			  
-			  /* Allocate the previous node */
-			  prev -> next -> prev = prev;
-			  
-			  /* Allocate tail */
-			  tail = prev -> next;
-		   }
 		}
 		
 		

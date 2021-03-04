@@ -52,20 +52,8 @@ std::ostream& operator<<( std::ostream& output, const line& print_line ){
 std::istream& operator>>( std::istream& input, line& read_line ){
 	
 	
-	/* In-Class Work begins here */
-	COORDINATE x1, x2, y1, y2;
-	
-	input >> x1 >> y1 >> x2 >> y2;
-	
-	point temp_origin( x1, y1 );
-	point temp_destin( x2, y2 );
-	
-	/* Deliberately Bad Code - const allows access to private members */
-	//read_line.origin = temp_origin;
-	//read_line.destin = temp_destin;
-	
-	read_line.setOrigin( temp_origin );
-	read_line.setDestin( temp_destin );
+	/* In-Class Work Part 3 begins here */
+
 	
 	return input;
 	
