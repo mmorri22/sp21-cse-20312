@@ -9,8 +9,8 @@ struct node
 {
 	/* Public struct members */
 	T     data;
-	node* next;
-	node* prev;
+	node<T>* next;
+	node<T>* prev;
 	
 	/* Default constructor */
 	node() : data(), next(NULL), prev(NULL) { }
