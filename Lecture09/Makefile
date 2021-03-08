@@ -1,121 +1,147 @@
-# Author: Matthew Morrison
-# E-mail: matt.morrison@nd.edu
-#
-# This is the Makefile for the CSE 24312 - Lecture 07
-
 # G++ is for the GCC compiler for C++
 PP := g++
 
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror
 CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
-# Variables for Folders
-INC := include
+# Folder Variable Names
+INC := inc
 SRC := src
 OBJ := obj
 EXE := exe
 
-
-# Command: make IrishTest
-# Base class for First Inheritance Example
-IrishTestObjs := $(OBJ)/IrishTest.o $(OBJ)/Irish.o 
-
-IrishTest: $(IrishTestObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/IrishTest $(IrishTestObjs)
-	$(EXE)/./IrishTest
-
-$(OBJ)/IrishTest.o: $(SRC)/IrishTest.cpp $(INC)/Irish.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/IrishTest.cpp -o $@
-
-$(OBJ)/Irish.o: $(INC)/Irish.cpp $(INC)/Irish.h
-	$(PP) $(CXXFLAGS) -c $(INC)/Irish.cpp -o $@
-
-
-
-# Command: make Inherit 
-# Derived Classes for First Inheritance Example 
-InheritObjs := $(OBJ)/Inherit.o $(OBJ)/Faculty.o $(OBJ)/Student.o $(OBJ)/Irish.o
-
-Inherit: $(InheritObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Inherit $(InheritObjs)
-	$(EXE)/./Inherit
-
-# Inherit.cpp class both derived classes
-$(OBJ)/Inherit.o: $(SRC)/Inherit.cpp $(INC)/Student.h $(INC)/Faculty.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/Inherit.cpp -o $@
-
-# Faculty inherits Irish
-$(OBJ)/Faculty.o: $(INC)/Faculty.cpp $(INC)/Faculty.h $(INC)/Irish.h
-	$(PP) $(CXXFLAGS) -c $(INC)/Faculty.cpp -o $@
-
-# Student inherits Irish
-$(OBJ)/Student.o: $(INC)/Student.cpp $(INC)/Student.h $(INC)/Irish.h
-	$(PP) $(CXXFLAGS) -c $(INC)/Student.cpp -o $@
-
-# Irish.o is already created in the Base Class
+# Initialize
+initialize:
+	rm -rf $(OBJ) $(EXE)
+	mkdir $(OBJ) $(EXE)
+	
+# Clean
+clean:
+	rm -rf $(OBJ)/* $(EXE)/*
+	
 	
 
+#####################################################
+# Shortest Path Example
+#####################################################
+# Command: make shortestPath
+shortestPathObjs :=  $(OBJ)/shortestPath.o
 
-# Command: make Inherit2
-# Example of this object in Inheritance Example 
-Inherit2Objs := $(OBJ)/Inherit2.o $(OBJ)/Faculty.o $(OBJ)/Student.o $(OBJ)/Irish.o
+shortestPath: $(shortestPathObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/shortestPath $(shortestPathObjs)
+	$(EXE)/./shortestPath
 
-Inherit2: $(Inherit2Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Inherit2 $(Inherit2Objs)
-	$(EXE)/./Inherit2
-
-# Inherit.cpp class both derived classes
-$(OBJ)/Inherit2.o: $(SRC)/Inherit2.cpp $(INC)/Student.h $(INC)/Faculty.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/Inherit2.cpp -o $@
-
-# Irish.o, Student.o, and Faculty.o are already created in make Inherit
+$(OBJ)/shortestPath.o: $(SRC)/shortestPath.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/shortestPath.cpp -o $@
 
 
+#####################################################
+# Problem 2
+#####################################################
+# Command: make Prob2
+Prob2Objs :=  $(OBJ)/Prob2.o
 
-# Run the ArithTree Solution
-# Command: make ArithTree
+Prob2: $(Prob2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob2 $(Prob2Objs)
+	$(EXE)/./Prob2
 
-$(OBJ)/ArithTree.o: $(SRC)/ArithTree.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/ArithTree.cpp -o $@
-
-$(OBJ)/AddNode.o: $(SRC)/AddNode.cpp $(INC)/AddNode.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/AddNode.cpp -o $@
+$(OBJ)/Prob2.o: $(SRC)/Prob2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob2.cpp -o $@
 	
-$(OBJ)/SubNode.o: $(SRC)/SubNode.cpp $(INC)/SubNode.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/SubNode.cpp -o $@
 	
-$(OBJ)/MultNode.o: $(SRC)/MultNode.cpp $(INC)/MultNode.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/MultNode.cpp -o $@
+#####################################################
+# Problem 3
+#####################################################
+# Command: make Prob3
+Prob3Objs :=  $(OBJ)/Prob3.o
+
+Prob3: $(Prob3Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob3 $(Prob3Objs)
+	$(EXE)/./Prob3
+
+$(OBJ)/Prob3.o: $(SRC)/Prob3.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob3.cpp -o $@
 	
-$(OBJ)/DivNode.o: $(SRC)/DivNode.cpp $(INC)/DivNode.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/DivNode.cpp -o $@
 	
-$(OBJ)/BinNode.o: $(SRC)/BinNode.cpp $(INC)/BinNode.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/BinNode.cpp -o $@
+#####################################################
+# Problem 4
+#####################################################
+# Command: make Prob4
+Prob4Objs :=  $(OBJ)/Prob4.o
 
-$(OBJ)/NumNode.o: $(SRC)/NumNode.cpp $(INC)/NumNode.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/NumNode.cpp -o $@
+Prob4: $(Prob4Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob4 $(Prob4Objs)
+	$(EXE)/./Prob4
 
-# Arithmetic Tree Object List
-ArithTreeObjs := $(OBJ)/ArithTree.o $(OBJ)/AddNode.o $(OBJ)/SubNode.o $(OBJ)/MultNode.o $(OBJ)/DivNode.o $(OBJ)/BinNode.o $(OBJ)/NumNode.o
+$(OBJ)/Prob4.o: $(SRC)/Prob4.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob4.cpp -o $@
+	
+	
+#####################################################
+# Problem 5
+#####################################################
+# Command: make Prob5
+Prob5Objs :=  $(OBJ)/Prob5.o
 
-# Develop and Run the Executable
-ArithTree: $(ArithTreeObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/ArithTree $(ArithTreeObjs)
-	$(EXE)/./ArithTree
+Prob5: $(Prob5Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob5 $(Prob5Objs)
+	$(EXE)/./Prob5
+
+$(OBJ)/Prob5.o: $(SRC)/Prob5.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob5.cpp -o $@
 
 
-# Make all
-all: IrishTest Inherit Inherit2 ArithTree
+# Command: make DynArrTest5
+# Initial Example of DynArr allocation size and capacity
+
+DynArrTest5Objs := $(OBJ)/DynArrTest5.o
+
+DynArrTest5: $(DynArrTest5Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest5 $(DynArrTest5Objs)
+	$(EXE)/./DynArrTest5
+
+$(OBJ)/DynArrTest5.o: $(SRC)/DynArrTest5.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest5.cpp -o $@
 
 
-# make initialize
-# Will be called by grader to initialize your objects and executables folders
 
-initialize: 
-	mkdir objects executables
+# Command: make DynArrTest5Bad
+# Shows an example of -Wshadow enforcing strict naming
+# Deliberate compiler error
 
-# Make clean
-clean :
-	rm -rf *.o $(OBJ)/* $(EXE)/*
+DynArrTest5BadObjs := $(OBJ)/DynArrTest5Bad.o
+
+DynArrTest5Bad: $(DynArrTest5BadObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest5Bad $(DynArrTest5BadObjs)
+	$(EXE)/./DynArrTest5Bad
+
+$(OBJ)/DynArrTest5Bad.o: $(SRC)/DynArrTest5Bad.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest5Bad.cpp -o $@
+
+
+# Command: make DynArrTest6
+# Initial Example of DynArr allocation size and capacity
+
+DynArrTest6Objs := $(OBJ)/DynArrTest6.o
+
+DynArrTest6: $(DynArrTest6Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest6 $(DynArrTest6Objs)
+	$(EXE)/./DynArrTest6
+
+$(OBJ)/DynArrTest6.o: $(SRC)/DynArrTest6.cpp $(INC)/DynArr6.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest6.cpp -o $@
+	
+	
+#####################################################
+# DynArrTest
+#####################################################
+# Command: make DynArrTest
+DynArrTestObjs :=  $(OBJ)/DynArrTest.o
+
+DynArrTest: $(DynArrTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DynArrTest $(DynArrTestObjs)
+	$(EXE)/./DynArrTest
+
+$(OBJ)/DynArrTest.o: $(SRC)/DynArrTest.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/DynArrTest.cpp -o $@
