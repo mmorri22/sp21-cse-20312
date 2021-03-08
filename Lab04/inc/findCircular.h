@@ -14,28 +14,11 @@ void findCircularRace(SLLNode<T>& head, SLLNode<T> *SLLNodeSlow, SLLNode<T> *SLL
 	// Include a previous SLLNode to track the Previous Value
 	SLLNode<T> *SLLNodePrev = SLLNodeFast;
 	
-	while(SLLNodeFast->next != NULL){
-		
-		SLLNodeSlow = SLLNodeSlow->next;
-		SLLNodePrev = SLLNodeFast->next;
-		SLLNodeFast = SLLNodeFast->next->next;
-
-		if(SLLNodeSlow == SLLNodeFast){
-			break;
-		}
-	}
+	/* Problem 1 - Part 1 */
 	
 	if(SLLNodeSlow == SLLNodeFast){
 		
-		// Reset slow to the Head SLLNode 
-		SLLNodeSlow = &head;
-		
-		// Iterate until the SLLNodes are equal 
-		while(SLLNodeSlow != SLLNodeFast){
-			SLLNodePrev = SLLNodeFast;
-			SLLNodeSlow = SLLNodeSlow->next;
-			SLLNodeFast = SLLNodeFast->next;
-		}
+		/* Part 2 Starts Here */
 		
 		std::cout << "Circular Link exists!" << std::endl;
 		std::cout << "Origin of Circular Link: Address is " << (void *)&SLLNodePrev 
