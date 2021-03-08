@@ -126,6 +126,8 @@ then
 	rm $PROB4_FILE
 	rm $PROB5_FILE
 	rm $PROB6_FILE
+	make clean > $REDIRECT
+	rm $REDIRECT
 	git add --all
 	git commit -m "Lec09 Push"
 	git push -u origin main
@@ -134,8 +136,3 @@ else
 	echo "Review the code and try again. Push once you have a complete submission."
 	
 fi
-
-# Clean and delete re-directions
-make clean > $REDIRECT
-
-rm $REDIRECT
