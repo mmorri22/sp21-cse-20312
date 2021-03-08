@@ -10,9 +10,8 @@ void mergeLists(DLList<T>& dllist1, DLList<T>& dllist2){
 	
 	// Merge Lists
 	dllist1.merge(dllist2);
-	std::cout << std::endl;
 	
-	std::cout << std::endl << "Final Lists:" << std::endl;
+	std::cout << "Final Lists:" << std::endl;
 	std::cout << "List 1: " << dllist1 << std::endl;
 	std::cout << "List 2: " << dllist2 << std::endl;
 	
@@ -61,8 +60,8 @@ int main(){
 	dllist2.Insert(30);
 	dllist2.Insert(27);
 	
-	// Put dllist2 as the first, dllist1 as the second
-	mergeLists(dllist2, dllist1);
+	// Put dllist2 as the first, dlempty as the second
+	mergeLists(dllist2, dlempty);
 	
 	return 0;
 }
