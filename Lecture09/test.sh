@@ -11,12 +11,12 @@ rm $SCRIPT_OUT
 # Point Breakdown Variables
 STUDENT_GRADE=0
 PROB1=40
-PROB2=25
-PROB3=25
-PROB4=20
-PROB5=20
+PROB2=20
+PROB3=20
+PROB4=15
+PROB5=15
 PROB6=40
-TOTAL=170
+TOTAL=150
 
 # Files
 PROB1_FILE=Prob1.txt
@@ -120,19 +120,30 @@ if [ $STUDENT_GRADE = $TOTAL ]
 
 then
 	echo "Full Credit Submission. Deleting txt files..."
+	
+# Delete the generated text files
+	
 	rm $PROB1_FILE
 	rm $PROB2_FILE
 	rm $PROB3_FILE
 	rm $PROB4_FILE
 	rm $PROB5_FILE
 	rm $PROB6_FILE
+	
+# Remove the object and executable files
+	
 	make clean > $REDIRECT
 	rm $REDIRECT
+	
+# Run the git commands
+	
 	git add --all
 	git commit -m "Lec09 Push"
-	git push -u origin main
-	
+	git push -u origin CC04
+
+# Otherwise, encourage the students to retry and resubmit
+
 else
-	echo "Review the code and try again. Push once you have a complete submission."
+	echo "Review the code and try again. Push once you have a completed submission."
 	
 fi
