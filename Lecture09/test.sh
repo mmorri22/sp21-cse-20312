@@ -128,7 +128,7 @@ then
 	rm $PROB6_FILE
 	git add --all
 	git commit -m "Lec09 Push"
-	git push -u origin CC04
+	git push -u origin main
 	
 else
 	echo "Review the code and try again. Push once you have a complete submission."
