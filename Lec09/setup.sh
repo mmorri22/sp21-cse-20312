@@ -54,9 +54,6 @@ rm DynArrTest5.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec09/src/Prob3.cpp 
 cp Prob3.cpp src/Prob3.cpp 
 rm Prob3.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec09/src/Prob6.cpp 
-cp Prob6.cpp src/Prob6.cpp 
-rm Prob6.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec09/src/big_o_stl.cpp 
 cp big_o_stl.cpp src/big_o_stl.cpp 
 rm big_o_stl.cpp
