@@ -96,52 +96,8 @@ void BFS(const VECTOR< VECTOR<int> >& matrix, int orig_x, int orig_y, int dest_x
 	// Case 3 - The queue is empty, we run out of cases 
 	while (!theQueue.empty())
 	{
-		// Get the front SearchNode and evaluate the BFS
-		SearchNode frontSearchNode = theQueue.front();
-		theQueue.pop();
-		
-		// Set iterarors to the x and y coordinate, and get the current distance
-		int iter = frontSearchNode.x, jter = frontSearchNode.y, dist = frontSearchNode.dist;
-		
-		// Case 1 - If we found the values, we found the destination
-		if (iter == dest_x && jter == dest_y)
-		{
-			min_dist = dist;
-			break;
-		}
-		
-		// Next, we check for all elements 
-		// First, check down
-		if( isValid( matrix, visited, iter + 1, jter ) ){
-			
-			visited[ iter + 1 ][ jter ] = true;
-			
-			theQueue.push( SearchNode( iter + 1, jter, frontSearchNode.dist + 1 ) );
-		}
-		
-		// Next, check right
-		if( isValid( matrix, visited, iter, jter + 1 ) ){
-			
-			visited[ iter ][ jter + 1 ] = true;
-			
-			theQueue.push( SearchNode( iter, jter + 1, frontSearchNode.dist + 1 ) );
-		}
-		
-		// Next, check up
-		if( isValid( matrix, visited, iter - 1, jter ) ){
-			
-			visited[ iter - 1 ][ jter ] = true;
-			
-			theQueue.push( SearchNode( iter - 1, jter, frontSearchNode.dist + 1 ) );
-		}
-		
-		// Finally, check left
-		if( isValid( matrix, visited, iter, jter - 1 ) ){
-			
-			visited[ iter ][ jter + 1 ] = true;
-			
-			theQueue.push( SearchNode( iter, jter - 1, frontSearchNode.dist + 1 ) );
-		}
+
+		/* Start here for Problem 1 */
 		
 	}
 	
