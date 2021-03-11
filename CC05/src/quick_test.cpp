@@ -16,11 +16,11 @@ int main( int argc, char** argv ){
 		
 	}
 	
-	// Randomly Shuffle the values
-	std::random_shuffle( sort_vec.begin(), sort_vec.end() );
-	
 	// Print the values
 	print_vec_func( sort_vec );
+	
+	// Randomly Shuffle the values
+	std::random_shuffle( sort_vec.begin(), sort_vec.end() );
 	
 	// Sort the values - Initial pass
 	quick_sort_func( sort_vec, 0, (int)( sort_vec.size() - 1 ) );
