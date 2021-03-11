@@ -1,4 +1,4 @@
-#include "../include/LinearProbe4.h"
+#include "../inc/LinearProbe5.h"
 
 #define COUT std::cout
 #define ENDL std::endl
@@ -12,7 +12,7 @@ int main(){
 	HashTable<int, double> intHash;
 	
 	// Insert into the String Hash 
-	strHash.insert( { "Data", 22 } );
+	strHash.insert( { "Data", 22} );
 	strHash.insert( { "Structures", 15} );
 	strHash.insert( { "Hash", 9} );
 	

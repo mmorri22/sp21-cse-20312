@@ -1,4 +1,4 @@
-#include "../include/LinearProbe1.h"
+#include "../inc/LinearProbe1.h"
 
 #define COUT std::cout
 #define ENDL std::endl

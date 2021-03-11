@@ -8,8 +8,8 @@
 #include <string>
 #include <iostream>
 
-#include "../include/DynArr.h"
-#include "../include/LinearProbe.h"
+#include "../inc/DynArr.h"
+#include "../inc/LinearProbe.h"
 
 void printSort(HashTable< int, int >& countSort, int largestNum){
 

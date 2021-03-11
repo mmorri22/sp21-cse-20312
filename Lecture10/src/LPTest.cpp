@@ -1,7 +1,23 @@
-#include "../include/LinearProbe.h"
+#include "../inc/LinearProbe.h"
 
 #define COUT std::cout
 #define ENDL std::endl
+
+template< class Key, class Value >
+void accessOperatorExample( const HashTable<Key, Value>& theHash, Key keyLookup ){
+	
+	// Valid example with try catch
+	try{
+		COUT << "Element at " << keyLookup << " is " << theHash[ keyLookup ] << ENDL << ENDL;
+	} 
+	catch( const std::exception& theException ){
+		
+		COUT << "Attempted lookup with key " << keyLookup << ENDL;
+		COUT << theException.what() << ENDL << ENDL;
+		
+	}
+	
+}
 
 int main(){
 	
@@ -26,7 +42,10 @@ int main(){
 	
 	COUT << strHash << ENDL;
 	
-	COUT << "Element at Example is " << strHash["Example"] << ENDL << ENDL;
+	std::string strKeyLookup = "Example";
+	
+	// Valid example with try catch
+	accessOperatorExample( strHash, strKeyLookup );
 	
 	// Insert into the int, double hash 
 	intHash.insert( {5, 3.14} );
@@ -42,8 +61,12 @@ int main(){
 	
 	COUT << intHash << ENDL;
 	
-	// Throws Exception since 9 is not a key in the Hash
-	COUT << "Element at 9 is " << intHash[9] << ENDL << ENDL;
+	
+	// Throw/catch example with try catch
+	accessOperatorExample( intHash, 9 );
+	
+	// Valid example with try catch
+	accessOperatorExample( intHash, 7 );
 	
 	return 0;
 }
