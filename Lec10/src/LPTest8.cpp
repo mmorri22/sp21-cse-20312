@@ -1,18 +1,9 @@
-#include "../inc/LinearProbe6.h"
-
-#include <iostream>
-#include <fstream>
+#include "../inc/LinearProbe.h"
 
 #define COUT std::cout
 #define ENDL std::endl
 
 int main(){
-	
-	std::ofstream Prob6( "Prob6.txt" );
-	
-	Prob6 << "Problem 6 Completed" << ENDL;
-	
-	Prob6.close();
 	
 	const unsigned int hashSize = 7;
 	
@@ -27,7 +18,15 @@ int main(){
 	strHash.insert( { "Table", 44} );
 	strHash.insert( { "Lecture", 109} );
 	
+	strHash.remove( "Lecture" );
+	
 	COUT << strHash << ENDL;
+	
+	strHash.insert( { "Example", 211} );
+	
+	COUT << strHash << ENDL;
+	
+	COUT << "Element at Example is " << strHash["Example"] << ENDL << ENDL;
 	
 	// Insert into the int, double hash 
 	intHash.insert( {5, 3.14} );
@@ -35,7 +34,16 @@ int main(){
 	intHash.insert( {7, -22.6} );
 	intHash.insert( {1, 33} );
 	
+	intHash.remove( 5 );
+	
 	COUT << intHash << ENDL;
+	
+	intHash.insert( {5, 28.2} );
+	
+	COUT << intHash << ENDL;
+	
+	// Throws Exception since 9 is not a key in the Hash
+	COUT << "Element at 9 is " << intHash[9] << ENDL << ENDL;
 	
 	return 0;
 }

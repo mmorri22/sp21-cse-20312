@@ -1,18 +1,9 @@
-#include "../inc/LinearProbe4.h"
-
-#include <iostream>
-#include <fstream>
+#include "../inc/LinearProbe3.h"
 
 #define COUT std::cout
 #define ENDL std::endl
 
 int main(){
-	
-	std::ofstream Prob2( "Prob2.txt" );
-	
-	Prob2 << "Problem 2 Completed" << ENDL;
-	
-	Prob2.close();
 	
 	const unsigned int hashSize = 7;
 	
@@ -21,14 +12,14 @@ int main(){
 	HashTable<int, double> intHash;
 	
 	// Insert into the String Hash 
-	strHash.insert( { "Data", 22 } );
-	strHash.insert( { "Structures", 15} );
-	strHash.insert( { "Hash", 9} );
+	strHash.insert( "Data", 22 );
+	strHash.insert( "Structures", 15 );
+	strHash.insert( "Hash", 9 );
 	
 	COUT << strHash << ENDL;
 	
 	// Insert into the int, double hash 
-	intHash.insert( {5, 3.14} );
+	intHash.insert( 5, 3.14 );
 	
 	COUT << intHash << ENDL;
 	
