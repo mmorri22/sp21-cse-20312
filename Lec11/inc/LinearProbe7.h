@@ -1,9 +1,10 @@
-#ifndef LINEARPROBE6_H
-#define LINEARPROBE6_H
+#ifndef LINEARPROBE7_H
+#define LINEARPROBE7_H
 
 #include <iostream>
 #include <vector>
 
+/* Problem 2 - Part 1 - We will modify this enumerated type */
 enum EntryState { ACTIVE, EMPTY };
 
 template<class Key, class Value>
@@ -96,6 +97,7 @@ class HashTable{
 			}
 			while(
 				array.at( currentPos ).state != EMPTY
+				&& array.at( currentPos ).state != DELETED
 				&& array.at( currentPos ).key != theKey
 				&& iter < array.capacity()
 			);
@@ -112,39 +114,29 @@ class HashTable{
 			
 		}
 		
-		// Determine if the current position is active or not 
-		bool isActive( long unsigned int currentPos ) const {
-			
-			return array[ currentPos ].state == ACTIVE;
-			
-		}
-		
-		/* Problem 3 Starts Here */
 		// Rehash the Dynamic Array
 		void rehash(){
 			
 			// Copy the element 
-			
+			std::vector<HashEntry> oldArray = array;
 			
 			// Clear the original array 
-			
+			array.clear();
 			
 			// Resize the array 
-			
+			array.resize( nextPrime( oldArray.size() + 1 ) );
 			
 			// Rehash the old elements 
-			// Set the number hashed to 0
-			
-			// Iterate through the old array 
-			
-				// If that value is active
+			numHash = 0; // Set the number hashed to 0
+			for( long unsigned int iter = 0; iter < oldArray.capacity(); iter++ ){
 				
+				if( oldArray[iter].state == ACTIVE ){
 					
 					// Insert using the std::pair {} template
+					insert( { oldArray[iter].key, oldArray[iter].value } );
 					
-					
-				
-			
+				}
+			}
 		}
 		
 	public:
@@ -172,6 +164,26 @@ class HashTable{
 			array[ location ] = theEntry;
 			
 		}
+		
+		
+		/* Problem 4 continues here */
+		bool remove( const Key& theKey ){
+			
+			// Find the position of the current key
+			
+			
+			// If it's not active - Not in the Hash 
+			// Return false
+
+			
+			// Otherwise, mark the position as DELETED
+			
+			
+			// Decrement the Hash
+			
+			
+			return true;
+		}
 	
 		// Overloaded Friend Operator
 		friend std::ostream& operator<<( std::ostream& output, const HashTable<Key, Value>& theTable ){
@@ -186,6 +198,11 @@ class HashTable{
 				if( theTable.array[iter].state == ACTIVE ){
 				
 					output << "ACTIVE, ";
+				
+				}
+				else if( theTable.array[iter].state == DELETED ){
+				
+					output << "DELETED, ";
 				
 				}
 				else{

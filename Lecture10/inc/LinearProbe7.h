@@ -165,20 +165,21 @@ class HashTable{
 		}
 		
 		
+		/* Problem 4 begins here */
 		bool remove( const Key& theKey ){
 			
-			long unsigned int currentPos = findPos( theKey );
+			// Find the position of the current key
+			
 			
 			// If it's not active - Not in the Hash 
-			if( array [ currentPos ].state != ACTIVE ){
-				return false;
-			}
+			// Return false
+
 			
-			// Lazy Deletion
-			array[ currentPos ].state = DELETED;
+			// Otherwise, mark the position as DELETED
+			
 			
 			// Decrement the Hash
-			--numHash;
+			
 			
 			return true;
 		}

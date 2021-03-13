@@ -1,5 +1,5 @@
-#ifndef LINEARPROBE6_H
-#define LINEARPROBE6_H
+#ifndef LINEARPROBE5_H
+#define LINEARPROBE5_H
 
 #include <iostream>
 #include <vector>
@@ -26,7 +26,6 @@ class HashTable{
 		};
 	
 		std::vector< HashEntry > array;	// Private Dynamic Array for Hash Table
-		unsigned int numHash;			// Number of Hashed Elements
 		
 		// Checks if the value is a Primt
 		bool isPrime( long unsigned int n ) const{
@@ -83,7 +82,7 @@ class HashTable{
 		}
 
 		// Return Hash Location
-		long unsigned int findPos( const Key& theKey ) const{
+		long unsigned int findPos( const std::pair<const Key, Value>& insertPair ) const{
 			
 			long unsigned int currentPos;
 			long unsigned int iter = 0;
@@ -91,18 +90,18 @@ class HashTable{
 			
 			do{
 				// Hash Function determines current position
-				currentPos = (HashFunc( theKey ) + iter*STEPSIZE) % array.capacity();
+				currentPos = (HashFunc( insertPair.first ) + iter*STEPSIZE) % array.capacity();
 				++iter;
 			}
 			while(
 				array.at( currentPos ).state != EMPTY
-				&& array.at( currentPos ).key != theKey
+				&& array[ currentPos ].key != insertPair.first
 				&& iter < array.capacity()
 			);
 			
 			// Return capacity if the current value isn't the key. For safety
 			if(array.at( currentPos ).state == ACTIVE 
-				&& array.at( currentPos ).key != theKey ){
+				&& array.at( currentPos ).key != insertPair.first ){
 					
 					return array.capacity();
 					
@@ -119,57 +118,23 @@ class HashTable{
 			
 		}
 		
-		/* Problem 3 Starts Here */
-		// Rehash the Dynamic Array
-		void rehash(){
-			
-			// Copy the element 
-			
-			
-			// Clear the original array 
-			
-			
-			// Resize the array 
-			
-			
-			// Rehash the old elements 
-			// Set the number hashed to 0
-			
-			// Iterate through the old array 
-			
-				// If that value is active
-				
-					
-					// Insert using the std::pair {} template
-					
-					
-				
-			
-		}
-		
 	public:
 	
 		// Constructor
-		HashTable(const unsigned int size = 0) : array( nextPrime(size) ), numHash(0) { }
+		HashTable(const unsigned int size = 0) : array( nextPrime(size) ) { }
 		
 		// Insert into the hash 
 		void insert( const std::pair<Key, Value>& insertPair ){
 			
-			// If another insert exceeds half capacity, rehash
-			if( numHash + 1 > array.capacity() / 2 ){
-				
-				rehash();
+			long unsigned int location = findPos( insertPair );
+			
+			if( location != array.capacity() ){
+			
+				array[location].key = insertPair.first;
+				array[location].value = insertPair.second;
+				array[location].state = ACTIVE;
+			
 			}
-			
-			// We will always increment the Hash if we get here
-			++numHash;
-			
-			// Get the location
-			long unsigned int location = findPos( insertPair.first );
-			
-			// Insert the new entry at the current position
-			HashEntry theEntry(insertPair, ACTIVE);
-			array[ location ] = theEntry;
 			
 		}
 	
@@ -177,21 +142,12 @@ class HashTable{
 		friend std::ostream& operator<<( std::ostream& output, const HashTable<Key, Value>& theTable ){
 			
 			output << "Hash Table Size: " << theTable.array.size() << std::endl;
-			output << "Hashed Elements: " << theTable.numHash << std::endl;
 			
 			for(unsigned int iter = 0; iter < theTable.array.size(); iter++){
 				
 				output << "{" << iter << ": ";
 				
-				if( theTable.array[iter].state == ACTIVE ){
-				
-					output << "ACTIVE, ";
-				
-				}
-				else{
-					
-					output << "EMPTY, ";
-				}
+				output << theTable.array[iter].state << ", ";
 				
 				output << theTable.array[iter].key << ", ";
 				
