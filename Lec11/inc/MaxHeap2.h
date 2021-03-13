@@ -52,7 +52,6 @@ class MaxHeap{
 					
 					if( curr_loc == 0 )
 						break;
-						
 				}
 			}
 		}

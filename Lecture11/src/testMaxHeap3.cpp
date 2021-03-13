@@ -1,4 +1,4 @@
-#include "../inc/MaxHeap3.h" 
+#include "../inc/MaxHeap.h" 
 
 #include <iostream>
 #define COUT std::cout 

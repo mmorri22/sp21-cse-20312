@@ -79,9 +79,7 @@ class MaxHeap{
 			
 			// If there is only one element, delete it 
 			if( heapArray.size() == 1 ){
-				
 				heapArray.pop_back();
-
 			}
 			
 			else{
@@ -97,8 +95,14 @@ class MaxHeap{
 				
 				while( true ){ 
 				
+					// Get the parents 
 					long unsigned int left_child = 2 * curr_loc + 1;
 					long unsigned int right_child = 2 * curr_loc + 2;
+					
+					// If both are greater than or equal to the array size, there is no valid child value
+					if( left_child >= heapArray.size() && right_child >= heapArray.size() ){
+						break;
+					}
 					
 					// Condition for both children existing 
 					if( right_child < heapArray.size() ){
@@ -108,6 +112,7 @@ class MaxHeap{
 							heapArray.at( curr_loc ) < heapArray.at( right_child ) ){
 							
 							// Get the swap location 
+							// Get the location of the larger values
 							long unsigned int swap_loc = ( heapArray.at( left_child ) > heapArray.at( right_child ) ) ?
 								left_child : right_child ;
 							
@@ -138,9 +143,6 @@ class MaxHeap{
 						else{
 							break;
 						}
-					}
-					else{
-						break;
 					}
 				}
 			}
