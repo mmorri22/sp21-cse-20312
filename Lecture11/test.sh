@@ -2,6 +2,11 @@
 # Grading script developed by Matthew Morrison
 # Spring 2021 - Data Structures - Lecture 11 - Grading Script
 
+# Variables for the script
+SCRIPT_OUT="grade.out"
+REDIRECT="redirect.out"
+
+rm $SCRIPT_OUT
 
 # Point Breakdown Variables
 STUDENT_GRADE=0

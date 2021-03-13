@@ -1,18 +1,9 @@
-#include "../inc/LinearProbe7.h"
+#include "../inc/LinearProbe.h"
 
 #define COUT std::cout
 #define ENDL std::endl
 
-#include <iostream>
-#include <fstream>
-
 int main(){
-	
-	std::ofstream Prob4( "Prob4.txt" );
-	
-	Prob4 << "Problem 4 Completed" << ENDL;
-	
-	Prob4.close();
 	
 	const unsigned int hashSize = 7;
 	
@@ -21,8 +12,10 @@ int main(){
 	HashTable<int, double> intHash;
 	
 	// Insert into the String Hash 
-	strHash.insert( { "Data", 22} );	strHash.insert( { "Structures", 15} );
-	strHash.insert( { "Hash", 9} );		strHash.insert( { "Table", 44} );
+	strHash.insert( { "Data", 22} );
+	strHash.insert( { "Structures", 15} );
+	strHash.insert( { "Hash", 9} );
+	strHash.insert( { "Table", 44} );
 	strHash.insert( { "Lecture", 109} );
 	
 	strHash.remove( "Lecture" );
@@ -33,9 +26,13 @@ int main(){
 	
 	COUT << strHash << ENDL;
 	
+	COUT << "Element at Example is " << strHash["Example"] << ENDL << ENDL;
+	
 	// Insert into the int, double hash 
-	intHash.insert( {5, 3.14} );	intHash.insert( {2, 6.28} );
-	intHash.insert( {7, -22.6} );	intHash.insert( {1, 33} );
+	intHash.insert( {5, 3.14} );
+	intHash.insert( {2, 6.28} );
+	intHash.insert( {7, -22.6} );
+	intHash.insert( {1, 33} );
 	
 	intHash.remove( 5 );
 	
@@ -44,6 +41,9 @@ int main(){
 	intHash.insert( {5, 28.2} );
 	
 	COUT << intHash << ENDL;
+	
+	// Throws Exception since 9 is not a key in the Hash
+	COUT << "Element at 9 is " << intHash[9] << ENDL << ENDL;
 	
 	return 0;
 }
