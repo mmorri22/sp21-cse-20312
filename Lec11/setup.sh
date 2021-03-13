@@ -57,28 +57,28 @@ rm LPTest.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/Prob1.cpp
 cp Prob1.cpp src/Prob1.cpp
 rm Prob1.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec22/src/Prob2.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/Prob2.cpp
 cp Prob2.cpp src/Prob2.cpp
 rm Prob2.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/Prob5.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/Prob5.cpp
 cp Prob5.cpp src/Prob5.cpp
 rm Prob5.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/Prob6.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/Prob6.cpp
 cp Prob6.cpp src/Prob6.cpp
 rm Prob6.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/Prob7.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/Prob7.cpp
 cp Prob7.cpp src/Prob7.cpp
 rm Prob7.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/PQTest.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/PQTest.cpp
 cp PQTest.cpp src/PQTest.cpp
 rm PQTest.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/testMaxHeap2.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/testMaxHeap2.cpp
 cp testMaxHeap2.cpp src/testMaxHeap2.cpp
 rm testMaxHeap2.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/testMaxHeap3.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/testMaxHeap3.cpp
 cp testMaxHeap3.cpp src/testMaxHeap3.cpp
 rm testMaxHeap3.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/testMaxHeap4.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/src/testMaxHeap4.cpp
 cp testMaxHeap4.cpp src/testMaxHeap4.cpp
 rm testMaxHeap4.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/inc/MaxHeap.h
