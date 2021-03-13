@@ -60,25 +60,25 @@ rm Prob1.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec22/src/Prob2.cpp
 cp Prob2.cpp src/Prob2.cpp
 rm Prob2.cpp
-wget https://raw.githubusercontent.com/mmorri21/sp21-cse-20312/main/Lec21/src/Prob5.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/Prob5.cpp
 cp Prob5.cpp src/Prob5.cpp
 rm Prob5.cpp
-wget https://raw.githubusercontent.com/mmorri21/sp21-cse-20312/main/Lec21/src/Prob6.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/Prob6.cpp
 cp Prob6.cpp src/Prob6.cpp
 rm Prob6.cpp
-wget https://raw.githubusercontent.com/mmorri21/sp21-cse-20312/main/Lec21/src/Prob7.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/Prob7.cpp
 cp Prob7.cpp src/Prob7.cpp
 rm Prob7.cpp
-wget https://raw.githubusercontent.com/mmorri21/sp21-cse-20312/main/Lec21/src/PQTest.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/PQTest.cpp
 cp PQTest.cpp src/PQTest.cpp
 rm PQTest.cpp
-wget https://raw.githubusercontent.com/mmorri21/sp21-cse-20312/main/Lec21/src/testMaxHeap2.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/testMaxHeap2.cpp
 cp testMaxHeap2.cpp src/testMaxHeap2.cpp
 rm testMaxHeap2.cpp
-wget https://raw.githubusercontent.com/mmorri21/sp21-cse-20312/main/Lec21/src/testMaxHeap3.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/testMaxHeap3.cpp
 cp testMaxHeap3.cpp src/testMaxHeap3.cpp
 rm testMaxHeap3.cpp
-wget https://raw.githubusercontent.com/mmorri21/sp21-cse-20312/main/Lec21/src/testMaxHeap4.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec21/src/testMaxHeap4.cpp
 cp testMaxHeap4.cpp src/testMaxHeap4.cpp
 rm testMaxHeap4.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/inc/MaxHeap.h
@@ -87,9 +87,9 @@ rm MaxHeap.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/inc/MaxHeap2.h
 cp MaxHeap2.h inc/MaxHeap2.h
 rm MaxHeap2.h
-wget https://raw.githubusercontent.com/mmorri33/sp21-cse-20312/main/Lec11/inc/MaxHeap3.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/inc/MaxHeap3.h
 cp MaxHeap3.h inc/MaxHeap3.h
 rm MaxHeap3.h
-wget https://raw.githubusercontent.com/mmorri33/sp21-cse-20312/main/Lec11/inc/PriorityQueue.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec11/inc/PriorityQueue.h
 cp PriorityQueue.h inc/PriorityQueue.h
 rm PriorityQueue.h
