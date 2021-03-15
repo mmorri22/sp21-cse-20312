@@ -10,3 +10,4 @@ rm Prob2.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lab05/src/Prob2_DLL.cpp
 cp Prob2_DLL.cpp src/Prob2_DLL.cpp
 rm Prob2_DLL.cpp
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lab05/words.txt 
