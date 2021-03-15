@@ -42,6 +42,15 @@ $(OBJ)/Prob2.o: $(SRC)/Prob2.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/Prob2.cpp -o $@
 	
 
+Prob2_DLLObjs :=  $(OBJ)/Prob2_DLL.o
+
+Prob2_DLL: $(Prob2_DLLObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob2_DLL $(Prob2_DLLObjs)
+	$(EXE)/./Prob2_DLL words.txt
+
+$(OBJ)/Prob2_DLL.o: $(SRC)/Prob2_DLL.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob2_DLL.cpp -o $@
+
 
 # make initialize
 # Will be called by the script to set up the folders
