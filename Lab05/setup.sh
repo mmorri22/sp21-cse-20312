@@ -1,5 +1,5 @@
 mkdir src inc
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lab04/Makefile
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lab05/Makefile
 make initialize
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lab05/src/Prob1.cpp
 cp Prob1.cpp src/Prob1.cpp
