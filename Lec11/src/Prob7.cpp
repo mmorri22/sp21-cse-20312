@@ -44,11 +44,11 @@ int main(){
 	COUT << correct_val_1 << " " << correct_val_2 << " is correct" << ENDL;
 	
 	// Print successful output to file for Prob1.txt 
-	std::ofstream Prob6( "Prob6.txt" );
+	std::ofstream Prob7( "Prob7.txt" );
 	
-	Prob6 << "Completed Problem 6" << std::endl;
+	Prob7 << "Completed Problem 7" << std::endl;
 
-	Prob6.close();
+	Prob7.close();
 	
 	return 0;
 	
