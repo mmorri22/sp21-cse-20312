@@ -21,7 +21,7 @@ PROB3_FILE=Prob3.txt
 PROB4_FILE=Prob4.txt
 PROB5_FILE=Prob5.txt
 PROB6_FILE=Prob6.txt
-PROB7_FILE=Prob6.txt
+PROB7_FILE=Prob7.txt
 
 if test -f "$PROB1_FILE";
 
