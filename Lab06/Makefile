@@ -1,4 +1,4 @@
-# This is the Makefile for the CSE 20312 course - Lecture 12
+# This is the Makefile for the CSE 20312 course - Optional Lecture 07
 
 # G++ is for the GCC compiler for C++
 PP := g++
@@ -14,7 +14,7 @@ EXE := exe
 OBJ := obj
 
 
-# Command: make Prob1 - Max Heap Review
+# Command: make Prob1 - Find Kth Largest
 Prob1Objs := $(OBJ)/Prob1.o 
 
 Prob1: $(Prob1Objs)
@@ -23,28 +23,17 @@ Prob1: $(Prob1Objs)
 
 $(OBJ)/Prob1.o: $(SRC)/Prob1.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/Prob1.cpp -o $@
-
-
-# Command: make testMaxHeap
-testMaxHeapObjs := $(OBJ)/testMaxHeap.o 
-
-testMaxHeap: $(testMaxHeapObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/testMaxHeap $(testMaxHeapObjs)
-	$(EXE)/./testMaxHeap
-
-$(OBJ)/testMaxHeap.o: $(SRC)/testMaxHeap.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/testMaxHeap.cpp -o $@
-
+	
 	
 # Command: make testMinHeap
-FindKthLargestObjs := $(OBJ)/FindKthLargest.o 
+SortKListsObjs := $(OBJ)/SortKLists.o 
 
-FindKthLargest: $(FindKthLargestObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/FindKthLargest $(FindKthLargestObjs)
-	$(EXE)/./FindKthLargest
+SortKLists: $(SortKListsObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/SortKLists $(SortKListsObjs)
+	$(EXE)/./SortKLists
 
-$(OBJ)/FindKthLargest.o: $(SRC)/FindKthLargest.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/FindKthLargest.cpp -o $@
+$(OBJ)/SortKLists.o: $(SRC)/SortKLists.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/SortKLists.cpp -o $@
 	
 
 
@@ -59,19 +48,9 @@ $(OBJ)/FindMedian.o: $(SRC)/FindMedian.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/FindMedian.cpp -o $@
 
 
-# Command: make Prob3 - Min Heap Review
-Prob3Objs := $(OBJ)/Prob3.o 
-
-Prob3: $(Prob3Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Prob3 $(Prob3Objs)
-	$(EXE)/./Prob3
-
-$(OBJ)/Prob3.o: $(SRC)/Prob3.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/Prob3.cpp -o $@
-
 
 # Make all
-all: FindKthLargest FindMedian Prob3 Prob1
+all: SortKLists FindMedian
 
 
 

@@ -10,7 +10,7 @@
 
 int main(){
 	
-	COUT << "What is are primary benefit of using a Max Heap for a Priority Queue instead of a Sorted Doubly Linked List? (Two correct answers)"<< ENDL;
+	COUT << "What are the primary benefits of using a Max Heap for a Priority Queue instead of a Sorted Doubly Linked List? (Two correct answers)"<< ENDL;
 	
 	COUT << "A. Insertion time of O( lg(n) ) for each element" << ENDL;
 	COUT << "B. Guaranteed O(1) removal for all elements" << ENDL;	

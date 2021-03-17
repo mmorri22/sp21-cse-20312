@@ -1,102 +1,64 @@
-/**********************************************
-* File: SLList.h
-* Author: Matthew Morrison
-* Email: matt.morrison@nd.edu
-* 
-* This file contains the function definitions and 
-* structs for a Linked List Data structure 
-**********************************************/
+#ifndef DLLIST_H
+#define DLLIST_H
 
-#ifndef SLLIST_H
-#define SLLIST_H
+#include "Node.h"
 
-#include "SLLNode.h"
+#include <cstdlib>
+#include <iostream>
 
 template<class T>
-class SLList{
+class DLList{
 	
 	private:
 		
-		node<T>* head;	// Head pointer for Singly-Linked List
+		node<T>* head;	// Head pointer for Doubly-Linked List
+		node<T>* tail; // Tail point for Doubly-Linked List
 		
 	public:
 	
-		/********************************************
-		* Function Name  : SLList
-		* Pre-conditions : none
-		* Post-conditions: none
-		* 
-		* SLList Default Constructor 
-		********************************************/
-		SLList() : head(NULL) {}
+		/* Default Constructor */
+		DLList() : head(NULL), tail(NULL) {}
 		
 		
-		/********************************************
-		* Function Name  : ~SLList
-		* Pre-conditions : none
-		* Post-conditions: none
-		* 
-		* Singly Linked List Destructor 
-		********************************************/
-		~SLList(){
+		/* Destructor */
+		~DLList(){
 			
-			/*node* prev = NULL;
-			node* curr = head;
-				
-			while(curr != NULL){
-					
-				prev = curr;
-				curr = curr->next;
-					
-				delete prev;
-			}*/
 			delete head;
-			
+			// delete tail; /* Uncommenting will produce memory map issue */
 		}
 		
 		
-		/********************************************
-		* Function Name  : SLList
-		* Pre-conditions : const SLList<T>& copy
-		* Post-conditions: none
-		* 
-		* Copy Constructor for Singly Linked List 
-		********************************************/
-		SLList(const SLList<T>& copy) : head(NULL) {
+		/* Copy Constructor */
+		DLList(const DLList<T>& copy) : head(NULL), tail(NULL) {
 			
-			node<T>* prev = NULL;
 			node<T>* curr = copy.head;
 			
 			while(curr != NULL){
 				
 				Insert(curr->data);
 					
-				prev = curr;
 				curr = curr->next;
 				
 			}
-
 		}
 	
 		/********************************************
 		* Function Name  : operator=
-		* Pre-conditions : const SLList<T>& assign
-		* Post-conditions: SLList<T>&
+		* Pre-conditions : const DLList<T>& assign
+		* Post-conditions: DLList<T>&
 		* 
 		* Assignment Operator for Singly Linked List 
 		********************************************/
-		SLList<T>& operator=(const SLList<T>& assign){
+		DLList<T>& operator=(const DLList<T>& assign){
 				
 			if(this != &assign){
 				
-				node<T>* prev = NULL;
 				node<T>* curr = assign.head;
 				
 				while(curr != NULL){
 					
 					this->Insert(curr->data);
 						
-					prev = curr;
 					curr = curr->next;
 					
 				}
@@ -113,13 +75,14 @@ class SLList{
 		* Creates a Node with value, and inserts at 
 		* the end of the Singly Linked List
 		********************************************/
-		void Insert (T value)
+		void Insert (const T& value)
 		{
 		   node<T>* temp = new node<T>(value);
 
 		   if ( IsEmpty() )
 		   {
 			   head = temp;
+			   tail = temp;
 		   }
 		   else
 		   {
@@ -135,9 +98,59 @@ class SLList{
 		  
 			  /* insert the node, temp, at the end */
 			  prev -> next = temp;
+			  
+			  /* Allocate the previous node */
+			  prev -> next -> prev = prev;
+			  
+			  /* Allocate tail */
+			  tail = prev -> next;
 		   }
 		}
 		
+
+		/* Start Part 1 Here */
+		void SortInsert (const T& value)
+		{
+			
+			/* Create the temp node with the value */
+			node<T>* temp = new node<T>(value);
+
+			if ( IsEmpty() )
+			{
+				head = temp;
+				tail = temp;
+			}
+			else if( value >= head->data ){
+			   
+				push_front( value );
+			   
+			}
+
+			else if( value <= tail->data ){
+			   
+				push_back( value );
+			}
+			   
+			else{
+		   
+				node<T>* prev = NULL;
+				node<T>* curr = head;
+
+				/* traverse the list until the end or value <= data*/
+				while (curr != NULL && curr->data > value)
+				{
+					prev = curr;
+					curr = curr->next;
+				}
+		  
+				/* Insert the new node */
+				prev->next = temp;
+				curr->prev = temp;
+				temp->prev = prev;
+				temp->next = curr;
+			
+		   }
+		}
 		
 		/********************************************
 		* Function Name  : push_front
@@ -147,16 +160,46 @@ class SLList{
 		* Puts the element at the front
 		* For O(1) insert time
 		********************************************/
-		void push_front(T value){
+		void push_front(const T& value){
 			
-			// Create new node
-			node<T>* temp = new node<T>(value);
+			if( IsEmpty() ){
+				Insert( value );
+			}
 			
-			// Set temp->next = head
-			temp -> next = head;
+			else{
+				
+				// Create new node
+				node<T>* temp = new node<T>(value);
+				
+				// Set temp->next = head
+				temp -> next = head;
+				head -> prev = temp;
+				
+				// Set head equal to temp
+				head = temp;
 			
-			// Set head equal to temp
-			head = temp;
+			}
+			
+		}
+		
+		
+		void push_back(const T& value){
+			
+			if( IsEmpty() ){
+				Insert( value );
+			}
+			else{
+				
+				node<T>* temp = new node<T>(value);
+				
+				temp->prev = tail;
+				
+				tail->next = temp;
+				
+				tail = temp;
+				
+			}
+			
 			
 		}
 
@@ -169,11 +212,9 @@ class SLList{
 		* Delets the first instance of data. Returns -1 
 		* if not found
 		********************************************/
-		bool Delete (T target)
+		bool Delete (const T& target)
 		{
-		   node<T>* temp = new node<T>(); 
-		   node<T>* prev = new node<T>(); 
-		   node<T>* curr = new node<T>();
+		   node<T>* temp = new node<T>(); node<T>* prev = new node<T>(); node<T>* curr = new node<T>();
 
 		   if (IsEmpty ())
 		   {
@@ -184,10 +225,23 @@ class SLList{
 		   /* if the target value is the first in the list, move head */
 		   else if (target == head -> data)
 		   {
-			  temp = head;
-			  head = head -> next;
-			  free (temp);
-			  return true;
+			   
+			   if( head == tail ){
+				   temp = head;
+				   head = NULL;
+				   tail = NULL;
+				   free(temp);
+				   return true;
+			   }
+			   else{
+			   
+				  temp = head;
+				  head = head -> next;
+				  head->prev = NULL;
+				  free (temp);
+				  return true;
+			  
+			   }
 		   }
 		   
 		   /* traverse the list until the target value is found */
@@ -206,8 +260,19 @@ class SLList{
 			  {
 				/* delete the node the contains the target value */
 				temp = curr;
+				
+				if(curr == tail){
+					tail = prev;
+				}
+				
 				prev -> next = curr -> next;
 				free(temp);
+				
+				if(prev->next != NULL){
+					
+					prev->next->prev = prev;
+				}
+				
 				return true;
 			  }
 			  else
@@ -228,7 +293,7 @@ class SLList{
 		********************************************/
 		bool IsEmpty () const{
 			
-			return head == NULL;
+			return head == NULL && tail == NULL;
 		   
 		}
 		
@@ -249,11 +314,9 @@ class SLList{
 			}
 			else{
 				
-				node<T>* prev =  NULL;
 				node<T>* curr = head;
 				
 				while (curr != NULL && curr -> data != searchVal){
-					prev = curr;
 					curr = curr -> next;
 				}
 
@@ -261,15 +324,76 @@ class SLList{
 			}
 		}
 
+		bool pop_front(){
+
+			if (IsEmpty ())
+			{
+			  std::cout << "Can't delete from an empty list" << std::endl;
+			  return (-1);
+			}
+
+			/* The Target IS the Head */
+			node<T>* temp = head;
+			
+			if( head == tail ){
+			   head = NULL;
+			   tail = NULL;
+			}
+			else{
+
+			  head = head -> next;
+			  head->prev = NULL;
+
+			}
+			
+			free( temp );
+			return true;
+			
+		}
+		
+		T front() const{
+			
+			return head->data;
+			
+		}
+		
+		
+		T back() const{
+			
+			return tail->data;
+			
+		}
+
+		/********************************************
+		* Function Name  : printAddresses
+		* Pre-conditions : void
+		* Post-conditions: void
+		* 
+		* Prints the base address of each node
+		********************************************/
+		void printAddresses() const{
+			
+			std::cout << "this = " << this << ", head = " << head << ", tail = " << tail << ": ";
+			
+			node<T>* curr = head;
+			
+			while( curr != NULL ){
+				
+				std::cout << curr << " ";
+				
+				curr = curr->next;
+			}
+			
+		}
 
 		/********************************************
 		* Function Name  : operator<<
-		* Pre-conditions : std::ostream& output, const SLList<T>& theList 
+		* Pre-conditions : std::ostream& output, const DLList<T>& theList 
 		* Post-conditions: std::ostream&
 		* 
-		* Overloaded friend ostream operator for SLList 
+		* Overloaded friend ostream operator for DLList 
 		********************************************/
-		friend std::ostream& operator<<( std::ostream& output, const SLList<T>& theList ){
+		friend std::ostream& operator<<( std::ostream& output, const DLList<T>& theList ){
 			
 		   node<T>* curr;
 
