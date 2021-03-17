@@ -21,6 +21,6 @@ rm MinHeap.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec12/src/FindKthLargest.cpp
 cp FindKthLargest.cpp inc/FindKthLargest.cpp
 rm FindKthLargest.cpp
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec12/inc/PriorityQueue.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec12/src/FindMedian.cpp
 cp FindMedian.cpp src/FindMedian.cpp
 rm FindMedian.cpp
