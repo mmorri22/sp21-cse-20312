@@ -114,7 +114,7 @@ class MinHeap{
 							heapArray.at( curr_loc ) > heapArray.at( right_child ) ){
 							
 							// Get the swap location 
-							long unsigned int swap_loc = ( heapArray.at( left_child ) > heapArray.at( right_child ) ) ?
+							long unsigned int swap_loc = ( heapArray.at( left_child ) < heapArray.at( right_child ) ) ?
 								left_child : right_child ;
 							
 							// Swap the curr_loc and swap_loc
