@@ -399,7 +399,7 @@ class DLList{
 
 		   if (theList.IsEmpty())
 		   {
-			  output << "The list is empty" << std::endl;;
+			  output << "The list is empty";
 		   }
 		   else
 		   {

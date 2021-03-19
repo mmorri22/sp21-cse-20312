@@ -8,14 +8,14 @@ class DynArr{
 	
 	private:
 	
-		unsigned int length; // Current number of elements
-		unsigned int capac; // Current capacity
+		long unsigned int length; // Current number of elements
+		long unsigned int capac; // Current capacity
 		T* data;
 		
 
-		void copy(T* destin, T* origin, int len){
+		void copy(T* destin, T* origin, long unsigned int len){
 			
-			for(unsigned int iter = 0; iter < len; ++iter){
+			for(long unsigned int iter = 0; iter < len; ++iter){
 				
 				*(destin+iter) = origin[iter];
 			}
@@ -75,20 +75,20 @@ class DynArr{
 			return data[length-1];
 		}	
 		
-		unsigned int size() const{
+		long unsigned int size() const{
 			return length;
 		}
 		
-		unsigned int capacity() const{
+		long unsigned int capacity() const{
 			return capac;
 		}
 		
-		T& operator[](const unsigned int i){
+		T& operator[](const long unsigned int i){
 			
 			return data[i];
 		}
 		
-		const T& operator[](const unsigned int i) const{
+		const T& operator[](const long unsigned int i) const{
 			
 			return data[i];
 		}
@@ -123,7 +123,7 @@ class DynArr{
 		}
 		
 		
-		void erase(unsigned int e){
+		void erase(long unsigned int e){
 			
 			// Error checking on the bounds 
 			if(e >= length){

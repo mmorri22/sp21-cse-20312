@@ -1,11 +1,11 @@
-# This is the Makefile for the CSE 20312 course - Optional Lecture 07
+# This is the Makefile for the CSE 20312 course - Lab 06
 
 # G++ is for the GCC compiler for C++
 PP := g++
 
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
-CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS) 
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror
+CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS)
 
 # Variables for Folders
 INC := inc
@@ -14,18 +14,7 @@ EXE := exe
 OBJ := obj
 
 
-# Command: make Prob1 - Find Kth Largest
-Prob1Objs := $(OBJ)/Prob1.o 
-
-Prob1: $(Prob1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Prob1 $(Prob1Objs)
-	$(EXE)/./Prob1
-
-$(OBJ)/Prob1.o: $(SRC)/Prob1.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/Prob1.cpp -o $@
-	
-	
-# Command: make testMinHeap
+# Command: make SortKLists - Find Kth Largest
 SortKListsObjs := $(OBJ)/SortKLists.o 
 
 SortKLists: $(SortKListsObjs)
@@ -37,22 +26,6 @@ $(OBJ)/SortKLists.o: $(SRC)/SortKLists.cpp
 	
 
 
-# Command: make FindMedian
-FindMedianObjs := $(OBJ)/FindMedian.o 
-
-FindMedian: $(FindMedianObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/FindMedian $(FindMedianObjs)
-	$(EXE)/./FindMedian
-
-$(OBJ)/FindMedian.o: $(SRC)/FindMedian.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/FindMedian.cpp -o $@
-
-
-
-# Make all
-all: SortKLists FindMedian
-
-
 
 # make initialize
 # Will be called by grader to initialize your objects and executables folders
@@ -62,4 +35,4 @@ initialize:
 
 # Make clean
 clean :
-	rm -rf *.o $(OBJ)/* $(EXE)/*
+	rm -rf $(OBJ)/* $(EXE)/*
