@@ -1,0 +1,6 @@
+1 2 3 4 
+1 2 3 4 5 6 7 
+Wake the cheering name her echoes up 
+Re-order - list1 result: 1 4 2 3 
+Re-order - list2 result: 1 7 2 6 3 5 4 
+Re-order - list3 result: Wake up the echoes cheering her name 
