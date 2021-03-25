@@ -84,3 +84,8 @@ $(OBJ)/Prob5.o: $(SRC)/Prob5.cpp
 # Make clean
 clean :
 	rm -rf $(OBJ)/* $(EXE)/*
+	
+	
+# Make initialize
+initialize :
+	mkdir $(OBJ) $(EXE)
