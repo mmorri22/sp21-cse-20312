@@ -24,7 +24,7 @@ class Irish{
 	
 	public:
 		
-		Irish(const std::string& lastIn, const std::string& firstIn, const unsigned int ndIDIn);
+		Irish(const std::string& lastIn, const std::string& firstIn, const unsigned int& ndIDIn);
 		
 		virtual ~Irish();
 		

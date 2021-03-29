@@ -15,13 +15,13 @@ class Faculty : public Irish{
 	
 	public:
 	
-		Faculty(std::string lastIn, std::string firstIn, unsigned int ndIDIn, TRACK trackIn);
+		Faculty(const std::string& lastIn, const std::string& firstIn, const unsigned int& ndIDIn, const TRACK& trackIn);
 		
 		~Faculty();
 		
-		void setDept(std::string deptIn);
+		void setDept(const std::string& deptIn);
 		
-		void printInformation();
+		void printInformation() const;
 		
 		friend std::ostream& operator<<(std::ostream& output, const Faculty& theFaculty);
 	

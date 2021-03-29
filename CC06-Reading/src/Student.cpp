@@ -1,7 +1,7 @@
 #include "../include/Student.h"
 
 
-Student::Student(std::string lastIn, std::string firstIn, unsigned int ndIDIn, CLASS classIn) 
+Student::Student(const std::string& lastIn, const std::string& firstIn, const unsigned int& ndIDIn, const CLASS& classIn) 
 	: 	Irish(lastIn, firstIn, ndIDIn), 
 		stuClass(classIn), 
 		dorm("") {
@@ -12,7 +12,7 @@ Student::Student(std::string lastIn, std::string firstIn, unsigned int ndIDIn, C
 
 
 Student::~Student(){
-	std::cout << "Destroying Derived Class Student" << std::endl;
+	std::cout << "Destroying Derived Class Student " << this << std::endl;
 }	
 
 std::string Student::getCLASS() const{
@@ -41,7 +41,7 @@ std::string Student::getCLASS() const{
 	}
 }
 	
-void Student::setDorm(std::string dormIn){
+void Student::setDorm(const std::string& dormIn){
 	
 	dorm = dormIn;
 }
@@ -57,14 +57,14 @@ std::ostream& operator<<(std::ostream& output, const Student& theStudent){
 	return output;
 }
 
-void Student::printInformation(){
+void Student::printInformation() const{
 	
-	// Print members derived from base class 
+	// Print protected members of from base class 
 	std::cout << "Student: " << this->lastName << ", " << this->firstName;
 	std::cout	<< " (" << this->ndID << ")" << (char)10;
 	std::cout << "Home Address: " << this->homeAddress << "\n";
 	
-	// No need for this-> since getCLASS and dorm are not derived
+	// No need for this-> since getCLASS and dorm are private members of the derived class
 	std::cout << "Class Rank: " << getCLASS() << std::endl;
 	std::cout << "Dorm: " << dorm << std::endl;
 	

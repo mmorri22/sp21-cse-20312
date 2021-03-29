@@ -10,11 +10,11 @@
 
 /********************************************
 * Function Name  : Irish::Irish
-* Pre-conditions : std::string lastIn, std::string firstIn, unsigned int ndIDIn
+* Pre-conditions : const std::string& lastIn, const std::string& firstIn, const unsigned int ndIDIn
 * Post-conditions: none
 *  
 ********************************************/ 
-Irish::Irish(std::string lastIn, std::string firstIn, unsigned int ndIDIn)
+Irish::Irish(const std::string& lastIn, const std::string& firstIn, const unsigned int& ndIDIn)
 	: lastName(lastIn), firstName(firstIn), ndID(ndIDIn), homeAddress("") { 
 	
 		std::cout << "Base Address of Irish object: " << this << std::endl;
@@ -31,7 +31,7 @@ Irish::Irish(std::string lastIn, std::string firstIn, unsigned int ndIDIn)
 ********************************************/
 Irish::~Irish(){
 	
-	std::cout << "Destroying Base Class Irish" << std::endl;
+	std::cout << "Destroying Base Class Irish " << this << std::endl;
 	
 }
 
@@ -43,7 +43,7 @@ Irish::~Irish(){
 * Post-conditions: none
 *  
 ********************************************/
-void Irish::setHomeAddress(std::string homeAddrIn){
+void Irish::setHomeAddress(const std::string& homeAddrIn){
 	homeAddress = homeAddrIn;
 }
 	

@@ -1,6 +1,6 @@
 #include "../include/Faculty.h"
 
-Faculty::Faculty(std::string lastIn, std::string firstIn, unsigned int ndIDIn, TRACK trackIn) 
+Faculty::Faculty(const std::string& lastIn, const std::string& firstIn, const unsigned int& ndIDIn, const TRACK& trackIn) 
 	: 	Irish(lastIn, firstIn, ndIDIn), 
 		facTrack(trackIn), 
 		dept("") {
@@ -11,7 +11,7 @@ Faculty::Faculty(std::string lastIn, std::string firstIn, unsigned int ndIDIn, T
 
 Faculty::~Faculty(){
 	
-	std::cout << "Destroying Derived Class Faculty" << std::endl;
+	std::cout << "Destroying Derived Class Faculty " << this << std::endl;
 }
 
 
@@ -34,13 +34,13 @@ std::string Faculty::getTRACK() const{
 
 		
 		
-void Faculty::setDept(std::string deptIn){
+void Faculty::setDept(const std::string& deptIn){
 	
 	dept = deptIn;
 	
 }
 
-void Faculty::printInformation(){
+void Faculty::printInformation() const{
 	
 	// Print members derived from base class 
 	std::cout << "Faculty: " << this->lastName << ", " << this->firstName;

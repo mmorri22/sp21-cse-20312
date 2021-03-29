@@ -15,13 +15,13 @@ class Student : public Irish{
 	
 	public:
 	
-		Student(std::string lastIn, std::string firstIn, unsigned int ndIDIn, CLASS classIn);
+		Student(const std::string& lastIn, const std::string& firstIn, const unsigned int& ndIDIn, const CLASS& classIn);
 		
 		~Student();
 		
-		void setDorm(std::string dormIn);
+		void setDorm(const std::string& dormIn);
 		
-		void printInformation();
+		void printInformation() const;
 		
 		friend std::ostream& operator<<(std::ostream& output, const Student& theStudent);
 	

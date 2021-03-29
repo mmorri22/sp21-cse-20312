@@ -25,11 +25,11 @@ IrishTest: $(IrishTestObjs)
 	$(PP) $(CXXFLAGS) -o $(EXE)/IrishTest $(IrishTestObjs)
 	$(EXE)/./IrishTest
 
-$(OBJ)/IrishTest.o: $(SRC)/IrishTest.cpp $(INC)/Irish.h
+$(OBJ)/IrishTest.o: $(SRC)/IrishTest.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/IrishTest.cpp -o $@
 
-$(OBJ)/Irish.o: $(INC)/Irish.cpp $(INC)/Irish.h
-	$(PP) $(CXXFLAGS) -c $(INC)/Irish.cpp -o $@
+$(OBJ)/Irish.o: $(SRC)/Irish.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Irish.cpp -o $@
 
 
 
@@ -42,16 +42,16 @@ Inherit: $(InheritObjs)
 	$(EXE)/./Inherit
 
 # Inherit.cpp class both derived classes
-$(OBJ)/Inherit.o: $(SRC)/Inherit.cpp $(INC)/Student.h $(INC)/Faculty.h
+$(OBJ)/Inherit.o: $(SRC)/Inherit.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/Inherit.cpp -o $@
 
 # Faculty inherits Irish
-$(OBJ)/Faculty.o: $(INC)/Faculty.cpp $(INC)/Faculty.h $(INC)/Irish.h
-	$(PP) $(CXXFLAGS) -c $(INC)/Faculty.cpp -o $@
+$(OBJ)/Faculty.o: $(SRC)/Faculty.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Faculty.cpp -o $@
 
 # Student inherits Irish
-$(OBJ)/Student.o: $(INC)/Student.cpp $(INC)/Student.h $(INC)/Irish.h
-	$(PP) $(CXXFLAGS) -c $(INC)/Student.cpp -o $@
+$(OBJ)/Student.o: $(SRC)/Student.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Student.cpp -o $@
 
 # Irish.o is already created in the Base Class
 	
