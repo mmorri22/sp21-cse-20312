@@ -24,21 +24,21 @@ clean :
 	rm -rf $(OBJ)/* $(EXE)/*
 	
 	
-# Command: make quick_test
-quick_testObjs := $(OBJ)/quick_test.o 
+# Command: make DHTest
+DHTestObjs := $(OBJ)/DHTest.o 
 
-quick_test: $(quick_testObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/quick_test $(quick_testObjs)
+DHTest: $(DHTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/DHTest $(DHTestObjs)
 
-$(OBJ)/quick_test.o: $(SRC)/quick_test.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/quick_test.cpp -o $@
+$(OBJ)/DHTest.o: $(SRC)/DHTest.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/DHTest.cpp -o $@
 
 
-# Command: make bucket_test
-bucket_testObjs := $(OBJ)/bucket_test.o 
+# Command: make QPTest
+QPTestObjs := $(OBJ)/QPTest.o 
 
-bucket_test: $(bucket_testObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/bucket_test $(bucket_testObjs)
+QPTest: $(QPTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/QPTest $(QPTestObjs)
 
-$(OBJ)/bucket_test.o: $(SRC)/bucket_test.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/bucket_test.cpp -o $@
+$(OBJ)/QPTest.o: $(SRC)/QPTest.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/QPTest.cpp -o $@
