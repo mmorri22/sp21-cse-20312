@@ -115,7 +115,7 @@ $(OBJ)/DFS2.o: $(SRC)/DFS2.cpp
 # make initialize
 # Will be called by grader to initialize your objects and executables folders
 initialize: 
-	mkdir objects executables
+	mkdir $(OBJ) $(EXE)
 
 
 # Make all
@@ -124,4 +124,4 @@ all: testVert1 testVert2 testGraph1 Graph
 
 # Make clean
 clean :
-	rm -rf *.o $(OBJ)/* $(EXE)/*
+	rm -rf $(OBJ)/* $(EXE)/*

@@ -15,7 +15,7 @@ int main(){
 	while( true ) {
 
 		COUT << "Problem 3: You are given the following Adjacency List Representation." << ENDL;
-		COUT << "Select the path that will result from a Depth-First Search from 0 to 5" << ENDL;
+		COUT << "Select the path that will result from a Depth-First Search from 0 to 6" << ENDL;
 		COUT << ENDL;
 		COUT << "Vertex\t\tList" << ENDL;
 		COUT << "0 (31)\t\t1, 3, 6" << ENDL; 
@@ -23,7 +23,8 @@ int main(){
 		COUT << "2 (7)\t\t5" << ENDL;
 		COUT << "3 (-2)\t\t4, 2" << ENDL;
 		COUT << "4 (8)\t\t2, 5" << ENDL;
-		COUT << "5 (7)\t\t6" << ENDL << ENDL;
+		COUT << "5 (7)\t\t6" << ENDL;
+		COUT << "6 (88)" << ENDL << ENDL;
 		
 		COUT << "A: 0->6" << ENDL;
 		COUT << "B: 0->1->2->5->6" << ENDL;
@@ -34,7 +35,7 @@ int main(){
 		
 		char stu_answer;
 		
-		COUT << "Enter your choice (Like Linux, answer is case sensitive: ";
+		COUT << "Enter your choice (Like Linux, answer is case sensitive): ";
 		CIN >> stu_answer;
 		
 		if( stu_answer == 'D' ){
