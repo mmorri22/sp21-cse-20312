@@ -17,33 +17,25 @@ class Graph{
 			if( !visited[ vertVal ] ){
 				
 				// Set the visited edges to true
-				visited[ vertVal ] = true;
+				
 				
 				// Check each outgoing edge 
-				for( unsigned int iter = 0; iter < vertices[ vertVal ].num_edges(); iter++ ){
+				
 					
 					// Obtain a temporary copy of the Edge
-					Edge tempEdge = vertices[ vertVal ].get_edge( iter );
+					
 					
 					// If the destination has not been visited, make recursive call
-					if( !visited[ tempEdge.destin ] ){
+					
 						
 						// Set the destination's parent to vertVal
-						parents[ tempEdge.destin ] = vertVal;
+						
 						
 						// If we found the vertex, return true
-						if( tempEdge.destin == destin ){
-							
-							return true;
-						}
+						
 						
 						// Otherwise, recursively call the destination vertex
-						bool check = DFS( destin, tempEdge.destin, parents, visited );
 						
-						if( check ){
-							
-							return true;
-						}
 					}
 					
 				}

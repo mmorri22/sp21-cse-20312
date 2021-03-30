@@ -4,21 +4,7 @@
 struct Edge{
 	
 	/* Lecture 15 - Problem 1 Starts Here */
-	unsigned int destin;	// Location of Edge Destination
-	int weight;				// Edge Weight. Can be negative.
 
-	// Default Constructor
-	Edge() : destin(), weight( ) {}
-
-	// Overloaded Constructor
-	Edge( unsigned int dest, int weightIn ) : destin(dest), weight(weightIn) {}
-	
-	// Overloaded == operator
-	bool operator==( const Edge& rhs ) const{
-		
-		return destin == rhs.destin && weight == rhs.weight;
-		
-	}
 		
 };
 
