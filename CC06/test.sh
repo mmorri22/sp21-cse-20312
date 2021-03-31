@@ -119,8 +119,8 @@ Hashed Elements: 3
 {0: ACTIVE, 7, 63}
 {1: ACTIVE, 1, 3}
 {2: EMPTY, 0, 0}
-{3: EMPTY, 0, 0}
-{4: ACTIVE, 14, 133}
+{3: ACTIVE, 14, 133}
+{4: EMPTY, 0, 0}
 {5: EMPTY, 0, 0}
 {6: EMPTY, 0, 0}"
 
@@ -144,63 +144,63 @@ Double Hash:
 Hash Table Size: 11
 Hashed Elements: 4
 {0: ACTIVE, 44, 433}
-{1: ACTIVE, 33, 323}
+{1: EMPTY, 0, 0}
 {2: EMPTY, 0, 0}
 {3: ACTIVE, 66, 653}
 {4: EMPTY, 0, 0}
-{5: ACTIVE, 99, 983}
+{5: EMPTY, 0, 0}
 {6: EMPTY, 0, 0}
-{7: EMPTY, 0, 0}
+{7: ACTIVE, 99, 983}
 {8: EMPTY, 0, 0}
-{9: EMPTY, 0, 0}
+{9: ACTIVE, 33, 323}
 {10: EMPTY, 0, 0}"
 
-DH_TEST_3_TEST="./exe/DHTest 22 7 44 95 18 -101 44 33 32 31"
+DH_TEST_3_TEST="./exe/DHTest 19 38 0 152 95 57 -38 114 133"
 DH_TEST_3_EXPECTED="Linear Probe Hash:
 Hash Table Size: 19
 Hashed Elements: 9
-{0: ACTIVE, 95, 943}
-{1: EMPTY, 0, 0}
-{2: EMPTY, 0, 0}
-{3: ACTIVE, 22, 213}
-{4: EMPTY, 0, 0}
-{5: EMPTY, 0, 0}
-{6: ACTIVE, 44, 433}
-{7: ACTIVE, 7, 63}
-{8: ACTIVE, -101, -1017}
+{0: ACTIVE, 0, -7}
+{1: ACTIVE, 19, 183}
+{2: ACTIVE, 38, 373}
+{3: ACTIVE, -38, -387}
+{4: ACTIVE, 57, 563}
+{5: ACTIVE, 95, 943}
+{6: ACTIVE, 114, 1133}
+{7: ACTIVE, 152, 1513}
+{8: ACTIVE, 133, 1323}
 {9: EMPTY, 0, 0}
 {10: EMPTY, 0, 0}
 {11: EMPTY, 0, 0}
-{12: ACTIVE, 31, 303}
-{13: ACTIVE, 32, 313}
-{14: ACTIVE, 33, 323}
+{12: EMPTY, 0, 0}
+{13: EMPTY, 0, 0}
+{14: EMPTY, 0, 0}
 {15: EMPTY, 0, 0}
 {16: EMPTY, 0, 0}
 {17: EMPTY, 0, 0}
-{18: ACTIVE, 18, 173}
+{18: EMPTY, 0, 0}
 
 Double Hash:
 Hash Table Size: 19
 Hashed Elements: 9
-{0: ACTIVE, 95, 943}
-{1: EMPTY, 0, 0}
-{2: EMPTY, 0, 0}
-{3: ACTIVE, 22, 213}
+{0: ACTIVE, 0, -7}
+{1: ACTIVE, 38, 373}
+{2: ACTIVE, 19, 183}
+{3: ACTIVE, -38, -387}
 {4: EMPTY, 0, 0}
 {5: EMPTY, 0, 0}
-{6: ACTIVE, 44, 433}
-{7: ACTIVE, 7, 63}
+{6: ACTIVE, 95, 943}
+{7: EMPTY, 0, 0}
 {8: EMPTY, 0, 0}
-{9: EMPTY, 0, 0}
-{10: ACTIVE, -101, -1017}
+{9: ACTIVE, 57, 563}
+{10: ACTIVE, 152, 1513}
 {11: EMPTY, 0, 0}
-{12: ACTIVE, 31, 303}
-{13: ACTIVE, 32, 313}
-{14: ACTIVE, 33, 323}
+{12: ACTIVE, 133, 1323}
+{13: EMPTY, 0, 0}
+{14: EMPTY, 0, 0}
 {15: EMPTY, 0, 0}
 {16: EMPTY, 0, 0}
 {17: EMPTY, 0, 0}
-{18: ACTIVE, 18, 173}"
+{18: ACTIVE, 114, 1133}"
 
 DH_TEST_4_TEST="./exe/DHTest 46 92 161 23 115 184 69 0 138 207"
 DH_TEST_4_EXPECTED="Linear Probe Hash:
@@ -237,21 +237,21 @@ Hashed Elements: 10
 {1: ACTIVE, 23, 223}
 {2: ACTIVE, 115, 1143}
 {3: ACTIVE, 138, 1373}
-{4: ACTIVE, 161, 1603}
+{4: EMPTY, 0, 0}
 {5: EMPTY, 0, 0}
-{6: ACTIVE, 207, 2063}
+{6: ACTIVE, 46, 453}
 {7: EMPTY, 0, 0}
-{8: ACTIVE, 46, 453}
-{9: ACTIVE, 92, 913}
-{10: EMPTY, 0, 0}
+{8: EMPTY, 0, 0}
+{9: ACTIVE, 69, 683}
+{10: ACTIVE, 161, 1603}
 {11: EMPTY, 0, 0}
-{12: ACTIVE, 69, 683}
+{12: ACTIVE, 184, 1833}
 {13: EMPTY, 0, 0}
 {14: EMPTY, 0, 0}
-{15: EMPTY, 0, 0}
+{15: ACTIVE, 92, 913}
 {16: EMPTY, 0, 0}
 {17: EMPTY, 0, 0}
-{18: ACTIVE, 184, 1833}
+{18: ACTIVE, 207, 2063}
 {19: EMPTY, 0, 0}
 {20: EMPTY, 0, 0}
 {21: EMPTY, 0, 0}
