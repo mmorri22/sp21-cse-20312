@@ -6,6 +6,7 @@
 #include "queue.h"
 #include "stack.h"
 #include <iostream>
+#include <vector>
 
 template<class T>
 class Graph{

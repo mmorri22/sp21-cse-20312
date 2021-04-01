@@ -6,6 +6,7 @@
 #include "queue.h"
 #include "stack.h"
 #include <iostream>
+#include <vector>
 
 template<class T>
 class Graph{
@@ -417,11 +418,12 @@ class Graph{
 			queue< unsigned int > theQueue;
 			
 			// Keeping track if the vertex has been visited. Set all initially to false
-			bool* visited = new bool[vertices.length()];
+			std::vector<bool> visited( vertices.length(), false );
+			/* bool* visited = new bool[vertices.length()];
 			for( unsigned int iter = 0; iter < vertices.length(); iter++ ){
 				
 				visited[iter] = false;
-			}
+			} */
 			
 			// Keeping track of the parents 
 			unsigned int* parents = new unsigned int[vertices.length()];
