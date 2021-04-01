@@ -1,4 +1,4 @@
-#include "../inc/Graph5.h"
+#include "../inc/Graph6.h"
 #include <iostream>
 #include <vector>
 
@@ -23,27 +23,37 @@ int main(){
 	
 	// Nodes from 2
 	theGraph.add_edge( 2, 3, 1 );
-	theGraph.add_edge( 2, 5, 1 );
 	
 	// Nodes from 3 
 	theGraph.add_edge( 3, 5, 1 );
+	theGraph.add_edge( 3, 2, 1 );
 	
 	// Nodes from 4 
 	theGraph.add_edge( 4, 5, 1 );
 	
-	// Print results:
-	std::cout << theGraph << std::endl;
+	// Nodes from 45
+	theGraph.add_edge( 5, 4, 1 );
 	
-	// Run Breadth-First Search
-	theGraph.DFS( 0, 5 );
-	theGraph.DFS( 1, 5 );
-	theGraph.DFS( 0, 4 );
-	theGraph.DFS( 2, 4 );
-	theGraph.DFS( 3, 5 );
-	theGraph.DFS( 1, 4 );
-	theGraph.DFS( 4, 1 );
-	theGraph.DFS( 6, 5 );
-	theGraph.DFS( 1, 1 );
-	theGraph.DFS( 0, -1 );	
+	// Print results:
+	std::cout << "Original Graph:\n" << theGraph << std::endl;
+	theGraph.DFS( 5 );
+	theGraph.DFS( 4 );
+	theGraph.DFS( 3 );
+	theGraph.DFS( 2 );
+	theGraph.DFS( 1 );
+	theGraph.DFS( 0 );
+	
+	// Run Depth-First Search
+	Graph<int> topSort = theGraph.TopSort();
+	std::cout << "\nTopological Sort Graph:\n" << topSort << std::endl;
+	
+	// Run DFS on the Top Sort Graph
+	topSort.DFS( 5 );
+	topSort.DFS( 4 );
+	topSort.DFS( 3 );
+	topSort.DFS( 2 );
+	topSort.DFS( 1 );
+	topSort.DFS( 0 );
+
 	return 0;
 }

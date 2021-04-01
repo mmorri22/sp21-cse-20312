@@ -1,4 +1,4 @@
-#include "../inc/Graph5.h"
+#include "../inc/Graph8.h"
 #include <iostream>
 #include <vector>
 
@@ -23,7 +23,6 @@ int main(){
 	
 	// Nodes from 2
 	theGraph.add_edge( 2, 3, 1 );
-	theGraph.add_edge( 2, 5, 1 );
 	
 	// Nodes from 3 
 	theGraph.add_edge( 3, 5, 1 );
@@ -35,15 +34,17 @@ int main(){
 	std::cout << theGraph << std::endl;
 	
 	// Run Breadth-First Search
-	theGraph.DFS( 0, 5 );
-	theGraph.DFS( 1, 5 );
-	theGraph.DFS( 0, 4 );
-	theGraph.DFS( 2, 4 );
-	theGraph.DFS( 3, 5 );
-	theGraph.DFS( 1, 4 );
-	theGraph.DFS( 4, 1 );
-	theGraph.DFS( 6, 5 );
-	theGraph.DFS( 1, 1 );
-	theGraph.DFS( 0, -1 );	
+	theGraph.BFS( 0, 5 );
+	theGraph.BFS( 0, 4 );
+	theGraph.BFS( 1, 4 );
+	theGraph.BFS( 2, 4 );
+	theGraph.BFS( 1, 5 );
+	theGraph.BFS( 2, 5 );
+	theGraph.BFS( 3, 5 );
+	theGraph.BFS( 3, 4 );
+	theGraph.BFS( 4, 5 );
+	theGraph.BFS( 5, 5 );
+	theGraph.BFS( 6, 5 );
+	theGraph.BFS( 5, -1 );
 	return 0;
 }
