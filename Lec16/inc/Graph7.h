@@ -411,81 +411,9 @@ class Graph{
 				return;
 			}
 			
-			/* Create elements for the search */
+			/* Problem 5 Starts Here */
 			
-			// queue to store the next vertex to evaluate
-			queue< unsigned int > theQueue;
-			
-			// Keeping track if the vertex has been visited. Set all initially to false
-			bool* visited = new bool[vertices.length()];
-			for( unsigned int iter = 0; iter < vertices.length(); iter++ ){
-				
-				visited[iter] = false;
-			}
-			
-			// Keeping track of the parents 
-			unsigned int* parents = new unsigned int[vertices.length()];
-			
-			// Use this stack for the final path
-			stack< unsigned int > finalPath;
-			
-			/* Initialize the search */
-			bool found = false; 
-			
-			// Push the origin onto the Queue
-			theQueue.push(0);
-			
-			// The origin has no parent, and the origin has been visited
-			parents[0] = -1;
-			
-			// Set found to true if the origin is the destination
-			if( destin == 0 ){
-				found = true;
-			}
-			
-			// While the element is not found and the queue is not empty
-			while( !found && !theQueue.empty() ){
-				
-				// First step in BFS is to obtain and remove the front element from the queue 
-				unsigned int vertex = theQueue.front();
-				theQueue.pop();
-				
-				// Mark the vertex as visited
-				visited[ vertex ] = true;
-				
-				// Iterate through each edge 
-				for( unsigned int iter = 0; iter < vertices[ vertex ].num_edges(); iter++){
-					
-					// Get the destination from the edge
-					unsigned int edgeDestin = vertices[ vertex ].get_edge( iter ).destin;
-					
-					// If the edge's destination matches our destination, we found the node
-					if( edgeDestin == destin ){
-						
-						found = true;
-						
-						// Mark the destination's parent as vertex 
-						parents[ edgeDestin ] = vertex;
-						
-						break;
-					}
-					
-					// If the destination has not been visited
-					else if( visited[ edgeDestin ] == false ) {
-						
-						// Push the destination onto the queue
-						theQueue.push( edgeDestin );
-						
-						// Mark edgeDestin's parent as vertex
-						parents[ edgeDestin ] = vertex;
-						
-						// Mark visited as true
-						visited[ edgeDestin ] = true;
 
-					}
-				}
-
-			}
 			
 			// If we have not found the node, there is no path
 			if( !found ){
