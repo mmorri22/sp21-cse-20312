@@ -39,33 +39,51 @@ rm TopSort.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/DynArr.h
 cp DynArr.h inc/DynArr.h
 rm DynArr.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/DLList.h
+cp DLList.h inc/DLList.h
+rm DLList.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Edge.h
 cp Edge.h inc/Edge.h
 rm Edge.h
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph1.h
-cp Graph1.h inc/Graph1.h
-rm Graph1.h
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph2.h
-cp Graph2.h inc/Graph2.h
-rm Graph2.h
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph3.h
-cp Graph3.h inc/Graph3.h
-rm Graph3.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph4.h
 cp Graph4.h inc/Graph4.h
 rm Graph4.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph5.h
+cp Graph5.h inc/Graph5.h
+rm Graph5.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph6.h
+cp Graph6.h inc/Graph6.h
+rm Graph6.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph7.h
+cp Graph7.h inc/Graph7.h
+rm Graph7.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph8.h
+cp Graph8.h inc/Graph8.h
+rm Graph8.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Graph9.h
+cp Graph9.h inc/Graph9.h
+rm Graph9.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/LinearProbe.h
+cp LinearProbe.h inc/LinearProbe.h
+rm LinearProbe.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/MaxHeap.h
+cp MaxHeap.h inc/MaxHeap.h
+rm MaxHeap.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/MSTElem.h
+cp MSTElem.h inc/MSTElem.h
+rm MSTElem.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/PriorityQueue.h
+cp PriorityQueue.h inc/PriorityQueue.h
+rm PriorityQueue.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/queue.h
+cp queue.h inc/queue.h
+rm queue.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/SLList.h
 cp SLList.h inc/SLList.h
 rm SLList.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/stack.h
 cp stack.h inc/stack.h
 rm stack.h
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Vertex1.h
-cp Vertex1.h inc/Vertex1.h
-rm Vertex1.h
-wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Vertex2.h
-cp Vertex2.h inc/Vertex2.h
-rm Vertex2.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Vertex.h
 cp Vertex.h inc/Vertex.h
 rm Vertex.h
