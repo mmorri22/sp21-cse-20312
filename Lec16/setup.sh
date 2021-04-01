@@ -39,6 +39,9 @@ rm TopSort.cpp
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/DynArr.h
 cp DynArr.h inc/DynArr.h
 rm DynArr.h
+wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/DLList.h
+cp DLList.h inc/DLList.h
+rm DLList.h
 wget https://raw.githubusercontent.com/mmorri22/sp21-cse-20312/main/Lec16/inc/Edge.h
 cp Edge.h inc/Edge.h
 rm Edge.h
