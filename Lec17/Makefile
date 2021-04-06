@@ -50,6 +50,18 @@ Prob3: $(Prob3Objs)
 $(OBJ)/Prob3.o: $(SRC)/Prob3.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/Prob3.cpp -o $@	
 
+
+# Command: make Prob4
+# BFS Review
+Prob4Objs := $(OBJ)/Prob4.o 
+
+Prob4: $(Prob4Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob4 $(Prob4Objs)
+	$(EXE)/./Prob4
+
+$(OBJ)/Prob4.o: $(SRC)/Prob4.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob4.cpp -o $@	
+
 # Command: make Dijkstra
 # Initial Examples of Dijkstra
 DijkstraObjs := $(OBJ)/Dijkstra.o 
