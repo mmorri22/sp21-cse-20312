@@ -15,7 +15,29 @@ class Graph{
 		bool DFS( unsigned int destin, unsigned int vertVal, DynArr<unsigned int>& parents, DynArr<bool>& visited ){
 				
 			/* Problem 2 begins here */
+			if( !visited[ vertVal ] ){
 				
+				visited[ vertVal ] = true;
+				
+				for( unsigned int iter = 0; iter < vertices[ vertVal ].num_edges(); ++iter ){
+					
+					Edge tempEdge = vertices[ vertVal ].get_edge( iter );
+					
+					if( !visited[ tempEdge.destin ] ){
+						
+						parents[ tempEdge.destin ] = vertVal;
+						
+						if( tempEdge.destin == destin )
+							return true;
+						
+						bool check = DFS( destin, tempEdge.destin, parents, visited );
+						
+						if( check )
+							return true;
+					}
+				}	
+			}
+			return false;
 		}
 	
 		DynArr< Vertex< T > > vertices;	// Adjacency Lisy

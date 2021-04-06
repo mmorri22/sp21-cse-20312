@@ -1,6 +1,5 @@
-#include "../include/Graph5.h"
+#include "../inc/Graph.h"
 #include <iostream>
-#include <vector>
 
 int main(){
 	
@@ -23,7 +22,6 @@ int main(){
 	
 	// Nodes from 2
 	theGraph.add_edge( 2, 3, 1 );
-	theGraph.add_edge( 2, 5, 1 );
 	
 	// Nodes from 3 
 	theGraph.add_edge( 3, 5, 1 );
@@ -32,18 +30,10 @@ int main(){
 	theGraph.add_edge( 4, 5, 1 );
 	
 	// Print results:
+	std::cout << "Original Graph:" << std::endl;
 	std::cout << theGraph << std::endl;
 	
 	// Run Breadth-First Search
-	theGraph.DFS( 0, 5 );
-	theGraph.DFS( 1, 5 );
-	theGraph.DFS( 0, 4 );
-	theGraph.DFS( 2, 4 );
-	theGraph.DFS( 3, 5 );
-	theGraph.DFS( 1, 4 );
-	theGraph.DFS( 4, 1 );
-	theGraph.DFS( 6, 5 );
-	theGraph.DFS( 1, 1 );
-	theGraph.DFS( 0, -1 );	
+	std::cout << "\nMST Solution:\n" << theGraph.MST() << std::endl;
 	return 0;
 }

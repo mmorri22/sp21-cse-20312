@@ -76,7 +76,7 @@ class Vertex{
 			
 			bool edgeFound = false;
 			
-			for( unsigned int i = 0; i < edges.length(); i++){
+			for( unsigned int i = 0; i < edges.size(); i++){
 				if( edges[i].destin == destin ){
 
 					edgeFound = true;
@@ -92,7 +92,7 @@ class Vertex{
 			
 			bool edgeFound = false;
 			
-			for( unsigned int i = 0; i < edges.length(); i++){
+			for( unsigned int i = 0; i < edges.size(); i++){
 				if( edges[i].destin == destin ){
 
 					edgeFound = true;
@@ -108,7 +108,7 @@ class Vertex{
 			
 			bool deleted = false;
 			
-			for(unsigned int i = 0; i < edges.length(); i++){
+			for(unsigned int i = 0; i < edges.size(); i++){
 				
 				if( edges[i].destin == edgeLoc ){
 					edges.erase(i);
@@ -129,7 +129,7 @@ class Vertex{
 		// Return the number of edges
 		unsigned int num_edges() const{
 			
-			return (unsigned int)edges.length();
+			return (unsigned int)edges.size();
 		}
 		
 		// Clear the vertex 
@@ -137,7 +137,7 @@ class Vertex{
 			
 			valid = false;
 			
-			while( edges.length() > 0 ){
+			while( edges.size() > 0 ){
 				
 				// Remove the front edge
 				edges.erase( 0 );
@@ -155,7 +155,7 @@ class Vertex{
 				output << "[" << theVert.data << ": ";
 				
 				// 
-				for( long unsigned int iter = 0; iter < theVert.edges.length(); iter++ ){
+				for( long unsigned int iter = 0; iter < theVert.edges.size(); iter++ ){
 					
 					// Print the destination
 					output << "{" << theVert.edges[iter].destin << ", ";

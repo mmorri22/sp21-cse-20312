@@ -4,112 +4,150 @@
 PP := g++
 
 # CXXFLAGS are the compiler flages for when we compile C++ code in this course 
-FLAGS := -O0 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
+FLAGS := -O2 -g -Wall -Wextra -Wconversion -Wshadow -pedantic -Werror 
 CXXFLAGS := -m64 -std=c++11 -Weffc++ $(FLAGS) 
 
 # Variables for Folders
-INC := include
+INC := inc
 SRC := src
 EXE := exe
 OBJ := obj
 
 
-# Command: make testVert1
-# Initial Examples of Vertex
-testVert1Objs := $(OBJ)/testVert1.o 
+# Command: make Prob1
+# DFS Review
+Prob1Objs := $(OBJ)/Prob1.o 
 
-testVert1: $(testVert1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/testVert1 $(testVert1Objs)
-	$(EXE)/./testVert1
+Prob1: $(Prob1Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob1 $(Prob1Objs)
+	$(EXE)/./Prob1
 
-$(OBJ)/testVert1.o: $(SRC)/testVert1.cpp $(INC)/Vertex1.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/testVert1.cpp -o $@
-
-
-
-# Command: make testVert2
-# Initial Examples of Vertex
-testVert2Objs := $(OBJ)/testVert2.o 
-
-testVert2: $(testVert2Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/testVert2 $(testVert2Objs)
-	$(EXE)/./testVert2
-
-$(OBJ)/testVert2.o: $(SRC)/testVert2.cpp $(INC)/Vertex2.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/testVert2.cpp -o $@
+$(OBJ)/Prob1.o: $(SRC)/Prob1.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob1.cpp -o $@
 
 
 
-# Command: make testGraph1
-# Initial Examples of Graph
-testGraph1Objs := $(OBJ)/testGraph1.o 
+# Command: make Prob2
+# Topological Sort Review
+Prob2Objs := $(OBJ)/Prob2.o 
 
-testGraph1: $(testGraph1Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/testGraph1 $(testGraph1Objs)
-	$(EXE)/./testGraph1
+Prob2: $(Prob2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob2 $(Prob2Objs)
+	$(EXE)/./Prob2
 
-$(OBJ)/testGraph1.o: $(SRC)/testGraph1.cpp $(INC)/Graph1.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/testGraph1.cpp -o $@
-
-
-
-# Command: make Graph
-# Initial Examples of pthreads
-GraphObjs := $(OBJ)/Graph.o 
-
-Graph: $(GraphObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Graph $(GraphObjs)
-	$(EXE)/./Graph
-
-$(OBJ)/Graph.o: $(SRC)/Graph.cpp $(INC)/Graph.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/Graph.cpp -o $@
+$(OBJ)/Prob2.o: $(SRC)/Prob2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob2.cpp -o $@
 
 
+# Command: make Prob3
+# BFS Review
+Prob3Objs := $(OBJ)/Prob3.o 
 
-# Command: make testRemove
-# Initial Examples of pthreads
-testRemoveObjs := $(OBJ)/testRemove.o 
+Prob3: $(Prob3Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob3 $(Prob3Objs)
+	$(EXE)/./Prob3
 
-testRemove: $(testRemoveObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/testRemove $(testRemoveObjs)
-	$(EXE)/./testRemove
-
-$(OBJ)/testRemove.o: $(SRC)/testRemove.cpp $(INC)/Graph1.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/testRemove.cpp -o $@
-
-
-# Command: make DFS
-DFSObjs := $(OBJ)/DFS.o 
-
-DFS: $(DFSObjs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/DFS $(DFSObjs)
-	$(EXE)/./DFS
-
-$(OBJ)/DFS.o: $(SRC)/DFS.cpp $(INC)/Graph5.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/DFS.cpp -o $@
+$(OBJ)/Prob3.o: $(SRC)/Prob3.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob3.cpp -o $@	
 
 
-# Command: make DFS2
-DFS2Objs := $(OBJ)/DFS2.o 
+# Command: make Prob4
+# BFS Review
+Prob4Objs := $(OBJ)/Prob4.o 
 
-DFS2: $(DFS2Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/DFS2 $(DFS2Objs)
-	$(EXE)/./DFS2
+Prob4: $(Prob4Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob4 $(Prob4Objs)
+	$(EXE)/./Prob4
 
-$(OBJ)/DFS2.o: $(SRC)/DFS2.cpp $(INC)/Graph5.h
-	$(PP) $(CXXFLAGS) -c $(SRC)/DFS2.cpp -o $@
+$(OBJ)/Prob4.o: $(SRC)/Prob4.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob4.cpp -o $@	
+
+# Command: make Dijkstra
+# Initial Examples of Dijkstra
+DijkstraObjs := $(OBJ)/Dijkstra.o 
+
+Dijkstra: $(DijkstraObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Dijkstra $(DijkstraObjs)
+	$(EXE)/./Dijkstra
+
+$(OBJ)/Dijkstra.o: $(SRC)/Dijkstra.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Dijkstra.cpp -o $@
+
+
+
+# Command: make MST
+MSTObjs := $(OBJ)/MST.o 
+
+MST: $(MSTObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/MST $(MSTObjs)
+	$(EXE)/./MST
+
+$(OBJ)/MST.o: $(SRC)/MST.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/MST.cpp -o $@
+
+
+# Command: make MST2
+MST2Objs := $(OBJ)/MST2.o 
+
+MST2: $(MST2Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/MST2 $(MST2Objs)
+	$(EXE)/./MST2
+
+$(OBJ)/MST2.o: $(SRC)/MST2.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/MST2.cpp -o $@
+
+
+MST3Objs := $(OBJ)/MST3.o 
+
+MST3: $(MST3Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/MST2 $(MST3Objs)
+	$(EXE)/./MST2
+
+$(OBJ)/MST3.o: $(SRC)/MST3.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/MST3.cpp -o $@
+
+
+# Command: make Connected
+ConnectedObjs := $(OBJ)/Connected.o 
+
+Connected: $(ConnectedObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Connected $(ConnectedObjs)
+	$(EXE)/./Connected
+
+$(OBJ)/Connected.o: $(SRC)/Connected.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Connected.cpp -o $@	
+
+
+
+# Command: make Union
+UnionObjs := $(OBJ)/Union.o 
+
+Union: $(UnionObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Union $(UnionObjs)
+	$(EXE)/./Union
+
+$(OBJ)/Union.o: $(SRC)/Union.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Union.cpp -o $@	
+
+
+
+# Command: make numConnected
+numConnectedObjs := $(OBJ)/numConnected.o 
+
+numConnected: $(numConnectedObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/numConnected $(numConnectedObjs)
+	$(EXE)/./numConnected
+
+$(OBJ)/numConnected.o: $(SRC)/numConnected.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/numConnected.cpp -o $@	
 	
 
 # make initialize
 # Will be called by grader to initialize your objects and executables folders
 initialize: 
-	mkdir objects executables
-
-
-# Make all
-all: testVert1 testVert2 testGraph1 Graph
+	mkdir $(OBJ) $(EXE)
 
 
 # Make clean
 clean :
-	rm -rf *.o $(OBJ)/* $(EXE)/*
+	rm -rf $(OBJ)/* $(EXE)/*
