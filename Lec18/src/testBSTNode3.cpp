@@ -6,46 +6,8 @@
 #define ENDL std::endl
 #define OFSTREAM std::ofstream
 
-template< class T >
-void insertNode( BSTNode<T>*& currPtr, BSTNode<T>* insertPtr ){
-	
-	if( currPtr == NULL ){
-		
-		// Set the pointer to the location at insertPtr
-		currPtr = insertPtr;
-		return;
-	}
-	
-	// COUT << currPtr->data << " " << insertPtr->data << ENDL;
-	
-	if( currPtr->data > insertPtr->data ){
-		
-		insertNode( currPtr->left, insertPtr );
-	}
-	else if( currPtr->data < insertPtr->data ){
-		
-		insertNode( currPtr->right, insertPtr );
-	}
-	else{
-		// Data is the same. Assume no duplicates
-	}
-	
-}
+/* Problem 4 Starts Here */
 
-template< class T >
-void printTree( const BSTNode<T>* currPtr ){
-	
-	if( currPtr == NULL ){
-		return;
-	}
-	
-	printTree( currPtr->left );
-	
-	COUT << currPtr->data << " ";
-	
-	printTree( currPtr->right );
-	
-}
 
 int main(){
 	
