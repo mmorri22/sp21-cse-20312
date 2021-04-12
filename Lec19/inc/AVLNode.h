@@ -1,5 +1,5 @@
-#ifndef BSTNODE_H
-#define BSTNODE_H
+#ifndef AVLNODE_H
+#define AVLNODE_H
 
 #include <cstdlib>	// Needed for NULL keyword
 #include <iostream>
@@ -21,13 +21,11 @@ struct AVLNode {
 
 	// Destructor
 	~AVLNode(){
-		
 		if( right != NULL )
 			delete right;
 		
 		if( left != NULL )
 			delete left;
-		
 	}
 	
 	// Copy Constructor
@@ -45,9 +43,7 @@ struct AVLNode {
 	}
 	
 	AVLNode<T>* operator=(const AVLNode<T>* assign){
-		
 		this = assign;
-		
 		return *this;
 	}
 	

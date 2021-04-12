@@ -312,33 +312,7 @@ class AVLTree {
 			if( currPtr == NULL )
 				return;
 			
-			int leftHeight = height( currPtr->left );
-			int rightHeight = height( currPtr->right );
-						
-			if( leftHeight - rightHeight > ALLOWED_IMBALANCE ){
-				
-				if( height( currPtr->left->left ) >= height( currPtr->left->right ) ){
-					rotateWithLeftChild( currPtr );
-				}
-				else{
-					doubleWithLeftChild( currPtr );
-				}
-				
-			}
-			else if( rightHeight - leftHeight > ALLOWED_IMBALANCE ){
-				
-				if( height( currPtr->right->right ) >= height( currPtr->right->left ) ){
-				
-					rotateWithRightChild( currPtr );
-					
-				}
-				else{
-					doubleWithRightChild( currPtr );
-				}
-				
-			}
-					
-			currPtr->height = std::max( height( currPtr->left ), height( currPtr->right ) ) + 1;
+
 			
 		}
 
@@ -385,12 +359,6 @@ class AVLTree {
 			rotateWithLeftChild( currPtr );
 		}
 
-		/**
-		 * Double rotate binary tree node: first right child.
-		 * with its left child; then node k1 with new right child.
-		 * For AVL trees, this is a double rotation for case 3.
-		 * Update heights, then set new root.
-		 */
 		void doubleWithRightChild( AVLNode<T>* & currPtr )
 		{
 			rotateWithLeftChild( currPtr->right );

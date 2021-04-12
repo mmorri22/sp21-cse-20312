@@ -1,5 +1,5 @@
-#ifndef BST4_H
-#define BST4_H
+#ifndef BST_H
+#define BST_H
 
 #include "BSTNode.h"
 #include "queue.h"
@@ -14,7 +14,7 @@ class BST{
 	protected:
 	
 		// Private Insert Method
-		virtual void Insert( BSTNode< T >*& currPtr, const T& value ){
+		void Insert( BSTNode< T >*& currPtr, const T& value ){
 			
 			// If the pointer is Null, we found our location 
 			// Set the pointer to the new value
@@ -235,70 +235,6 @@ class BST{
 			
 			/* Problem 1 Starts Here */
 			
-			// If we hit NULL, element is not in the tree
-			if( currPtr == NULL ){
-				
-				std::cout << element << " is not in the tree" << std::endl;
-				
-				return false;
-			}
-
-			// Otherwise, check left if the element is less than the data
-			if( element < currPtr->data ){
-				return remove( currPtr->left, element );
-			}
-			
-			// Otherwise, check right if the element is greater than the data			
-			else if( element > currPtr->data ) {
-				return remove( currPtr->right, element );
-			}
-			
-			//... next step
-			
-			else{	// The node is not null and the data is equal 
-			
-				// If the parent has two children
-				if( currPtr->left != NULL && currPtr->right != NULL ){
-					
-					// Set the currNode's data to the min's value 
-					// Pass currPtr->left to get the maximum to the left
-					currPtr->data = findMax( currPtr->left )->data;
-					
-					// Now we have a duplicate value
-					// so recursively delete the duplicate
-					return remove( currPtr->left, currPtr->data );
-				}
-				
-				// If there are no children - Deleting a leaf 
-				else if( currPtr->left == NULL && currPtr->right == NULL ){	
-					
-					BSTNode<T>* temp = currPtr;
-					
-					currPtr = NULL;
-					
-					free ( temp );
-					
-					return true;
-				}
-				
-				// If there is only one child 
-				else {
-					
-					// Create a temp Node pointer, just like in Linked Lists 
-					// Make it point to the currPtr
-					BSTNode<T>* temp = currPtr; 
-					
-					// Set the currPtr to the non NULL child
-					currPtr = ( currPtr->left != NULL ) ? currPtr->left : currPtr->right;
-					
-					// Delete temp
-					free( temp );
-					
-					return true;
-					
-				}
-			
-			}
 			
 		}
 		
