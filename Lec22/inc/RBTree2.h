@@ -54,30 +54,7 @@ class RBTree {
 		} 
 		
 		/* Problem 5 Starts Here */
-		// Rotate left about node x
-		void leftRotate(RBTNode<T>*& x) { 
-		
-			// new parent will be node's right child 
-			RBTNode<T> *nParent = x->right; 
-			
-			// update root if current node is root 
-			if (x == root) 
-				root = nParent; 
-			
-			// Move down nParent
-			x->moveDown(nParent); 
-			
-			// connect x with new parent's left element 
-			x->right = nParent->left; 
-			
-			// connect new parent's left element with node 
-			// if it is not null 
-			if (nParent->left != NULL) 
-				nParent->left->parent = x; 
-			
-			// connect new parent with x 
-			nParent->left = x; 
-		} 
+
 		
 		// Rotate right about the x node
 		void rightRotate(RBTNode<T>*& x) { 
