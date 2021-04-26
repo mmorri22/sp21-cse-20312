@@ -88,9 +88,68 @@ $(OBJ)/testRBTree2.o: $(SRC)/testRBTree2.cpp $(INC)/RBTree2.h
 	$(PP) $(CXXFLAGS) -c $(SRC)/testRBTree2.cpp -o $@	
 
 
+# Command: make Prob6
+Prob6Objs := $(OBJ)/Prob6.o
+
+Prob6: $(Prob6Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob6 $(Prob6Objs)
+	$(EXE)/./Prob6
+
+$(OBJ)/Prob6.o: $(SRC)/Prob6.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob6.cpp -o $@
+
+
+# Command: make RBTreeTest
+# Shows a successful RBTree Tree Test
+RBTreeTestObjs := $(OBJ)/RBTreeTest.o
+
+RBTreeTest: $(RBTreeTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/RBTreeTest $(RBTreeTestObjs)
+	$(EXE)/./RBTreeTest
+
+$(OBJ)/RBTreeTest.o: $(SRC)/RBTreeTest.cpp $(INC)/RBTree.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/RBTreeTest.cpp -o $@
+	
+
+# Command: make RBDelTest
+# Shows a successful RBTree Tree Test
+RBDelTestObjs := $(OBJ)/RBDelTest.o
+
+RBDelTest: $(RBDelTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/RBDelTest $(RBDelTestObjs)
+	$(EXE)/./RBDelTest
+
+$(OBJ)/RBDelTest.o: $(SRC)/RBDelTest.cpp $(INC)/RBTree.h
+	$(PP) $(CXXFLAGS) -c $(SRC)/RBDelTest.cpp -o $@
+
+
+# Command: make treeTest
+# Shows a successful RBTree Tree Test
+treeTestObjs := $(OBJ)/treeTest.o
+
+treeTest: $(treeTestObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/treeTest $(treeTestObjs)
+	$(EXE)/./treeTest
+
+$(OBJ)/treeTest.o: $(SRC)/treeTest.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/treeTest.cpp -o $@
+
+
+
+# Command: make multiSet
+# Shows a successful RBTree Tree Test
+multiSetObjs := $(OBJ)/multiSet.o
+
+multiSet: $(multiSetObjs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/multiSet $(multiSetObjs)
+	$(EXE)/./multiSet
+
+$(OBJ)/multiSet.o: $(SRC)/multiSet.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/multiSet.cpp -o $@
+
 
 # Make all
-all: Prob1 Prob2
+all: Prob1 Prob2 Prob3
 
 
 # Make initialize

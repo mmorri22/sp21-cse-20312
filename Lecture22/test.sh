@@ -1,6 +1,6 @@
 #!/bin/sh
 # Grading script developed by Matthew Morrison
-# Spring 2021 - Data Structures - Lecture 20 - Grading Script
+# Spring 2021 - Data Structures - Lecture 22 - Grading Script
 
 # Script Re-direct 
 SCRIPT_OUT=grade.out
@@ -10,9 +10,10 @@ REDIRECT=redirect.out
 STUDENT_GRADE=0
 PROB1=30
 PROB2=35
-PROB3=35
-PROB4=25
-PROB5=35
+PROB3=30
+PROB4=30
+PROB5=30
+PROB6=35
 
 # Files
 PROB1_FILE=Prob1.txt
@@ -20,6 +21,7 @@ PROB2_FILE=Prob2.txt
 PROB3_FILE=Prob3.txt
 PROB4_FILE=Prob4.txt
 PROB5_FILE=Prob5.txt
+PROB6_FILE=Prob6.txt
 
 # Delete grade.out if they ran it before
 rm $SCRIPT_OUT
@@ -84,7 +86,7 @@ if test -f "$PROB5_FILE";
 then 
 	echo "$PROB5_FILE completed" >> $SCRIPT_OUT
 	echo "$PROB5 / $PROB5" >> $SCRIPT_OUT
-	((STUDENT_GRADE += $PROB4))
+	((STUDENT_GRADE += $PROB5))
 	
 else
 	echo "$PROB5_FILE not completed" >> $SCRIPT_OUT
@@ -92,6 +94,19 @@ else
 
 fi
 
+
+if test -f "$PROB6_FILE";
+
+then 
+	echo "$PROB6_FILE completed" >> $SCRIPT_OUT
+	echo "$PROB6 / $PROB6" >> $SCRIPT_OUT
+	((STUDENT_GRADE += $PROB6))
+	
+else
+	echo "$PROB6_FILE not completed" >> $SCRIPT_OUT
+	echo "0 / $PROB6" >> $SCRIPT_OUT
+
+fi
 
 
 

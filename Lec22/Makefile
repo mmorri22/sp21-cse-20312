@@ -88,15 +88,15 @@ $(OBJ)/testRBTree2.o: $(SRC)/testRBTree2.cpp $(INC)/RBTree2.h
 	$(PP) $(CXXFLAGS) -c $(SRC)/testRBTree2.cpp -o $@	
 
 
-# Command: make Prob3
-Prob3Objs := $(OBJ)/Prob3.o
+# Command: make Prob6
+Prob6Objs := $(OBJ)/Prob6.o
 
-Prob3: $(Prob3Objs)
-	$(PP) $(CXXFLAGS) -o $(EXE)/Prob3 $(Prob3Objs)
-	$(EXE)/./Prob3
+Prob6: $(Prob6Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob6 $(Prob6Objs)
+	$(EXE)/./Prob6
 
-$(OBJ)/Prob3.o: $(SRC)/Prob3.cpp
-	$(PP) $(CXXFLAGS) -c $(SRC)/Prob3.cpp -o $@
+$(OBJ)/Prob6.o: $(SRC)/Prob6.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob6.cpp -o $@
 
 
 # Command: make RBTreeTest
