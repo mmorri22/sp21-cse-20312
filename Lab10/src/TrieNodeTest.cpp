@@ -1,4 +1,4 @@
-#include "../inc/TrieNode.h"
+#include "../include/TrieNode.h"
 
 #include <iostream>
 #include <string>
@@ -12,38 +12,7 @@
 void addString( TrieNode*& theNode, const std::string& word, unsigned int value ){
 	
 	/* Part 4 - Starts Here */
-	// We haven't reach the end of the word
-	if( value < word.size() ){
-		
-		// Get a pointer to the TrieNode in the array by casting the char to int in the array
-		TrieNode* nextLevel = &theNode->childNodes[ (unsigned int)word[value] ];
-		
-		// Add each character to the word
-		if( !nextLevel->validLetter ){
-			
-			// Create a new TrieNode set to true (has 128 leaf children
-			TrieNode temp(true);
-			
-			// De-reference the pointer and set it equal to temp
-			*nextLevel = temp;
-			
-		}
-		
-		// Recursively call the 
-		addString( nextLevel, word, value + 1);
-		
-	}
-	
-	// If we have reached the end of the word
-	else if( value == word.size() ){
-		
-		// Add a star indicating this is a valid word
-		theNode->childNodes[ (unsigned int)'*' ].validLetter = true;
-		
-		// Do not create a subtree for '*'
-		
-		return;
-	}
+
 	
 }
 
