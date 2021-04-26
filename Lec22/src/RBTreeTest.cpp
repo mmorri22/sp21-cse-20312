@@ -10,13 +10,11 @@
 *  in-order and level order traversal to the user
 ********************************************/
 template<class T>
-void insertAndPrint(RBTree<T>& tree, const T& value){
+void insertAndPrint(RBTree<T>& tree, T value){
 
 	std::cout << "Inserting: " << value << std::endl;
 	tree.insert(value);
-	tree.printInOrder(); 
-	tree.printLevelOrder(); 
-	std::cout << std::endl;
+	std::cout << tree << std::endl;
 	
 }
 
