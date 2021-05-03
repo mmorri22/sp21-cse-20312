@@ -14,7 +14,7 @@ int main(){
 	
 	while( true ) {
 
-		COUT << "Problem 2: Given a bloom filter with a desired error rate of 0.125% that needs to represent 500 values, select the correct number of bits required in the bitset and required number of hash functions (Closest approximation)" << ENDL;
+		COUT << "Problem 2: Given a bloom filter with a desired error rate of 12.5% that needs to represent 500 values, select the correct number of bits required in the bitset and required number of hash functions (Closest approximation)" << ENDL;
 		COUT << ENDL;
 		COUT << "Solutions presented as: { Bitset Size, hash functions }" << ENDL;
 		
