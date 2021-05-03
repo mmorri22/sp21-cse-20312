@@ -1,30 +1,31 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef PRIORITYQUEUE_H
+#define PRIORITYQUEUE_H
 
-#include "DLList.h"
+#include "BinomialHeap.h"
 
 template<class T>
-class queue{
+class PriorityQueue {
 
 	private:
 
-		DLList<T> list;
+		BinomialHeap<T> heap;
 		unsigned int max_len;
 		unsigned int queueSize;
 
 	public:
 
 		// Default constructor
-		queue() : list(), max_len(-1), queueSize( 0 ) {}
+		PriorityQueue() : heap(), max_len(-1), queueSize( 0 ) {}
 
 		// Constructor with limited queue size
-		queue(unsigned int max) : list(), max_len(max), queueSize( 0 ) {}
+		PriorityQueue(unsigned int max) : heap(), max_len(max), queueSize( 0 ) {}
 		
 		void push(T elem){
 
 			if(queueSize < max_len){
 
-				list.push_back( elem );
+				// Change from push_back to insert
+				heap.insert( elem );
 				queueSize++;
 
 			}
@@ -33,43 +34,26 @@ class queue{
 		void pop(){
 
 			if(queueSize > 0){
-
-				list.pop_front();
+				heap.deleteMin();
 				queueSize--;
-
 			}
 		}
 
 		T front() const{
-			
-			return list.front();
-			
-		}
-
-		T back() const{
-			
-			return list.back();
-			
+			return heap.findMin();
 		}
 		
 		unsigned int max_size() const{
-			
 			return max_len;
-			
 		}
 
 		unsigned int size() const{
-			
 			return queueSize;
-			
 		}
 
 		bool empty() const{
-			
 			return queueSize == 0;
-			
 		}
-
 
 };
 
