@@ -17,6 +17,7 @@ int main(){
 
 		COUT << "Problem 3: Select the resulting Binomial Heap after the following insertions and removal:" << ENDL;
 		COUT << "A, H, B, G, C, F, D, E" << ENDL;
+		COUT << "Remove minumum" << ENDL;
 		COUT << ENDL;
 		
 		COUT << "Go to https://yld.me/bqL7 for the Lecture 25 diagrams for this Problem" << ENDL;
