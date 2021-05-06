@@ -1,7 +1,7 @@
 # Author: Matthew Morrison
 # E-mail: matt.morrison@nd.edu
 #
-# This is the Makefile for the CSE 20312 course Lecture 22
+# This is the Makefile for the CSE 20312 course Lecture 26
 
 # G++ is for the GCC compiler for C++
 PP := g++
@@ -105,6 +105,17 @@ Prob4: $(Prob4Objs)
 $(OBJ)/Prob4.o: $(SRC)/Prob4.cpp
 	$(PP) $(CXXFLAGS) -c $(SRC)/Prob4.cpp -o $@
 
+
+# Command: make Prob5
+Prob5Objs := $(OBJ)/Prob5.o
+
+Prob5: $(Prob5Objs)
+	$(PP) $(CXXFLAGS) -o $(EXE)/Prob5 $(Prob5Objs)
+	$(EXE)/./Prob5
+
+$(OBJ)/Prob5.o: $(SRC)/Prob5.cpp
+	$(PP) $(CXXFLAGS) -c $(SRC)/Prob5.cpp -o $@
+	
 
 # Command: make testBH
 # Tests the Treap Insert Results
